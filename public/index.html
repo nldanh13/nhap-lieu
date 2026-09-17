@@ -132,7 +132,7 @@
             <span class="group-label">Tự động</span>
             <div class="command-context">
               <div class="surgery-tools" data-context="surgery">
-                <button class="btn accent" data-task="bo-sung-phu-mo" type="button">Điền PTV / phụ mổ</button>
+                <button class="btn accent" data-task="bo-sung-phu-mo" type="button">Điền PTV / phụ mổ</button>\n                <button id="ledgerEntryBtn" class="btn primary" type="button">📖 Nhập từ sổ</button>
                 <button id="clearAssistantsBtn" class="btn warning-outline" type="button">Xóa mẫu phụ mổ</button>
               </div>
               <div class="procedure-tools" data-context="thuthuat">
@@ -385,6 +385,43 @@
       <div class="modal-actions">
         <button id="cancelEmrConfigBtn" class="btn subtle" type="button">Hủy</button>
         <button id="saveEmrConfigBtn" class="btn primary" type="button">Lưu cấu hình</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="ledgerEntryModal" class="modal-backdrop hidden ledger-backdrop" role="dialog" aria-modal="true" aria-labelledby="ledgerEntryTitle">
+    <div class="ledger-workspace">
+      <div class="modal-head ledger-head">
+        <div><div class="eyebrow">NHẬP LIỆU TỪ SỔ GIẤY</div><h2 id="ledgerEntryTitle">Đối chiếu ảnh sổ và xác nhận ê-kíp</h2></div>
+        <div class="ledger-head-actions"><span id="ledgerProgress" class="status-chip neutral">0/0 đã xác nhận</span><button id="closeLedgerEntryBtn" class="icon-button" type="button" aria-label="Đóng">×</button></div>
+      </div>
+      <div class="ledger-toolbar">
+        <label class="btn subtle compact ledger-upload-label">＋ Thêm ảnh sổ<input id="ledgerImageInput" type="file" accept="image/*" multiple hidden /></label>
+        <button id="ledgerPrevImageBtn" class="btn subtle compact" type="button">← Ảnh trước</button>
+        <select id="ledgerImageSelect" aria-label="Chọn ảnh sổ"></select>
+        <button id="ledgerNextImageBtn" class="btn subtle compact" type="button">Ảnh sau →</button>
+        <button id="ledgerRotateBtn" class="btn subtle compact" type="button">↻ Xoay</button>
+        <button id="ledgerZoomOutBtn" class="btn subtle compact" type="button">−</button>
+        <button id="ledgerZoomInBtn" class="btn subtle compact" type="button">＋</button>
+      </div>
+      <div class="ledger-layout">
+        <section class="ledger-image-pane"><div id="ledgerImageStage" class="ledger-image-stage"><div id="ledgerEmptyImage" class="ledger-empty">Chưa có ảnh sổ. Bấm “Thêm ảnh sổ”.</div><img id="ledgerImagePreview" class="hidden" alt="Ảnh trang sổ phẫu thuật" /></div></section>
+        <section class="ledger-form-pane">
+          <div class="ledger-row-nav"><button id="ledgerPrevRowBtn" class="btn subtle compact" type="button">← Ca trước</button><strong id="ledgerRowPosition">Chưa chọn ca</strong><button id="ledgerNextRowBtn" class="btn subtle compact" type="button">Ca sau →</button></div>
+          <div id="ledgerPatientCard" class="review-patient-card">Hãy đọc sheet phẫu thuật trước khi mở chức năng này.</div>
+          <div class="safety-note">Tên bác sĩ chỉ được chọn từ danh mục nhân sự. Chữ chưa đọc chắc phải để trống và chọn “Cần kiểm tra”.</div>
+          <div class="review-grid">
+            <label class="form-field"><span>PTV chính</span><select id="ledgerPtvMain"></select></label>
+            <label class="form-field"><span>Phụ mổ 1</span><select id="ledgerAssistant1"></select></label>
+            <label class="form-field"><span>Phụ mổ 2</span><select id="ledgerAssistant2"></select></label>
+            <label class="form-field"><span>Phụ mổ 3</span><select id="ledgerAssistant3"></select></label>
+            <label class="form-field"><span>Trạng thái</span><select id="ledgerReviewStatus"><option value="verified">Đã xác nhận</option><option value="needs_review">Cần kiểm tra</option><option value="mismatch">Không khớp</option></select></label>
+            <label class="form-field"><span>Nguồn khác</span><input id="ledgerSourceNote" placeholder="Lịch mổ, EMR, biên bản..." /></label>
+          </div>
+          <label class="form-field"><span>Ghi chú đối chiếu</span><textarea id="ledgerReviewNote" rows="3" placeholder="Ghi phần chữ khó đọc hoặc nội dung chưa khớp"></textarea></label>
+          <div id="ledgerValidation" class="review-warning hidden"></div>
+          <div class="ledger-actions"><button id="ledgerMarkReviewBtn" class="btn warning-outline" type="button">Đánh dấu cần kiểm tra</button><button id="ledgerSaveNextBtn" class="btn primary" type="button">Xác nhận và sang ca tiếp theo →</button></div>
+        </section>
       </div>
     </div>
   </div>

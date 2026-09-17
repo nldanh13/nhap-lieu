@@ -702,3 +702,34 @@ body > .modal-backdrop {
 .cls-table th:nth-child(2), .cls-table td:nth-child(2) { width: 150px; }
 .cls-table th:nth-child(3), .cls-table td:nth-child(3) { width: 72px; text-align: right; }
 .cls-name-cell { font-weight: 720; line-height: 1.4; }
+
+
+/* Nhập liệu hỗ trợ từ ảnh sổ phẫu thuật */
+.ledger-backdrop { padding: 14px; }
+.ledger-workspace { width: min(1600px, 98vw); height: min(930px, 96vh); background: #fff; border-radius: 18px; box-shadow: 0 24px 80px rgba(15, 23, 42, .28); display: flex; flex-direction: column; overflow: hidden; }
+.ledger-head { flex: 0 0 auto; }
+.ledger-head-actions, .ledger-toolbar, .ledger-row-nav, .ledger-actions { display: flex; align-items: center; gap: 10px; }
+.ledger-toolbar { padding: 10px 18px; border-bottom: 1px solid #dbe4f0; background: #f8fafc; flex-wrap: wrap; }
+.ledger-toolbar select { min-width: 230px; max-width: 420px; }
+.ledger-upload-label { cursor: pointer; }
+.ledger-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(390px, .75fr); min-height: 0; flex: 1; }
+.ledger-image-pane { background: #18212f; min-width: 0; min-height: 0; overflow: auto; }
+.ledger-image-stage { min-height: 100%; display: flex; align-items: center; justify-content: center; padding: 24px; overflow: auto; }
+.ledger-image-stage img { display: block; max-width: 92%; max-height: 76vh; object-fit: contain; transform-origin: center; transition: transform .15s ease; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.ledger-empty { color: #cbd5e1; text-align: center; padding: 40px; }
+.ledger-form-pane { min-height: 0; overflow-y: auto; padding: 18px; border-left: 1px solid #dbe4f0; background: #fff; }
+.ledger-row-nav { justify-content: space-between; margin-bottom: 12px; }
+.review-patient-card { display: flex; flex-direction: column; gap: 5px; padding: 14px; margin-bottom: 12px; border: 1px solid #bfdbfe; border-radius: 12px; background: #eff6ff; }
+.review-patient-card strong { font-size: 18px; color: #17365d; }
+.review-patient-card span, .review-patient-card small { color: #475569; }
+.review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+.review-grid .form-field { min-width: 0; }
+.review-grid select, .review-grid input, .ledger-form-pane textarea { width: 100%; }
+.review-warning { margin: 12px 0; padding: 10px 12px; border-radius: 10px; color: #9a3412; background: #ffedd5; border: 1px solid #fdba74; }
+.ledger-actions { justify-content: flex-end; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0; }
+@media (max-width: 980px) {
+  .ledger-workspace { width: 100vw; height: 100vh; border-radius: 0; }
+  .ledger-layout { grid-template-columns: 1fr; grid-template-rows: minmax(330px, 48vh) 1fr; }
+  .ledger-form-pane { border-left: 0; border-top: 1px solid #dbe4f0; }
+  .review-grid { grid-template-columns: 1fr; }
+}

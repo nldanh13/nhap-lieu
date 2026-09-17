@@ -23,6 +23,12 @@ const state = {
   dismissedSampleNoticeFor: '',
   emrConfig: null,
   pendingEmrAction: '',
+  ledgerImages: [],
+  ledgerReviews: {},
+  ledgerRowIndex: 0,
+  ledgerImageIndex: 0,
+  ledgerRotation: 0,
+  ledgerZoom: 1,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -2352,7 +2358,226 @@ async function finalizeAndDownload(event) {
   }
 }
 
+function ledgerReviewKey(row) {
+  if (!row) return '';
+  const dateHeader = findHeader(['NGÀY', 'Ngày']);
+  const nameHeader = findHeader(['Họ và tên bệnh nhân', 'Họ và tên']);
+  return [state.currentSheet, row.rowNumber, row.values?.[dateHeader] || '', row.values?.[nameHeader] || ''].join('|');
+}
+
+function ledgerCurrentRow() {
+  return state.rows[state.ledgerRowIndex] || null;
+}
+
+function ledgerDoctorOptions(selected = '') {
+  const doctors = state.staff
+    .filter(item => item.active !== false && ['bac_si', 'bsnt'].includes(item.vaiTro))
+    .sort((a, b) => String(a.biDanh || a.hoTen).localeCompare(String(b.biDanh || b.hoTen), 'vi'));
+  const options = ['<option value="">— Chưa xác định —</option>'];
+  doctors.forEach(item => {
+    const value = item.biDanh || item.hoTen || '';
+    const label = item.hoTen && item.hoTen !== value ? `${value} — ${item.hoTen}` : value;
+    options.push(`<option value="${escapeHtml(value)}" ${String(value) === String(selected) ? 'selected' : ''}>${escapeHtml(label)}</option>`);
+  });
+  return options.join('');
+}
+
+function ledgerRowValue(row, header) {
+  if (!row || !header) return '';
+  return state.rowChanges[row.rowNumber]?.[header] ?? row.values?.[header] ?? '';
+}
+
+function renderLedgerPatient() {
+  const row = ledgerCurrentRow();
+  const card = $('ledgerPatientCard');
+  if (!row || !card) return;
+  const dateHeader = findHeader(['NGÀY', 'Ngày']);
+  const nameHeader = findHeader(['Họ và tên bệnh nhân', 'Họ và tên']);
+  const ageHeader = findHeader(['Tuổi']);
+  const diagnosisHeader = findHeader(['Chẩn đoán và phương pháp phẫu thuật', 'Tên CLS']);
+  const map = assistantHeaderMap();
+  const review = state.ledgerReviews[ledgerReviewKey(row)] || {};
+  card.innerHTML = `<strong>${escapeHtml(ledgerRowValue(row, nameHeader) || 'Chưa có họ tên')}</strong>
+    <span>Dòng Excel ${row.rowNumber} · ${escapeHtml(ledgerRowValue(row, dateHeader) || 'chưa có ngày')} · ${escapeHtml(ledgerRowValue(row, ageHeader) || 'chưa có tuổi')}</span>
+    <small>${escapeHtml(ledgerRowValue(row, diagnosisHeader) || 'Chưa có chẩn đoán/phương pháp')}</small>`;
+  $('ledgerRowPosition').textContent = `Ca ${state.ledgerRowIndex + 1}/${state.rows.length}`;
+  const values = {
+    ledgerPtvMain: ledgerRowValue(row, map.ptvChinh),
+    ledgerAssistant1: ledgerRowValue(row, map.phuMo1),
+    ledgerAssistant2: ledgerRowValue(row, map.phuMo2),
+    ledgerAssistant3: ledgerRowValue(row, map.phuMo3),
+  };
+  Object.entries(values).forEach(([id, value]) => { if ($(id)) $(id).innerHTML = ledgerDoctorOptions(value); });
+  $('ledgerReviewStatus').value = review.status || 'needs_review';
+  $('ledgerSourceNote').value = review.sourceNote || '';
+  $('ledgerReviewNote').value = review.note || '';
+  if (review.imageUrl) {
+    const idx = state.ledgerImages.findIndex(item => item.url === review.imageUrl);
+    if (idx >= 0) state.ledgerImageIndex = idx;
+  }
+  renderLedgerImage();
+  updateLedgerProgress();
+}
+
+function renderLedgerImage() {
+  const img = $('ledgerImagePreview');
+  const empty = $('ledgerEmptyImage');
+  const item = state.ledgerImages[state.ledgerImageIndex];
+  if (!img || !empty) return;
+  if (!item) {
+    img.classList.add('hidden');
+    empty.classList.remove('hidden');
+    if ($('ledgerImageSelect')) $('ledgerImageSelect').innerHTML = '<option>Chưa có ảnh</option>';
+    return;
+  }
+  empty.classList.add('hidden');
+  img.classList.remove('hidden');
+  img.src = item.url;
+  img.style.transform = `rotate(${state.ledgerRotation}deg) scale(${state.ledgerZoom})`;
+  $('ledgerImageSelect').innerHTML = state.ledgerImages.map((file, index) => `<option value="${index}" ${index === state.ledgerImageIndex ? 'selected' : ''}>${escapeHtml(file.name || file.storedName || `Ảnh ${index + 1}`)}</option>`).join('');
+}
+
+function updateLedgerProgress() {
+  const verified = state.rows.filter(row => state.ledgerReviews[ledgerReviewKey(row)]?.status === 'verified').length;
+  if ($('ledgerProgress')) $('ledgerProgress').textContent = `${verified}/${state.rows.length} đã xác nhận`;
+}
+
+async function loadLedgerWorkspace() {
+  const [imagesData, reviewData] = await Promise.all([api('/api/ledger-images'), api('/api/ledger-reviews')]);
+  state.ledgerImages = imagesData.files || [];
+  state.ledgerReviews = reviewData.reviews || {};
+  const selectedIndex = state.rows.findIndex(row => Number(row.rowNumber) === Number(state.selectedRowNumber));
+  state.ledgerRowIndex = selectedIndex >= 0 ? selectedIndex : 0;
+  state.ledgerImageIndex = 0;
+  state.ledgerRotation = 0;
+  state.ledgerZoom = 1;
+  renderLedgerPatient();
+}
+
+async function openLedgerWorkspace() {
+  if (!state.currentFile || !state.currentSheet || !state.rows.length) {
+    showToast('Hãy chọn file và đọc sheet phẫu thuật trước.', 'warning');
+    return;
+  }
+  if (sheetKind() !== 'surgery') {
+    showToast('Chức năng nhập từ sổ hiện áp dụng cho sheet phẫu thuật.', 'warning');
+    return;
+  }
+  $('ledgerEntryModal').classList.remove('hidden');
+  setBusy(true, 'Đang tải ảnh sổ và trạng thái đối chiếu...');
+  try { await loadLedgerWorkspace(); } catch (err) { showToast(err.message, 'error', 6000); }
+  finally { setBusy(false); }
+}
+
+function closeLedgerWorkspace() {
+  $('ledgerEntryModal')?.classList.add('hidden');
+}
+
+async function uploadLedgerImages(event) {
+  const files = Array.from(event.target.files || []);
+  if (!files.length) return;
+  const form = new FormData();
+  files.forEach(file => form.append('images', file));
+  setBusy(true, `Đang tải ${files.length} ảnh sổ...`);
+  try {
+    const response = await fetch('/api/ledger-images', { method: 'POST', body: form });
+    const data = await response.json();
+    if (!response.ok || data.ok === false) throw new Error(data.error || 'Không tải được ảnh sổ.');
+    state.ledgerImages.push(...(data.files || []));
+    if (state.ledgerImages.length === (data.files || []).length) state.ledgerImageIndex = 0;
+    renderLedgerImage();
+    showToast(`Đã thêm ${(data.files || []).length} ảnh sổ.`);
+  } catch (err) { showToast(err.message, 'error', 6000); }
+  finally { setBusy(false); event.target.value = ''; }
+}
+
+function moveLedgerRow(delta) {
+  if (!state.rows.length) return;
+  state.ledgerRowIndex = Math.max(0, Math.min(state.rows.length - 1, state.ledgerRowIndex + delta));
+  renderLedgerPatient();
+}
+
+function moveLedgerImage(delta) {
+  if (!state.ledgerImages.length) return;
+  state.ledgerImageIndex = (state.ledgerImageIndex + delta + state.ledgerImages.length) % state.ledgerImages.length;
+  state.ledgerRotation = 0;
+  state.ledgerZoom = 1;
+  renderLedgerImage();
+}
+
+function setLedgerRowChange(row, header, value) {
+  if (!row || !header) return;
+  if (!state.rowChanges[row.rowNumber]) state.rowChanges[row.rowNumber] = {};
+  const original = row.values?.[header] ?? '';
+  if (String(value || '') === String(original || '')) delete state.rowChanges[row.rowNumber][header];
+  else state.rowChanges[row.rowNumber][header] = value || '';
+  if (!Object.keys(state.rowChanges[row.rowNumber]).length) delete state.rowChanges[row.rowNumber];
+}
+
+async function saveLedgerReview(forceNeedsReview = false) {
+  const row = ledgerCurrentRow();
+  if (!row) return;
+  const status = forceNeedsReview ? 'needs_review' : $('ledgerReviewStatus').value;
+  const values = [$('ledgerPtvMain').value, $('ledgerAssistant1').value, $('ledgerAssistant2').value, $('ledgerAssistant3').value].filter(Boolean);
+  const duplicates = values.filter((value, index) => values.indexOf(value) !== index);
+  const warning = $('ledgerValidation');
+  if (duplicates.length) {
+    warning.textContent = 'Một bác sĩ đang được chọn ở nhiều vai trò. Hãy kiểm tra lại.';
+    warning.classList.remove('hidden');
+    return;
+  }
+  if (status === 'verified' && !$('ledgerPtvMain').value) {
+    warning.textContent = 'Ca đã xác nhận phải có PTV chính.';
+    warning.classList.remove('hidden');
+    return;
+  }
+  warning.classList.add('hidden');
+  const map = assistantHeaderMap();
+  setLedgerRowChange(row, map.ptvChinh, $('ledgerPtvMain').value);
+  setLedgerRowChange(row, map.phuMo1, $('ledgerAssistant1').value);
+  setLedgerRowChange(row, map.phuMo2, $('ledgerAssistant2').value);
+  setLedgerRowChange(row, map.phuMo3, $('ledgerAssistant3').value);
+  const image = state.ledgerImages[state.ledgerImageIndex] || null;
+  const key = ledgerReviewKey(row);
+  const review = {
+    status,
+    sourceNote: $('ledgerSourceNote').value.trim(),
+    note: $('ledgerReviewNote').value.trim(),
+    imageUrl: image?.url || '',
+    imageName: image?.name || image?.storedName || '',
+    ptvChinh: $('ledgerPtvMain').value,
+    phuMo1: $('ledgerAssistant1').value,
+    phuMo2: $('ledgerAssistant2').value,
+    phuMo3: $('ledgerAssistant3').value,
+  };
+  setBusy(true, 'Đang lưu xác nhận...');
+  try {
+    const data = await api('/api/ledger-reviews', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, review }) });
+    state.ledgerReviews[key] = data.review || review;
+    await flushAllRows();
+    renderTable();
+    updateLedgerProgress();
+    showToast(status === 'verified' ? 'Đã xác nhận ê-kíp.' : 'Đã lưu để kiểm tra lại.');
+    if (!forceNeedsReview && state.ledgerRowIndex < state.rows.length - 1) moveLedgerRow(1);
+  } catch (err) { showToast(err.message, 'error', 6500); }
+  finally { setBusy(false); }
+}
+
 function bindEvents() {
+  $('ledgerEntryBtn')?.addEventListener('click', openLedgerWorkspace);
+  $('closeLedgerEntryBtn')?.addEventListener('click', closeLedgerWorkspace);
+  $('cancelLedgerEntryBtn')?.addEventListener('click', closeLedgerWorkspace);
+  $('ledgerImageInput')?.addEventListener('change', uploadLedgerImages);
+  $('ledgerPrevRowBtn')?.addEventListener('click', () => moveLedgerRow(-1));
+  $('ledgerNextRowBtn')?.addEventListener('click', () => moveLedgerRow(1));
+  $('ledgerPrevImageBtn')?.addEventListener('click', () => moveLedgerImage(-1));
+  $('ledgerNextImageBtn')?.addEventListener('click', () => moveLedgerImage(1));
+  $('ledgerImageSelect')?.addEventListener('change', event => { state.ledgerImageIndex = Number(event.target.value || 0); state.ledgerRotation = 0; state.ledgerZoom = 1; renderLedgerImage(); });
+  $('ledgerRotateBtn')?.addEventListener('click', () => { state.ledgerRotation = (state.ledgerRotation + 90) % 360; renderLedgerImage(); });
+  $('ledgerZoomInBtn')?.addEventListener('click', () => { state.ledgerZoom = Math.min(3, state.ledgerZoom + 0.2); renderLedgerImage(); });
+  $('ledgerZoomOutBtn')?.addEventListener('click', () => { state.ledgerZoom = Math.max(0.4, state.ledgerZoom - 0.2); renderLedgerImage(); });
+  $('ledgerSaveNextBtn')?.addEventListener('click', () => saveLedgerReview(false));
+  $('ledgerMarkReviewBtn')?.addEventListener('click', () => saveLedgerReview(true));
   $('dataTabBtn')?.addEventListener('click', () => switchMainTab('data'));
   $('staffTabBtn')?.addEventListener('click', () => switchMainTab('staff'));
   $('clsTabBtn')?.addEventListener('click', () => switchMainTab('cls'));
@@ -2475,6 +2700,7 @@ function bindEvents() {
     if (event.key !== 'Escape') return;
     if (!$('clearAssistantsModal').classList.contains('hidden')) closeClearAssistantsModal();
     if (!$('emrConfigModal')?.classList.contains('hidden')) closeEmrConfigModal();
+    if (!$('ledgerEntryModal')?.classList.contains('hidden')) closeLedgerWorkspace();
   });
   document.querySelectorAll('[data-task]').forEach(btn => {
     btn.addEventListener('click', () => runTask(btn.dataset.task));
