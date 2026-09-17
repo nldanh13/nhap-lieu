@@ -9,7 +9,7 @@ emr_config.json
 *.csv
 node_uploads/
 node_outputs/
-node_autosaves/
+node_autosaves/\nledger_images/
 
 # Python
 __pycache__/
