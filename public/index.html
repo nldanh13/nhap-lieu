@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nhập liệu PM khoa CTCH</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="suggestPanel" class="suggest-panel hidden"></div>
+  <div id="toastHost" class="toast-host" aria-live="polite"></div>
+
+  <header class="topbar">
+    <div class="brand-block">
+      <div class="brand-mark">PM</div>
+      <div class="brand-copy">
+        <h1 id="pageTitle">Nhập liệu phẫu thuật – thủ thuật</h1>
+        <p id="pageSubtitle">Chọn file tháng cần làm việc để bắt đầu.</p>
+      </div>
+    </div>
+
+    <nav class="main-tabs" aria-label="Chức năng chính">
+      <button id="dataTabBtn" class="main-tab active" type="button">Nhập dữ liệu</button>
+      <button id="staffTabBtn" class="main-tab" type="button">Quản lý nhân sự</button>
+      <button id="clsTabBtn" class="main-tab" type="button">Quản lý tên CLS</button>
+    </nav>
+
+    <div class="topbar-actions">
+      <div class="save-status-cluster" title="Trạng thái lưu">
+        <div id="dirtyStatus" class="status-chip neutral">0 thay đổi</div>
+        <div id="autosaveStatus" class="autosave-pill ok">Tự động lưu đang bật</div>
+      </div>
+      <a class="server-link icon-button" href="/api/health" target="_blank" title="Kiểm tra server">⚙</a>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section id="dataView" class="app-view">
+      <section class="session-strip" aria-label="File và sheet đang làm việc">
+        <div class="session-field file-field">
+          <label for="fileSelect">File làm việc</label>
+          <div class="field-inline">
+            <select id="fileSelect"></select>
+            <button id="refreshFilesBtn" class="icon-button" type="button" title="Tải lại danh sách file">↻</button>
+          </div>
+          <div id="fileInfo" class="field-note">Chưa chọn file</div>
+        </div>
+
+        <div class="session-field sheet-field">
+          <label for="sheetSelect">Sheet</label>
+          <div class="field-inline">
+            <select id="sheetSelect"></select>
+            <button id="loadSheetBtn" class="btn subtle compact" type="button">Đọc</button>
+          </div>
+          <div id="sheetContextHint" class="field-note hidden">Chọn sheet để hiện đúng cột nhập.</div>
+        </div>
+
+        <div class="session-field view-field">
+          <label for="viewModeSelect">Hiển thị</label>
+          <select id="viewModeSelect">
+            <option value="auto">Tự động theo sheet</option>
+            <option value="surgery">Phẫu thuật</option>
+            <option value="procedure">Thủ thuật / tiểu phẫu</option>
+            <option value="compact">Mở rộng thêm cột</option>
+          </select>
+        </div>
+
+        <details class="upload-details">
+          <summary>＋ Mở file tháng mới</summary>
+          <div class="upload-popover">
+            <label>File tháng mới</label>
+            <div class="field-inline">
+              <input id="uploadInput" class="file-input" type="file" accept=".xlsx,.xlsm" />
+              <label for="uploadInput" class="upload-picker">
+                <span id="uploadFileName">Chọn file Excel</span>
+                <strong>Duyệt file</strong>
+              </label>
+              <button id="uploadBtn" class="btn primary" type="button">Mở file</button>
+            </div>
+            <div class="field-note">File gốc luôn được giữ nguyên — kết quả lưu vào file mới.</div>
+          </div>
+        </details>
+
+        <a id="downloadCurrent" class="btn download-btn hidden" target="_blank">⭳ Tải Excel</a>
+      </section>
+
+      <section id="sampleDataNotice" class="sample-alert hidden">
+        <div class="sample-alert-icon">!</div>
+        <div class="sample-alert-copy">
+          <strong>Dữ liệu phụ mổ có thể là mẫu của tháng trước</strong>
+          <span id="sampleDataNoticeText">Hãy xóa dữ liệu mẫu trước khi bổ sung dữ liệu thật.</span>
+        </div>
+        <button id="openClearAssistantsBtn" class="btn warning" type="button">Xóa dữ liệu mẫu</button>
+        <button id="dismissSampleNoticeBtn" class="btn text" type="button">Bỏ qua</button>
+      </section>
+
+      <section class="workbench">
+        <div class="data-header">
+          <div class="data-heading">
+            <div class="title-row">
+              <h2 id="tableTitle">Dữ liệu</h2>
+              <span id="sheetTypeBadge" class="type-badge">Chưa đọc sheet</span>
+            </div>
+            <p id="sheetSummary">Chưa đọc dữ liệu.</p>
+          </div>
+
+          <div class="data-overview">
+            <div class="overview-stat warning-stat"><strong id="missingCountMetric">0</strong><span>dòng thiếu</span></div>
+            <div class="overview-stat"><strong id="rowCountMetric">0</strong><span>tổng dòng</span></div>
+            <div class="overview-stat muted-stat"><strong id="dirtyCountMetric">0</strong><span>đang sửa</span></div>
+            <details id="qualityDetails" class="quality-menu">
+              <summary id="qualitySummary">Kiểm tra dữ liệu</summary>
+              <div id="qualityPanel" class="quality-panel">Chưa có dữ liệu để đánh giá.</div>
+            </details>
+          </div>
+        </div>
+
+        <div class="command-bar">
+          <div class="command-group">
+            <span class="group-label">Dòng</span>
+            <div class="command-primary">
+              <button id="addNewRowBtn" class="btn primary" type="button">＋ Thêm dòng</button>
+              <button id="commitNewRowBtn" class="btn primary hidden" type="button">Chèn vào Excel</button>
+              <button id="copySelectedBtn" class="btn subtle" type="button">Nhân bản</button>
+              <button id="deleteSelectedBtn" class="btn danger" type="button">Xóa dòng</button>
+            </div>
+          </div>
+
+          <span class="command-divider" aria-hidden="true"></span>
+
+          <div class="command-group command-group-context">
+            <span class="group-label">Tự động</span>
+            <div class="command-context">
+              <div class="surgery-tools" data-context="surgery">
+                <button class="btn accent" data-task="bo-sung-phu-mo" type="button">Điền PTV / phụ mổ</button>
+                <button id="clearAssistantsBtn" class="btn warning-outline" type="button">Xóa mẫu phụ mổ</button>
+              </div>
+              <div class="procedure-tools" data-context="thuthuat">
+                <button class="btn accent" data-task="chuyen-tieu-phau" type="button">Chuyển tiểu phẫu + điền BS</button>
+                <button class="btn subtle" data-task="dien-bs" type="button">Chỉ điền BS từ sổ</button>
+              </div>
+              <div class="tieuphau-tools" data-context="tieuphau">
+                <button id="refreshClsAndEmrBtn" class="btn accent" type="button">Cập nhật CLS còn sót + Bác sĩ</button>
+                <button id="emrFillAllBtn" class="btn subtle" type="button">Lấy Bác sĩ từ EMR</button>
+                <button id="emrFillSelectedBtn" class="btn subtle" type="button">Chỉ dòng đang chọn</button>
+              </div>
+            </div>
+          </div>
+
+          <details class="more-menu">
+            <summary>Thêm tác vụ</summary>
+            <div class="more-menu-popover">
+              <button class="menu-action" data-task="tat-ca" type="button">Chạy toàn bộ vào một file</button>
+              <button id="openEmrConfigBtn" class="menu-action" type="button">Cấu hình đăng nhập EMR</button>
+              <button id="restoreDraftBtn" class="menu-action" type="button">Khôi phục bản nháp</button>
+              <button id="clearDraftBtn" class="menu-action danger-text" type="button">Xóa bản nháp</button>
+            </div>
+          </details>
+        </div>
+
+        <div id="taskResult" class="result-box hidden"></div>
+        <span id="selectedInfo" class="sr-only">Chưa chọn</span>
+        <span id="actionTitle" class="sr-only"></span>
+        <span id="actionSubtitle" class="sr-only"></span>
+
+        <div class="filter-bar">
+          <div class="search-control">
+            <span class="search-icon">⌕</span>
+            <input id="searchInput" placeholder="Tìm bệnh nhân, kỹ thuật, phương pháp..." />
+            <button id="searchBtn" class="btn primary compact" type="button">Tìm</button>
+            <button id="clearSearchBtn" class="btn text compact" type="button">Xóa lọc</button>
+          </div>
+          <label class="switch-control">
+            <input id="missingOnly" type="checkbox" aria-label="Chỉ hiển thị các dòng thiếu dữ liệu" />
+            <span class="switch" aria-hidden="true"></span>
+            <span>Chỉ dòng thiếu</span>
+          </label>
+          <div id="keyboardHint" class="keyboard-hint hidden">Tab: sang cột kế · Enter: xuống dòng · Shift: đi ngược · Mũi tên: di chuyển</div>
+        </div>
+
+        <div class="table-wrap" title="Tab: sang cột kế · Enter: xuống dòng · Shift: đi ngược · Mũi tên: di chuyển">
+          <table id="dataTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <details class="log-panel">
+        <summary><span>Nhật ký xử lý</span><small>Chỉ mở khi cần kiểm tra lỗi hoặc tác vụ tự động</small></summary>
+        <pre id="logBox"></pre>
+      </details>
+    </section>
+
+    <section id="staffView" class="app-view hidden">
+      <section class="staff-page-head">
+        <div>
+          <div class="eyebrow">DANH MỤC DÙNG CHUNG</div>
+          <h2>Quản lý nhân sự và bí danh</h2>
+          <p>Danh sách này dùng cho gợi ý nhập liệu và các tác vụ tự động. Trong sheet phẫu thuật, chương trình chỉ gợi ý Bác sĩ và BSNT.</p>
+        </div>
+        <button id="newStaffBtn" class="btn primary" type="button">＋ Thêm nhân sự</button>
+      </section>
+
+      <div class="staff-stats" id="staffStats"></div>
+
+      <section class="staff-layout">
+        <aside class="staff-editor">
+          <div class="editor-head">
+            <h3 id="staffFormTitle">Thêm nhân sự</h3>
+            <span class="editor-note">Các thay đổi được lưu ngay vào chương trình.</span>
+          </div>
+          <input id="staffIdInput" type="hidden" />
+          <label class="form-field">
+            <span>Họ và tên</span>
+            <input id="staffNameInput" placeholder="Ví dụ: Nguyễn Văn A" />
+          </label>
+          <label class="form-field">
+            <span>Bí danh hiển thị trong Excel</span>
+            <input id="staffAliasInput" placeholder="Ví dụ: A" />
+          </label>
+          <label class="form-field">
+            <span>Vai trò</span>
+            <select id="staffRoleInput">
+              <option value="bac_si">Bác sĩ</option>
+              <option value="bsnt">Bác sĩ nội trú</option>
+              <option value="dieu_duong">Điều dưỡng</option>
+              <option value="ktv">Kỹ thuật viên</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span>Nhóm / khóa</span>
+            <input id="staffGroupInput" placeholder="Ví dụ: Bác sĩ, BSNT 2" />
+          </label>
+          <label class="active-check">
+            <input id="staffActiveInput" type="checkbox" checked />
+            <span>Đang sử dụng</span>
+          </label>
+          <div class="editor-actions">
+            <button id="saveStaffBtn" class="btn primary" type="button">Lưu nhân sự</button>
+            <button id="cancelStaffEditBtn" class="btn subtle" type="button">Làm mới form</button>
+            <button id="deleteStaffBtn" class="btn danger hidden" type="button">Xóa</button>
+          </div>
+        </aside>
+
+        <section class="staff-list-card">
+          <div class="staff-list-toolbar">
+            <div class="search-control staff-search">
+              <span class="search-icon">⌕</span>
+              <input id="staffSearchInput" placeholder="Tìm tên hoặc bí danh..." />
+            </div>
+            <select id="staffRoleFilter">
+              <option value="all">Tất cả vai trò</option>
+              <option value="bac_si">Bác sĩ</option>
+              <option value="bsnt">Bác sĩ nội trú</option>
+              <option value="dieu_duong">Điều dưỡng</option>
+              <option value="ktv">Kỹ thuật viên</option>
+            </select>
+          </div>
+          <div class="staff-table-wrap">
+            <table class="staff-table">
+              <thead>
+                <tr><th>Bí danh</th><th>Họ và tên</th><th>Vai trò</th><th>Nhóm</th><th>Trạng thái</th><th></th></tr>
+              </thead>
+              <tbody id="staffTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </section>
+
+    <section id="clsView" class="app-view hidden">
+      <section class="staff-page-head">
+        <div>
+          <div class="eyebrow">DANH MỤC CHUYỂN TIỂU PHẪU</div>
+          <h2>Quản lý tên CLS</h2>
+          <p>Các tên CLS đang bật sẽ được chuyển tự động từ sheet <strong>thu thuat</strong> sang <strong>tieuphau</strong>. Có thể bổ sung kỹ thuật mới mà không cần sửa mã nguồn.</p>
+        </div>
+        <button id="newClsBtn" class="btn primary" type="button">＋ Thêm tên CLS</button>
+      </section>
+
+      <div class="staff-stats" id="clsStats"></div>
+
+      <section class="staff-layout cls-layout">
+        <aside class="staff-editor">
+          <div class="editor-head">
+            <h3 id="clsFormTitle">Thêm tên CLS</h3>
+            <span class="editor-note">Danh mục được áp dụng ở lần chuyển tiểu phẫu kế tiếp.</span>
+          </div>
+          <input id="clsIdInput" type="hidden" />
+          <label class="form-field">
+            <span>Tên CLS trên sheet thu thuat</span>
+            <textarea id="clsNameInput" rows="4" placeholder="Ví dụ: Tiêm khớp vai"></textarea>
+          </label>
+          <label class="active-check">
+            <input id="clsActiveInput" type="checkbox" checked />
+            <span>Đang dùng để chuyển sang tiểu phẫu</span>
+          </label>
+          <div class="editor-actions">
+            <button id="saveClsBtn" class="btn primary" type="button">Lưu tên CLS</button>
+            <button id="cancelClsEditBtn" class="btn subtle" type="button">Làm mới form</button>
+            <button id="deleteClsBtn" class="btn danger hidden" type="button">Xóa</button>
+          </div>
+        </aside>
+
+        <section class="staff-list-card">
+          <div class="staff-list-toolbar">
+            <div class="search-control staff-search">
+              <span class="search-icon">⌕</span>
+              <input id="clsSearchInput" placeholder="Tìm tên CLS..." />
+            </div>
+            <select id="clsStatusFilter">
+              <option value="all">Tất cả trạng thái</option>
+              <option value="active">Đang chuyển</option>
+              <option value="inactive">Tạm ngưng</option>
+            </select>
+          </div>
+          <div class="staff-table-wrap">
+            <table class="staff-table cls-table">
+              <thead><tr><th>Tên CLS</th><th>Trạng thái</th><th></th></tr></thead>
+              <tbody id="clsTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <div id="clearAssistantsModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="clearModalTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">LÀM SẠCH FILE THÁNG MỚI</div>
+          <h2 id="clearModalTitle">Xóa dữ liệu mẫu phụ mổ</h2>
+        </div>
+        <button id="closeClearModalBtn" class="icon-button" type="button" aria-label="Đóng">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="safety-note">Chỉ xóa trong sheet hiện tại và lưu vào file <strong>_NHAP_LIEU</strong>. File gốc vẫn được giữ nguyên.</div>
+        <div class="field-section">
+          <h3>Chọn cột cần xóa</h3>
+          <label class="check-row selected-default"><input class="clear-column-check" type="checkbox" value="Phụ mổ 1" checked /><span><strong>Phụ mổ 1</strong><small id="countPhuMo1">Đang kiểm tra...</small></span></label>
+          <label class="check-row selected-default"><input class="clear-column-check" type="checkbox" value="Phụ mổ 2" checked /><span><strong>Phụ mổ 2</strong><small id="countPhuMo2">Đang kiểm tra...</small></span></label>
+          <label class="check-row selected-default"><input class="clear-column-check" type="checkbox" value="Phụ mổ 3" checked /><span><strong>Phụ mổ 3</strong><small id="countPhuMo3">Đang kiểm tra...</small></span></label>
+          <label class="check-row optional-row"><input class="clear-column-check" type="checkbox" value="PTV chính" /><span><strong>PTV chính</strong><small id="countPtvChinh">Không chọn mặc định</small></span></label>
+        </div>
+        <div id="clearPreview" class="clear-preview">Đang kiểm tra số ô có dữ liệu...</div>
+        <label class="confirm-check"><input id="clearConfirmCheck" type="checkbox" /><span>Tôi xác nhận đây là dữ liệu mẫu cần xóa.</span></label>
+      </div>
+      <div class="modal-actions">
+        <button id="cancelClearAssistantsBtn" class="btn subtle" type="button">Hủy</button>
+        <button id="confirmClearAssistantsBtn" class="btn danger" type="button" disabled>Xóa dữ liệu đã chọn</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="emrConfigModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="emrConfigTitle">
+    <div class="modal-card emr-config-card">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">KẾT NỐI EMR NỘI BỘ</div>
+          <h2 id="emrConfigTitle">Cấu hình lấy Bác sĩ từ EMR</h2>
+        </div>
+        <button id="closeEmrConfigBtn" class="icon-button" type="button" aria-label="Đóng">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="safety-note">Thông tin đăng nhập chỉ được lưu trong file <strong>emr_config.json</strong> trên máy đang chạy chương trình.</div>
+        <label class="form-field emr-field">
+          <span>Địa chỉ đăng nhập</span>
+          <input id="emrUrlInput" value="http://192.168.2.26:2026/login.aspx" />
+        </label>
+        <label class="form-field emr-field">
+          <span>Tên đăng nhập</span>
+          <input id="emrUsernameInput" autocomplete="username" />
+        </label>
+        <label class="form-field emr-field">
+          <span>Mật khẩu</span>
+          <input id="emrPasswordInput" type="password" autocomplete="current-password" placeholder="Để trống nếu không đổi mật khẩu đã lưu" />
+        </label>
+        <label class="check-row emr-headless-row">
+          <input id="emrHeadlessInput" type="checkbox" checked />
+          <span><strong>Chạy ẩn Chrome</strong><small>Tắt tùy chọn này khi cần quan sát thao tác trên EMR.</small></span>
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button id="cancelEmrConfigBtn" class="btn subtle" type="button">Hủy</button>
+        <button id="saveEmrConfigBtn" class="btn primary" type="button">Lưu cấu hình</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
