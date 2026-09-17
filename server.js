@@ -11,6 +11,8 @@ const uploadDir = path.join(APP_ROOT, 'node_uploads');
 const outputDir = path.join(APP_ROOT, 'node_outputs');
 const autosaveDir = path.join(APP_ROOT, 'node_autosaves');
 const autosaveStateFile = path.join(autosaveDir, 'autosave_state.json');
+const ledgerImageDir = path.join(APP_ROOT, 'ledger_images');
+const ledgerReviewFile = path.join(autosaveDir, 'ledger_review_state.json');
 const emrConfigFile = path.join(APP_ROOT, 'emr_config.json');
 const WORK_SUFFIX = '_NHAP_LIEU';
 const GENERATED_SUFFIXES = [
@@ -22,11 +24,13 @@ const GENERATED_SUFFIXES = [
 fs.mkdirSync(uploadDir, { recursive: true });
 fs.mkdirSync(outputDir, { recursive: true });
 fs.mkdirSync(autosaveDir, { recursive: true });
+fs.mkdirSync(ledgerImageDir, { recursive: true });
 
 const app = express();
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 app.use(express.static(path.join(APP_ROOT, 'public')));
+app.use('/ledger-images', express.static(ledgerImageDir));
 
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, uploadDir),
@@ -37,6 +41,20 @@ const storage = multer.diskStorage({
   }
 });
 const upload = multer({ storage });
+
+const ledgerImageStorage = multer.diskStorage({
+  destination: (_req, _file, cb) => cb(null, ledgerImageDir),
+  filename: (_req, file, cb) => {
+    const ext = path.extname(file.originalname || '.jpg').toLowerCase() || '.jpg';
+    const base = path.basename(file.originalname || 'anh-so', ext).replace(/[^a-zA-Z0-9_-]/g, '_');
+    cb(null, `${Date.now()}_${base}${ext}`);
+  }
+});
+const ledgerImageUpload = multer({
+  storage: ledgerImageStorage,
+  limits: { fileSize: 20 * 1024 * 1024, files: 100 },
+  fileFilter: (_req, file, cb) => cb(null, /^image\//.test(file.mimetype || '')),
+});
 
 function safeResolve(filePath) {
   if (!filePath) throw new Error('Thiếu đường dẫn file.');
@@ -350,6 +368,51 @@ app.post('/api/emr-fill-doctor', asyncHandler(async (req, res) => {
   else args.push('--show-browser');
   const data = await runJsonPython('emr_tieuphau_fill.py', args, { includeRaw: true });
   res.json(data);
+}));
+
+app.get('/api/ledger-images', (_req, res) => {
+  const files = fs.readdirSync(ledgerImageDir)
+    .filter(name => /\.(jpe?g|png|webp)$/i.test(name))
+    .sort((a, b) => a.localeCompare(b, 'vi'))
+    .map(name => ({ name, url: `/ledger-images/${encodeURIComponent(name)}` }));
+  res.json({ ok: true, files });
+});
+
+app.post('/api/ledger-images', ledgerImageUpload.array('images', 100), (req, res) => {
+  const files = (req.files || []).map(file => ({
+    name: file.originalname,
+    storedName: file.filename,
+    url: `/ledger-images/${encodeURIComponent(file.filename)}`,
+  }));
+  res.json({ ok: true, files });
+});
+
+app.get('/api/ledger-reviews', (_req, res) => {
+  try {
+    const reviews = fs.existsSync(ledgerReviewFile)
+      ? JSON.parse(fs.readFileSync(ledgerReviewFile, 'utf8') || '{}')
+      : {};
+    res.json({ ok: true, reviews });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: `Không đọc được trạng thái đối chiếu: ${err.message}` });
+  }
+});
+
+app.post('/api/ledger-reviews', asyncHandler(async (req, res) => {
+  const key = String(req.body?.key || '').trim();
+  if (!key) throw new Error('Thiếu khóa ca phẫu thuật.');
+  let reviews = {};
+  if (fs.existsSync(ledgerReviewFile)) {
+    try { reviews = JSON.parse(fs.readFileSync(ledgerReviewFile, 'utf8') || '{}'); } catch (_err) {}
+  }
+  reviews[key] = {
+    ...(req.body?.review || {}),
+    updatedAt: new Date().toISOString(),
+  };
+  const tmp = ledgerReviewFile + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(reviews, null, 2), 'utf8');
+  fs.renameSync(tmp, ledgerReviewFile);
+  res.json({ ok: true, review: reviews[key] });
 }));
 
 app.get('/api/files', asyncHandler(async (_req, res) => {
