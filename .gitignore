@@ -1,0 +1,33 @@
+# Thông tin đăng nhập và cấu hình cục bộ
+emr_config.json
+.env
+
+# Dữ liệu người bệnh và file làm việc
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+node_uploads/
+node_outputs/
+node_autosaves/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Trình điều khiển trình duyệt
+chromedriver*
+geckodriver*
+msedgedriver*
+
+# IDE / hệ điều hành
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
