@@ -2699,7 +2699,8 @@ function bindEvents() {
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
     if (!$('clearAssistantsModal').classList.contains('hidden')) closeClearAssistantsModal();
-    if (!$('emrConfigModal')?.classList.contains('hidden')) closeEmrConfigModal();\n    if (!$('ledgerEntryModal')?.classList.contains('hidden')) closeLedgerWorkspace();
+    if (!$('emrConfigModal')?.classList.contains('hidden')) closeEmrConfigModal();
+    if (!$('ledgerEntryModal')?.classList.contains('hidden')) closeLedgerWorkspace();
   });
   document.querySelectorAll('[data-task]').forEach(btn => {
     btn.addEventListener('click', () => runTask(btn.dataset.task));
