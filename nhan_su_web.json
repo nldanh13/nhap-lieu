@@ -1,0 +1,382 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-20T10:01:20",
+  "staff": [
+    {
+      "id": "ab312e1aef88414a99636105c4fd66dd",
+      "hoTen": "Nguyễn Thành Tấn",
+      "biDanh": "TẤN",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "8048e14120b74d2cbdf3faa5de7ca649",
+      "hoTen": "Hồ Điền",
+      "biDanh": "ĐIỀN",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "ab0c45bf3b3c4b36bb49b863ad268570",
+      "hoTen": "Nguyễn Chí Nguyện",
+      "biDanh": "NGUYỆN",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "0624dbd6f07947649d4401608e7d7f00",
+      "hoTen": "Nguyễn Giang Tử",
+      "biDanh": "G.TỬ",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "1d57b529326a47ad8ee5026f44ff31b9",
+      "hoTen": "Nguyễn Lê Hoan",
+      "biDanh": "HOAN",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "7cafa07ed7ee4d8c8324afec8850ec79",
+      "hoTen": "Nguyễn Tư Thái Bảo",
+      "biDanh": "BẢO",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "63c9e950f6f14c04a82798bec621bd09",
+      "hoTen": "Phan Văn Tuấn",
+      "biDanh": "TUẤN",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "8d5722e937e74823b876b5fba0968413",
+      "hoTen": "Phạm Việt Tân",
+      "biDanh": "V.TÂN",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "f7290769d32947bf83a44ebc8f6684c1",
+      "hoTen": "Trần Nguyễn Anh Duy",
+      "biDanh": "DUY",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "bb5a7576445d4c9e92408c17cfc05a2d",
+      "hoTen": "Trần Quang Sơn",
+      "biDanh": "SƠN",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "ffbed9dacae3491d98f1a93871badf54",
+      "hoTen": "Trần Quốc Toản",
+      "biDanh": "TOẢN",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "7ead7c80bd9a4895a7653d64d300929e",
+      "hoTen": "Lê Nhỉ Khang",
+      "biDanh": "KHANG",
+      "nhom": "BSNT 3",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "f8722f4fd15c4ed3a8dc0f66615eeabe",
+      "hoTen": "Lê Quốc Khánh",
+      "biDanh": "KHÁNH",
+      "nhom": "BSNT 3",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "a4819b7f9cc948a9b38ad938df340da2",
+      "hoTen": "Nguyễn Hoài Linh",
+      "biDanh": "LINH",
+      "nhom": "BSNT 3",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "2f79c96fe5424732bc5ae789799a9d89",
+      "hoTen": "Trần Trung Nghĩa",
+      "biDanh": "NGHĨA",
+      "nhom": "BSNT 3",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "c7e34a9ed8394cfd8b7eecfa21bf7d4c",
+      "hoTen": "Nguyễn Văn Nghiêm",
+      "biDanh": "NGHIÊM",
+      "nhom": "BSNT 3",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "ed51f3774c4b47b0b909cffb47cf705e",
+      "hoTen": "Nguyễn Trung Nhị",
+      "biDanh": "NHỊ",
+      "nhom": "BSNT 3",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "c725e9c0549d43fea47c99be7681238b",
+      "hoTen": "Võ Ngọc Thiện",
+      "biDanh": "THIỆN",
+      "nhom": "BSNT 3",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "4c2d7fcf7ef746c4af916cfcf9d71e07",
+      "hoTen": "Phạm Văn Hưởng",
+      "biDanh": "V.HƯỞNG",
+      "nhom": "BSNT 3",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "d358682e944b4cdca421180eefcab286",
+      "hoTen": "Lê Cường Thạnh",
+      "biDanh": "THẠNH",
+      "nhom": "BSNT 2",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "4a864b7b80f1435e9fa6d82434938f8f",
+      "hoTen": "Phạm Hữu Trọng",
+      "biDanh": "TRỌNG",
+      "nhom": "BSNT 2",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "718a15a20c7f4be3a3425d3af345cd81",
+      "hoTen": "Công Chỉnh",
+      "biDanh": "CHỈNH",
+      "nhom": "BSNT 1",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "94c5c7bd88cb400c8acb7dd732077ebc",
+      "hoTen": "Dương Minh Hậu",
+      "biDanh": "HẬU",
+      "nhom": "BSNT 1",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "dc0a9f82d81c467f951a9f338bf55e42",
+      "hoTen": "Đặng Duy Lộc",
+      "biDanh": "LỘC",
+      "nhom": "BSNT 1",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "ace0a4c010524ddd9c06edf8db8704a7",
+      "hoTen": "Trần Huỳnh Minh Thiện",
+      "biDanh": "M.THIỆN",
+      "nhom": "BSNT 1",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "e63f05e865394c4fa8760644500acabd",
+      "hoTen": "Trịnh Thị Ý Như",
+      "biDanh": "NHƯ",
+      "nhom": "BSNT 1",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "848386e66ba34a238864b2ea3c25a9a9",
+      "hoTen": "Nguyễn Thị Thanh Thuý",
+      "biDanh": "THUÝ",
+      "nhom": "BSNT 1",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "9f14eaa7df104332b12e15e111dfdbe9",
+      "hoTen": "Nguyễn Trần Việt Tiến",
+      "biDanh": "TIẾN",
+      "nhom": "BSNT 1",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "9a5fb61ad00e4e2aab07ea17ff3a23a2",
+      "hoTen": "Phan Văn Hiếu",
+      "biDanh": "Phan Văn Hiếu",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "4582e56a8515462395eece7bd5bb14d9",
+      "hoTen": "Võ Thị Yến Nhi",
+      "biDanh": "Võ Thị Yến Nhi",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "2a71c69534e04a50ac6a5fed0d4fd76f",
+      "hoTen": "Võ Phương Duy",
+      "biDanh": "Võ Phương Duy",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "2b75c17d686c42efae44b72cd4da9883",
+      "hoTen": "Nguyễn Kim Ngân",
+      "biDanh": "Nguyễn Kim Ngân",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "c9f85980d22447ea8bdd8ecada5525cc",
+      "hoTen": "Lê Ngọc Diệu",
+      "biDanh": "Lê Ngọc Diệu",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "896c48cc06224ccb85de8405b8f1780a",
+      "hoTen": "Trần Quỳnh Minh Thư",
+      "biDanh": "Trần Quỳnh Minh Thư",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "f68c62947d554234a9f084f44236bd54",
+      "hoTen": "Lê Thị Tuyết Đoan",
+      "biDanh": "Lê Thị Tuyết Đoan",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "7babfa61f911437190d1c4d171bf566f",
+      "hoTen": "Thạch Thị Thúy Đa",
+      "biDanh": "Thạch Thị Thúy Đa",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "ed14860ab6884d2ab884d1dcb40a2114",
+      "hoTen": "Lê Kim Hoàn",
+      "biDanh": "Lê Kim Hoàn",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "3d6373548a2142fa939a1d097d5fc675",
+      "hoTen": "Nguyễn Lê Duy Anh",
+      "biDanh": "Nguyễn Lê Duy Anh",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "c1a8737e7f534043866af5e6043b677f",
+      "hoTen": "Hồ Nguyễn Tố Như",
+      "biDanh": "Hồ Nguyễn Tố Như",
+      "nhom": "Điều dưỡng",
+      "vaiTro": "dieu_duong",
+      "active": true
+    },
+    {
+      "id": "0eb8927de7dd4b2eaa2a8d84557f4343",
+      "hoTen": "Nguyễn Duy Linh",
+      "biDanh": "Nguyễn Duy Linh",
+      "nhom": "KTV",
+      "vaiTro": "ktv",
+      "active": true
+    },
+    {
+      "id": "d1a20a9938784488958ceb1c4eace6fe",
+      "hoTen": "Thạch Trần Thị Cẩm Tú",
+      "biDanh": "Thạch Trần Thị Cẩm Tú",
+      "nhom": "KTV",
+      "vaiTro": "ktv",
+      "active": true
+    },
+    {
+      "id": "077476cc2adf494d82df925b388105ab",
+      "hoTen": "Nguyễn Thị Nhân Ái",
+      "biDanh": "Nguyễn Thị Nhân Ái",
+      "nhom": "KTV",
+      "vaiTro": "ktv",
+      "active": true
+    },
+    {
+      "id": "085bf2d1-773c-4a7d-bd87-3bfa2f715b06",
+      "hoTen": "Hoàng Minh Tú",
+      "biDanh": "TÚ",
+      "nhom": "Bác sĩ",
+      "vaiTro": "bac_si",
+      "active": true
+    },
+    {
+      "id": "920a03e2-fb9e-4256-ac75-5f07e3482062",
+      "hoTen": "DƯƠNG NGHỊ LUẬN",
+      "biDanh": "LUẬN",
+      "nhom": "BSNT",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "d2f98174-383a-4a4f-8b97-27863d63507d",
+      "hoTen": "PHẠM THANH NHÂN",
+      "biDanh": "NHÂN",
+      "nhom": "BSNT",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "e98c9da8-07e9-43f6-9815-0aaf46a038f8",
+      "hoTen": "NGUYỄN HOÀNG LONG",
+      "biDanh": "LONG",
+      "nhom": "BSNT",
+      "vaiTro": "bsnt",
+      "active": true
+    },
+    {
+      "id": "bfb1a345-95ee-4c03-83c4-39b981e4938e",
+      "hoTen": "QUÁCH TRƯỜNG MẾN",
+      "biDanh": "MẾN",
+      "nhom": "BSNT",
+      "vaiTro": "bsnt",
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-20T10:35:27",
+  "cls": [
+    {
+      "id": "cls_hut_o_viem_ap_xe_phan_mem",
+      "tenCls": "Hút ổ viêm/áp xe phần mềm",
+      "active": true
+    },
+    {
+      "id": "cls_tiem_khop_goi",
+      "tenCls": "Tiêm khớp gối",
+      "active": true
+    },
+    {
+      "id": "cls_khau_vet_thuong_duoi_10_nong",
+      "tenCls": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+      "active": true
+    },
+    {
+      "id": "cls_khau_vet_thuong_nong_duoi_5",
+      "tenCls": "Khâu vết thương phần mềm nông dài < 5cm",
+      "active": true
+    },
+    {
+      "id": "cls_tiem_gan_gap_ngon_tay",
+      "tenCls": "Tiêm gân gấp ngón tay",
+      "active": true
+    },
+    {
+      "id": "cls_chich_rach_nhot_apxe",
+      "tenCls": "Chích rạch nhọt, Apxe nhỏ dẫn lưu",
+      "active": true
+    },
+    {
+      "id": "cls_tiem_gan_duoi_ngon_tay",
+      "tenCls": "Tiêm gân duỗi ngón tay",
+      "active": true
+    },
+    {
+      "id": "cls_tiem_gan_loi_cau",
+      "tenCls": "Tiêm gân lồi cầu cánh tay trong/ngoài",
+      "active": true
+    },
+    {
+      "id": "cls_mat_ca_1_2",
+      "tenCls": "Mắt cá 1-2 thương tổn",
+      "active": true
+    },
+    {
+      "id": "cls_khau_vet_thuong_sau_tren_5",
+      "tenCls": "Khâu vết thương phần mềm sâu dài > 5 cm",
+      "active": true
+    },
+    {
+      "id": "cls_tiem_gan_dequervein",
+      "tenCls": "Tiêm gân Dequervein",
+      "active": true
+    },
+    {
+      "id": "cls_khau_vet_thuong_nong_tren_5",
+      "tenCls": "Khâu vết thương phần mềm nông dài > 5 cm",
+      "active": true
+    },
+    {
+      "id": "cls_hut_dich_khop_goi",
+      "tenCls": "Hút dịch khớp gối",
+      "active": true
+    },
+    {
+      "id": "cls_prp_thoai_hoa_khop",
+      "tenCls": "Điều trị thoái hóa khớp bằng huyết tương giàu tiểu cầu",
+      "active": true
+    },
+    {
+      "id": "cls_khau_vet_thuong_sau_duoi_5",
+      "tenCls": "Khâu vết thương phần mềm sâu dài < 5cm",
+      "active": true
+    },
+    {
+      "id": "cls_tiem_khop_vai",
+      "tenCls": "Tiêm khớp vai",
+      "active": true
+    },
+    {
+      "id": "cls_mat_ca_3_4",
+      "tenCls": "Mắt cá 3-4 thương tổn",
+      "active": true
+    },
+    {
+      "id": "cls_khau_vet_thuong_duoi_10_sau",
+      "tenCls": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương sâu]",
+      "active": true
+    },
+    {
+      "id": "ef7e6abb-9125-4e95-8426-8c58e9d2f885",
+      "tenCls": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+      "active": true
+    },
+    {
+      "id": "855a1511-5d2a-41fe-94f6-848f7a1432a4",
+      "tenCls": "Tiêm khớp cùng chậu\nTiêm khớp khuỷu tay\nHút nang bao hoạt dịch\nHút nang bao hoạt dịch\nCắt móng quặm 1 ngón\nCắt móng quặm 2 ngón\nTiêm gân gót",
+      "active": true
+    },
+    {
+      "id": "c6a5d658-5dcb-49d7-8248-69aca7de1239",
+      "tenCls": "Tiêm khớp cùng chậu",
+      "active": true
+    },
+    {
+      "id": "62ada22b-053b-4660-9d2e-b5361cbff120",
+      "tenCls": "Tiêm khớp khuỷu tay",
+      "active": true
+    },
+    {
+      "id": "0eee8c92-5676-40b9-9284-077d2d0afeff",
+      "tenCls": "Hút nang bao hoạt dịch",
+      "active": true
+    },
+    {
+      "id": "57e62c16-c1fd-4805-9249-ee5d63ba48e5",
+      "tenCls": "Cắt móng quặm 1 ngón",
+      "active": true
+    },
+    {
+      "id": "1ffa4a72-ee58-4802-b775-93e00111c043",
+      "tenCls": "Cắt móng quặm 2 ngón",
+      "active": true
+    },
+    {
+      "id": "67d11057-c265-41c0-85dd-ca8667b43cba",
+      "tenCls": "Tiêm gân gót",
+      "active": true
+    }
+  ]
+}
