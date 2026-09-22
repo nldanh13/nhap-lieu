@@ -101,6 +101,55 @@ def process_image(client, processor_name, filename, content):
     }
 
 
+def run_ocr(
+    zip_path: Path,
+    project_id: str,
+    location: str,
+    processor_id: str,
+    credentials_path: Path | None = None,
+    limit: int = 0,
+    on_progress=None,
+) -> dict:
+    """Chạy OCR toàn bộ ảnh trong ZIP, trả về dict kết quả (không ghi file).
+
+    Tách riêng khỏi main() để web app (node_excel_api.py) có thể gọi thẳng
+    thay vì phải spawn thêm một tiến trình con lồng bên trong tiến trình con.
+    on_progress(index, total, filename) được gọi sau mỗi ảnh nếu có truyền vào.
+    """
+    if credentials_path:
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(Path(credentials_path).resolve())
+
+    endpoint = f"{location}-documentai.googleapis.com"
+    client_options = ClientOptions(api_endpoint=endpoint)
+    client = documentai.DocumentProcessorServiceClient(client_options=client_options)
+    processor_name = client.processor_path(project_id, location, processor_id)
+
+    with zipfile.ZipFile(zip_path) as archive:
+        image_names = sorted(
+            [
+                name
+                for name in archive.namelist()
+                if name.lower().endswith((".jpg", ".jpeg", ".png"))
+            ],
+            key=lambda value: Path(value).name.casefold(),
+        )
+        if limit > 0:
+            image_names = image_names[:limit]
+
+        results = []
+        for index, name in enumerate(image_names, start=1):
+            result = process_image(client, processor_name, Path(name).name, archive.read(name))
+            results.append(result)
+            if on_progress:
+                on_progress(index, len(image_names), Path(name).name)
+
+    return {
+        "processor": processor_name,
+        "image_count": len(results),
+        "results": results,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--zip", required=True, type=Path)
@@ -112,43 +161,22 @@ def main():
     parser.add_argument("--limit", type=int, default=0, help="Chỉ xử lý N ảnh để kiểm tra thử")
     args = parser.parse_args()
 
-    if args.credentials:
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(args.credentials.resolve())
+    def _print_progress(index, total, filename):
+        print(f"[{index}/{total}] {filename}")
 
-    endpoint = f"{args.location}-documentai.googleapis.com"
-    client_options = ClientOptions(api_endpoint=endpoint)
-    client = documentai.DocumentProcessorServiceClient(client_options=client_options)
-    processor_name = client.processor_path(args.project_id, args.location, args.processor_id)
-
-    with zipfile.ZipFile(args.zip) as archive:
-        image_names = sorted(
-            [
-                name
-                for name in archive.namelist()
-                if name.lower().endswith((".jpg", ".jpeg", ".png"))
-            ],
-            key=lambda value: Path(value).name.casefold(),
-        )
-        if args.limit > 0:
-            image_names = image_names[: args.limit]
-
-        results = []
-        for index, name in enumerate(image_names, start=1):
-            print(f"[{index}/{len(image_names)}] {Path(name).name}")
-            result = process_image(client, processor_name, Path(name).name, archive.read(name))
-            results.append(result)
+    payload = run_ocr(
+        args.zip,
+        args.project_id,
+        args.location,
+        args.processor_id,
+        credentials_path=args.credentials,
+        limit=args.limit,
+        on_progress=_print_progress,
+    )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
-        json.dumps(
-            {
-                "processor": processor_name,
-                "image_count": len(results),
-                "results": results,
-            },
-            ensure_ascii=False,
-            indent=2,
-        ),
+        json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
     print(f"Đã lưu OCR: {args.output}")

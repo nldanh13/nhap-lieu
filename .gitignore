@@ -9,5 +9,9 @@ TheoSo/
 # Cấu hình có mật khẩu thật, chỉ dùng emr_config.example.json làm mẫu.
 emr_config.json
 
+# Cấu hình + khóa dịch vụ Google Document AI (thông tin nhạy cảm/trả phí).
+document_ai_config.json
+document_ai_service_account.json
+
 __pycache__/
 *.pyc

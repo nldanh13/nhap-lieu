@@ -49,6 +49,14 @@ REQUIRED_HEADER_KEYS_BY_SHEET = {
         "bacsi",
         "dieuduong",
     },
+    # Sheet "Danh sách sơ bộ" tự tách từ OCR ảnh: chỉ coi họ tên là bắt buộc.
+    # Nếu dùng "tuoi" như các sheet khác, những dòng OCR không đọc được tuổi
+    # (rất thường gặp vì chữ viết tay) sẽ bị coi là "dòng mẫu" và biến mất
+    # hoàn toàn khỏi danh sách hiển thị, dù các trường khác (tên, chẩn đoán,
+    # bác sĩ...) vẫn đọc được và cần người dùng kiểm tra.
+    "danhsachsobo": {
+        "hotennguoibenh",
+    },
 }
 
 # Sheet phẫu thuật chỉ được phép cập nhật bốn cột nhân sự này. Đây là lớp
@@ -1868,6 +1876,45 @@ def command_doi_chieu_phau_thuat_anh(args):
     respond({"ok": True, "goiY": ket_qua, "count": len(ket_qua)})
 
 
+def command_chay_ocr_anh_tho(args):
+    """Gọi Google Document AI OCR toàn bộ ảnh trong ZIP, lưu kết quả thô ra
+    JSON. Tách riêng khỏi bước tách cột để không phải gọi lại (tốn phí) mỗi
+    lần chỉnh ranh giới cột."""
+    import ocr_so_phau_thuat_google as ocr_mod
+
+    output_file = Path(args.output)
+
+    def _progress(index, total, filename):
+        print(f"[{index}/{total}] {filename}", file=sys.stderr)
+
+    payload = ocr_mod.run_ocr(
+        Path(args.zip),
+        args.project_id,
+        args.location,
+        args.processor_id,
+        credentials_path=Path(args.credentials) if args.credentials else None,
+        limit=int(args.limit or 0),
+        on_progress=_progress,
+    )
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    output_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    respond({"ok": True, "imageCount": payload.get("image_count", 0), "file": str(output_file)})
+
+
+def command_tach_cot_anh_so_phau_thuat(args):
+    """Tách bảng dữ liệu từ JSON OCR thô đã lưu sẵn (không gọi lại Document
+    AI) — dùng khi cần chỉnh ranh giới cột nhiều lần cho khớp cuốn sổ thật."""
+    import phan_tich_anh_so_phau_thuat as mod
+
+    ocr_payload = json.loads(Path(args.ocr_json).read_text(encoding="utf-8"))
+    ranh_gioi = None
+    if args.cot_json:
+        ranh_gioi = json.loads(Path(args.cot_json).read_text(encoding="utf-8"))
+    dong_ra = mod.phan_tich(ocr_payload, ranh_gioi)
+    mod.xuat_excel(dong_ra, Path(args.output))
+    respond({"ok": True, "count": len(dong_ra), "file": str(args.output)})
+
+
 def command_task_cap_nhat_cls_tieuphau(args):
     """Chuyển các CLS vừa bổ sung; lưu ngay và để Bác Sĩ trống cho EMR xử lý."""
     import chuyen_thu_thuat_sang_tieuphau_t5 as mod
@@ -2047,6 +2094,20 @@ def build_parser():
     p.add_argument("--so-bo", required=True, dest="so_bo")
     p.add_argument("--sheet-so-bo", dest="sheet_so_bo")
 
+    p = sub.add_parser("chay-ocr-anh-tho")
+    p.add_argument("--zip", required=True)
+    p.add_argument("--project-id", required=True, dest="project_id")
+    p.add_argument("--location", default="us")
+    p.add_argument("--processor-id", required=True, dest="processor_id")
+    p.add_argument("--credentials")
+    p.add_argument("--output", required=True)
+    p.add_argument("--limit", default="0")
+
+    p = sub.add_parser("tach-cot-anh-so-phau-thuat")
+    p.add_argument("--ocr-json", required=True, dest="ocr_json")
+    p.add_argument("--output", required=True)
+    p.add_argument("--cot-json", dest="cot_json")
+
     return parser
 
 
@@ -2077,6 +2138,8 @@ def main():
             "task-nhap-phau-thuat-so-bo": command_task_nhap_phau_thuat_so_bo,
             "extract-zip-images": command_extract_zip_images,
             "doi-chieu-phau-thuat-anh": command_doi_chieu_phau_thuat_anh,
+            "chay-ocr-anh-tho": command_chay_ocr_anh_tho,
+            "tach-cot-anh-so-phau-thuat": command_tach_cot_anh_so_phau_thuat,
         }
         commands[args.cmd](args)
     except SystemExit:
