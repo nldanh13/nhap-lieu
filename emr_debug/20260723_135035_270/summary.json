@@ -1,0 +1,198 @@
+{
+  "ok": true,
+  "file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T6_NHAP_LIEU.xlsx",
+  "sheet": "tieuphau",
+  "message": "Đã kiểm tra 10 dòng cần đối chiếu EMR.",
+  "checkedRows": 10,
+  "updatedRows": 0,
+  "skippedValidRows": 90,
+  "unmatchedRows": 10,
+  "debugFolder": "E:\\Thong_ke\\emr_debug\\20260723_135035_270",
+  "debugLog": "E:\\Thong_ke\\emr_debug\\20260723_135035_270\\debug.log",
+  "debugEvents": "E:\\Thong_ke\\emr_debug\\20260723_135035_270\\events.jsonl",
+  "results": [
+    {
+      "rowNumber": 49,
+      "patient": "LƯƠNG TẤN VINH",
+      "time": "16:23 01/06/2026",
+      "method": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 52,
+      "patient": "NGUYỄN THỊ DIỆU",
+      "time": "09:29 03/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 53,
+      "patient": "LÂM MỸ LÝ",
+      "time": "11:00 03/06/2026",
+      "method": "Hút dịch khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 55,
+      "patient": "VÕ VĂN VỊNH",
+      "time": "14:55 03/06/2026",
+      "method": "Tiêm gân duỗi ngón tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 87,
+      "patient": "LÊ TRÍ HIẾU",
+      "time": "08:14 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 88,
+      "patient": "MAI THỊ ĐỰNG",
+      "time": "09:02 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 89,
+      "patient": "TRƯƠNG THỊ HIẾU",
+      "time": "09:28 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 90,
+      "patient": "NGUYỄN THỊ BÍCH HIỀN",
+      "time": "14:38 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 91,
+      "patient": "PHẠM ĐĂNG KHOA",
+      "time": "15:02 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 93,
+      "patient": "NGUYỄN PHI ĐỨC",
+      "time": "15:37 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    }
+  ],
+  "unmatched": [
+    {
+      "rowNumber": 49,
+      "patient": "LƯƠNG TẤN VINH",
+      "time": "16:23 01/06/2026",
+      "method": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 52,
+      "patient": "NGUYỄN THỊ DIỆU",
+      "time": "09:29 03/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 53,
+      "patient": "LÂM MỸ LÝ",
+      "time": "11:00 03/06/2026",
+      "method": "Hút dịch khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 55,
+      "patient": "VÕ VĂN VỊNH",
+      "time": "14:55 03/06/2026",
+      "method": "Tiêm gân duỗi ngón tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 87,
+      "patient": "LÊ TRÍ HIẾU",
+      "time": "08:14 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 88,
+      "patient": "MAI THỊ ĐỰNG",
+      "time": "09:02 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 89,
+      "patient": "TRƯƠNG THỊ HIẾU",
+      "time": "09:28 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 90,
+      "patient": "NGUYỄN THỊ BÍCH HIỀN",
+      "time": "14:38 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 91,
+      "patient": "PHẠM ĐĂNG KHOA",
+      "time": "15:02 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 93,
+      "patient": "NGUYỄN PHI ĐỨC",
+      "time": "15:37 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    }
+  ],
+  "updated": []
+}

@@ -1,0 +1,12 @@
+[2026-09-22 16:45:46.682] [START] Bắt đầu phiên đối chiếu EMR
+{
+  "folder": "E:\\Thong_ke\\emr_debug\\20260922_164546_681"
+}
+[2026-09-22 16:45:46.683] [CONFIG] Thông tin phiên chạy
+{
+  "input_file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T8_NHAP_LIEU.xlsx",
+  "output_file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T8_NHAP_LIEU.xlsx",
+  "config_file": "E:\\Thong_ke\\emr_config.json",
+  "only_row": null,
+  "headless_arg": true
+}

@@ -1,0 +1,12 @@
+{
+  "url_login": "http://192.168.2.26:2026/login.aspx",
+  "username": "lndieu",
+  "password": "123",
+  "login_user_field": "txtLoginName",
+  "login_pass_field": "txtPassword",
+  "login_button_field": "btnLogin",
+  "page_load_timeout": 30,
+  "script_timeout": 30,
+  "page_load_strategy": "eager",
+  "headless": true
+}

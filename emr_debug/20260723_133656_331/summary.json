@@ -1,0 +1,378 @@
+{
+  "ok": true,
+  "file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T6_NHAP_LIEU.xlsx",
+  "sheet": "tieuphau",
+  "message": "Đã kiểm tra 20 dòng cần đối chiếu EMR.",
+  "checkedRows": 20,
+  "updatedRows": 0,
+  "skippedValidRows": 80,
+  "unmatchedRows": 20,
+  "debugFolder": "E:\\Thong_ke\\emr_debug\\20260723_133656_331",
+  "debugLog": "E:\\Thong_ke\\emr_debug\\20260723_133656_331\\debug.log",
+  "debugEvents": "E:\\Thong_ke\\emr_debug\\20260723_133656_331\\events.jsonl",
+  "results": [
+    {
+      "rowNumber": 11,
+      "patient": "ĐẶNG BẠCH PHỤNG",
+      "time": "09:16 03/06/2026",
+      "method": "Phẫu thuật điều trị bệnh DE QUER VAIN và ngón tay cò súng [gây tê]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 12,
+      "patient": "NGUYỄN NGỌC QUÝ",
+      "time": "09:45 03/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 14,
+      "patient": "VÕ KIM ANH",
+      "time": "21:33 07/06/2026",
+      "method": "Tạo hình và đổ xi măng cột sống (kyphoplasty)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 17,
+      "patient": "PHẠM THỊ NGUYỆT CHÂU",
+      "time": "09:31 10/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 18,
+      "patient": "PHẠM THỊ LỆ",
+      "time": "10:10 10/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 36,
+      "patient": "PHẠM THỊ THU THẢO",
+      "time": "09:34 24/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 37,
+      "patient": "BÙI THỊ NGA",
+      "time": "09:52 24/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 38,
+      "patient": "HÀ HỒNG VÂN",
+      "time": "10:30 24/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 49,
+      "patient": "LƯƠNG TẤN VINH",
+      "time": "16:23 01/06/2026",
+      "method": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 52,
+      "patient": "NGUYỄN THỊ DIỆU",
+      "time": "09:29 03/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 53,
+      "patient": "LÂM MỸ LÝ",
+      "time": "11:00 03/06/2026",
+      "method": "Hút dịch khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 55,
+      "patient": "VÕ VĂN VỊNH",
+      "time": "14:55 03/06/2026",
+      "method": "Tiêm gân duỗi ngón tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 78,
+      "patient": "PHẠM NGỌC HÙNG",
+      "time": "10:19 17/06/2026",
+      "method": "Chích rạch nhọt, Apxe nhỏ dẫn lưu",
+      "oldValue": "Trần Quỳnh Minh Thư",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 87,
+      "patient": "LÊ TRÍ HIẾU",
+      "time": "08:14 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 88,
+      "patient": "MAI THỊ ĐỰNG",
+      "time": "09:02 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 89,
+      "patient": "TRƯƠNG THỊ HIẾU",
+      "time": "09:28 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 90,
+      "patient": "NGUYỄN THỊ BÍCH HIỀN",
+      "time": "14:38 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 91,
+      "patient": "PHẠM ĐĂNG KHOA",
+      "time": "15:02 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 93,
+      "patient": "NGUYỄN PHI ĐỨC",
+      "time": "15:37 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 106,
+      "patient": "TRẦN THỊ LIỆP",
+      "time": "13:52 30/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "Lê Ngọc Diệu",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    }
+  ],
+  "unmatched": [
+    {
+      "rowNumber": 11,
+      "patient": "ĐẶNG BẠCH PHỤNG",
+      "time": "09:16 03/06/2026",
+      "method": "Phẫu thuật điều trị bệnh DE QUER VAIN và ngón tay cò súng [gây tê]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 12,
+      "patient": "NGUYỄN NGỌC QUÝ",
+      "time": "09:45 03/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 14,
+      "patient": "VÕ KIM ANH",
+      "time": "21:33 07/06/2026",
+      "method": "Tạo hình và đổ xi măng cột sống (kyphoplasty)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 17,
+      "patient": "PHẠM THỊ NGUYỆT CHÂU",
+      "time": "09:31 10/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 18,
+      "patient": "PHẠM THỊ LỆ",
+      "time": "10:10 10/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 36,
+      "patient": "PHẠM THỊ THU THẢO",
+      "time": "09:34 24/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 37,
+      "patient": "BÙI THỊ NGA",
+      "time": "09:52 24/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 38,
+      "patient": "HÀ HỒNG VÂN",
+      "time": "10:30 24/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 49,
+      "patient": "LƯƠNG TẤN VINH",
+      "time": "16:23 01/06/2026",
+      "method": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 52,
+      "patient": "NGUYỄN THỊ DIỆU",
+      "time": "09:29 03/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 53,
+      "patient": "LÂM MỸ LÝ",
+      "time": "11:00 03/06/2026",
+      "method": "Hút dịch khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 55,
+      "patient": "VÕ VĂN VỊNH",
+      "time": "14:55 03/06/2026",
+      "method": "Tiêm gân duỗi ngón tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 78,
+      "patient": "PHẠM NGỌC HÙNG",
+      "time": "10:19 17/06/2026",
+      "method": "Chích rạch nhọt, Apxe nhỏ dẫn lưu",
+      "oldValue": "Trần Quỳnh Minh Thư",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 87,
+      "patient": "LÊ TRÍ HIẾU",
+      "time": "08:14 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 88,
+      "patient": "MAI THỊ ĐỰNG",
+      "time": "09:02 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 89,
+      "patient": "TRƯƠNG THỊ HIẾU",
+      "time": "09:28 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 90,
+      "patient": "NGUYỄN THỊ BÍCH HIỀN",
+      "time": "14:38 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 91,
+      "patient": "PHẠM ĐĂNG KHOA",
+      "time": "15:02 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 93,
+      "patient": "NGUYỄN PHI ĐỨC",
+      "time": "15:37 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    },
+    {
+      "rowNumber": 106,
+      "patient": "TRẦN THỊ LIỆP",
+      "time": "13:52 30/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "Lê Ngọc Diệu",
+      "status": "unmatched",
+      "reason": "procedure: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n; surgery: lỗi tìm kiếm Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=150.0.7871.181)\nStacktrace:\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d25+155a5]\n\tchromedriver!GetHandleVerifier [0x7ff6244e0d80+15600]\n\tchromedriver!(No symbol) [0x7ff62403594d]\n\tchromedriver!(No symbol) [0x7ff62400c792]\n\tchromedriver!(No symbol) [0x7ff6240c0536]\n\tchromedriver!(No symbol) [0x7ff6240dd902]\n\tchromedriver!(No symbol) [0x7ff624082e6c]\n\tchromedriver!(No symbol) [0x7ff624083d93]\n\tchromedriver!GetHandleVerifier [0x7ff624ac6431+5facb1]\n\tchromedriver!GetHandleVerifier [0x7ff624ac0a9b+5f531b]\n\tchromedriver!GetHandleVerifier [0x7ff624ae5865+61a0e5]\n\tchromedriver!GetHandleVerifier [0x7ff6244fdace+3234e]\n\tchromedriver!GetHandleVerifier [0x7ff62450661c+3ae9c]\n\tchromedriver!GetHandleVerifier [0x7ff6244eab74+1f3f4]\n\tchromedriver!GetHandleVerifier [0x7ff6244ead04+1f584]\n\tchromedriver!GetHandleVerifier [0x7ff6244cd9d7+2257]\n\tKERNEL32!BaseThreadInitThunk [0x7ffc2a1ee957+17]\n\tntdll!RtlUserThreadStart [0x7ffc2b7aad6c+2c]\n"
+    }
+  ],
+  "updated": []
+}

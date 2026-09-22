@@ -1,0 +1,378 @@
+{
+  "ok": true,
+  "file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T6_NHAP_LIEU.xlsx",
+  "sheet": "tieuphau",
+  "message": "Đã kiểm tra 20 dòng cần đối chiếu EMR.",
+  "checkedRows": 20,
+  "updatedRows": 0,
+  "skippedValidRows": 80,
+  "unmatchedRows": 20,
+  "debugFolder": "E:\\Thong_ke\\emr_debug\\20260723_132740_449",
+  "debugLog": "E:\\Thong_ke\\emr_debug\\20260723_132740_449\\debug.log",
+  "debugEvents": "E:\\Thong_ke\\emr_debug\\20260723_132740_449\\events.jsonl",
+  "results": [
+    {
+      "rowNumber": 11,
+      "patient": "ĐẶNG BẠCH PHỤNG",
+      "time": "09:16 03/06/2026",
+      "method": "Phẫu thuật điều trị bệnh DE QUER VAIN và ngón tay cò súng [gây tê]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 12,
+      "patient": "NGUYỄN NGỌC QUÝ",
+      "time": "09:45 03/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 14,
+      "patient": "VÕ KIM ANH",
+      "time": "21:33 07/06/2026",
+      "method": "Tạo hình và đổ xi măng cột sống (kyphoplasty)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 17,
+      "patient": "PHẠM THỊ NGUYỆT CHÂU",
+      "time": "09:31 10/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 18,
+      "patient": "PHẠM THỊ LỆ",
+      "time": "10:10 10/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 36,
+      "patient": "PHẠM THỊ THU THẢO",
+      "time": "09:34 24/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 37,
+      "patient": "BÙI THỊ NGA",
+      "time": "09:52 24/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 38,
+      "patient": "HÀ HỒNG VÂN",
+      "time": "10:30 24/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 49,
+      "patient": "LƯƠNG TẤN VINH",
+      "time": "16:23 01/06/2026",
+      "method": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b4eb1056-6e36-4c2b-85ba-b45c010f8d51&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=132851); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 52,
+      "patient": "NGUYỄN THỊ DIỆU",
+      "time": "09:29 03/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0aec41a8-849e-4c49-9830-b45e00a12ea6&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=132917); procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 53,
+      "patient": "LÂM MỸ LÝ",
+      "time": "11:00 03/06/2026",
+      "method": "Hút dịch khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=8e644d45-bfce-4de1-969c-b45e00b6d46e&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=132932); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 55,
+      "patient": "VÕ VĂN VỊNH",
+      "time": "14:55 03/06/2026",
+      "method": "Tiêm gân duỗi ngón tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=03a6b4c9-cd00-420f-a5e4-b45e00f9388c&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=132958); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 78,
+      "patient": "PHẠM NGỌC HÙNG",
+      "time": "10:19 17/06/2026",
+      "method": "Chích rạch nhọt, Apxe nhỏ dẫn lưu",
+      "oldValue": "Trần Quỳnh Minh Thư",
+      "status": "unmatched",
+      "reason": "procedure: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 87,
+      "patient": "LÊ TRÍ HIẾU",
+      "time": "08:14 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=e118d1e1-556a-4002-b3d8-b472008aef9c&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133028); procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 88,
+      "patient": "MAI THỊ ĐỰNG",
+      "time": "09:02 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b9b173e2-5651-4653-ab9b-b4720096b52d&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133041); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 89,
+      "patient": "TRƯƠNG THỊ HIẾU",
+      "time": "09:28 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=c4ae567e-24ab-48d1-8d33-b472009d8063&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133106); procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 90,
+      "patient": "NGUYỄN THỊ BÍCH HIỀN",
+      "time": "14:38 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=c163a446-979d-42f0-93f3-b47200f7e98f&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133116); procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=af605801-a7d9-4d15-9b15-b47a00970171&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133116); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 91,
+      "patient": "PHẠM ĐĂNG KHOA",
+      "time": "15:02 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=6e187e8c-a265-4cfd-a07f-b47200fb070b&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133143); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 93,
+      "patient": "NGUYỄN PHI ĐỨC",
+      "time": "15:37 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=dfb2f4c8-3081-4f6d-b6f8-b47201027c37&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133209); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 106,
+      "patient": "TRẦN THỊ LIỆP",
+      "time": "13:52 30/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "Lê Ngọc Diệu",
+      "status": "unmatched",
+      "reason": "procedure: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    }
+  ],
+  "unmatched": [
+    {
+      "rowNumber": 11,
+      "patient": "ĐẶNG BẠCH PHỤNG",
+      "time": "09:16 03/06/2026",
+      "method": "Phẫu thuật điều trị bệnh DE QUER VAIN và ngón tay cò súng [gây tê]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 12,
+      "patient": "NGUYỄN NGỌC QUÝ",
+      "time": "09:45 03/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 14,
+      "patient": "VÕ KIM ANH",
+      "time": "21:33 07/06/2026",
+      "method": "Tạo hình và đổ xi măng cột sống (kyphoplasty)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 17,
+      "patient": "PHẠM THỊ NGUYỆT CHÂU",
+      "time": "09:31 10/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 18,
+      "patient": "PHẠM THỊ LỆ",
+      "time": "10:10 10/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 36,
+      "patient": "PHẠM THỊ THU THẢO",
+      "time": "09:34 24/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 37,
+      "patient": "BÙI THỊ NGA",
+      "time": "09:52 24/06/2026",
+      "method": "Phẫu thuật điều trị hội chứng ống cổ tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 38,
+      "patient": "HÀ HỒNG VÂN",
+      "time": "10:30 24/06/2026",
+      "method": "Phẫu thuật điều trị ngón tay cò súng (1 ngón)",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 49,
+      "patient": "LƯƠNG TẤN VINH",
+      "time": "16:23 01/06/2026",
+      "method": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b4eb1056-6e36-4c2b-85ba-b45c010f8d51&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=132851); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 52,
+      "patient": "NGUYỄN THỊ DIỆU",
+      "time": "09:29 03/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0aec41a8-849e-4c49-9830-b45e00a12ea6&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=132917); procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 53,
+      "patient": "LÂM MỸ LÝ",
+      "time": "11:00 03/06/2026",
+      "method": "Hút dịch khớp gối",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=8e644d45-bfce-4de1-969c-b45e00b6d46e&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=132932); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 55,
+      "patient": "VÕ VĂN VỊNH",
+      "time": "14:55 03/06/2026",
+      "method": "Tiêm gân duỗi ngón tay",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=03a6b4c9-cd00-420f-a5e4-b45e00f9388c&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=132958); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 78,
+      "patient": "PHẠM NGỌC HÙNG",
+      "time": "10:19 17/06/2026",
+      "method": "Chích rạch nhọt, Apxe nhỏ dẫn lưu",
+      "oldValue": "Trần Quỳnh Minh Thư",
+      "status": "unmatched",
+      "reason": "procedure: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    },
+    {
+      "rowNumber": 87,
+      "patient": "LÊ TRÍ HIẾU",
+      "time": "08:14 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=e118d1e1-556a-4002-b3d8-b472008aef9c&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133028); procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 88,
+      "patient": "MAI THỊ ĐỰNG",
+      "time": "09:02 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b9b173e2-5651-4653-ab9b-b4720096b52d&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133041); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 89,
+      "patient": "TRƯƠNG THỊ HIẾU",
+      "time": "09:28 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=c4ae567e-24ab-48d1-8d33-b472009d8063&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133106); procedure: có kết quả nhưng không khớp ngày; surgery: có kết quả nhưng không khớp ngày"
+    },
+    {
+      "rowNumber": 90,
+      "patient": "NGUYỄN THỊ BÍCH HIỀN",
+      "time": "14:38 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=c163a446-979d-42f0-93f3-b47200f7e98f&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133116); procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=af605801-a7d9-4d15-9b15-b47a00970171&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133116); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 91,
+      "patient": "PHẠM ĐĂNG KHOA",
+      "time": "15:02 23/06/2026",
+      "method": "Mắt cá 1-2 thương tổn",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=6e187e8c-a265-4cfd-a07f-b47200fb070b&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133143); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 93,
+      "patient": "NGUYỄN PHI ĐỨC",
+      "time": "15:37 23/06/2026",
+      "method": "Hút ổ viêm/áp xe phần mềm",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "procedure: không đọc được chi tiết (Đã mở chi tiết nhưng cột bác sĩ chính đang trống; doctor_id=cbbTTChinh; url=http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=dfb2f4c8-3081-4f6d-b6f8-b47201027c37&usid=172.31.255.1_amvksm0gvihzxv45ivi3tmsq7193a424&st=133209); procedure: có kết quả nhưng không khớp ngày; surgery: không có dòng cùng người bệnh"
+    },
+    {
+      "rowNumber": 106,
+      "patient": "TRẦN THỊ LIỆP",
+      "time": "13:52 30/06/2026",
+      "method": "Tiêm khớp gối",
+      "oldValue": "Lê Ngọc Diệu",
+      "status": "unmatched",
+      "reason": "procedure: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    }
+  ],
+  "updated": []
+}

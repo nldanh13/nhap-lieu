@@ -1,0 +1,3870 @@
+[2026-08-20 10:36:10.240] [START] Bắt đầu phiên đối chiếu EMR
+{
+  "folder": "E:\\Thong_ke\\emr_debug\\20260820_103610_240"
+}
+[2026-08-20 10:36:10.242] [CONFIG] Thông tin phiên chạy
+{
+  "input_file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx",
+  "output_file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx",
+  "config_file": "E:\\Thong_ke\\emr_config.json",
+  "only_row": null,
+  "headless_arg": false
+}
+[2026-08-20 10:36:11.170] [WORKBOOK] Đã đọc sheet tieuphau
+{
+  "sheet": "tieuphau",
+  "header_row": 6,
+  "total_row": 141,
+  "columns": {
+    "stt": 1,
+    "ngay": 2,
+    "hovaten": 3,
+    "tuoi": 4,
+    "tencls": 5,
+    "soluong": 6,
+    "thanhtien": 7,
+    "bacsi": 8,
+    "sotien": 9,
+    "dieuduong": 10,
+    "thuclanh": 12
+  },
+  "headers": {
+    "1": "STT",
+    "2": "Ngày",
+    "3": "Họ và tên",
+    "4": "Tuổi",
+    "5": "Tên CLS",
+    "6": "Số Lượng",
+    "7": "Thành tiền",
+    "8": "Bác Sĩ",
+    "9": "Số Tiền",
+    "10": "Điều Dưỡng",
+    "11": "Số Tiền",
+    "12": "Thực Lãnh"
+  },
+  "doctor_count": 33
+}
+[2026-08-20 10:36:11.174] [SKIP_VALID] Dòng 7: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-08-20 10:36:11.175] [SKIP_VALID] Dòng 8: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-08-20 10:36:11.175] [SKIP_VALID] Dòng 9: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-08-20 10:36:11.176] [SKIP_VALID] Dòng 10: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-08-20 10:36:11.177] [SKIP_VALID] Dòng 11: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.178] [SKIP_VALID] Dòng 12: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.179] [SKIP_VALID] Dòng 13: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-08-20 10:36:11.179] [SKIP_VALID] Dòng 14: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.180] [SKIP_VALID] Dòng 15: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.181] [SKIP_VALID] Dòng 16: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.182] [SKIP_VALID] Dòng 17: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.183] [SKIP_VALID] Dòng 18: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.184] [SKIP_VALID] Dòng 19: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.185] [SKIP_VALID] Dòng 20: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.186] [SKIP_VALID] Dòng 21: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.187] [SKIP_VALID] Dòng 22: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.187] [SKIP_VALID] Dòng 23: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.189] [SKIP_VALID] Dòng 24: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.190] [SKIP_VALID] Dòng 25: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.190] [SKIP_VALID] Dòng 26: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-08-20 10:36:11.191] [SKIP_VALID] Dòng 27: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.192] [SKIP_VALID] Dòng 28: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.193] [SKIP_VALID] Dòng 29: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.194] [SKIP_VALID] Dòng 30: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.195] [SKIP_VALID] Dòng 31: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.196] [SKIP_VALID] Dòng 32: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.197] [SKIP_VALID] Dòng 33: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.198] [SKIP_VALID] Dòng 34: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.198] [SKIP_VALID] Dòng 35: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.199] [SKIP_VALID] Dòng 36: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.200] [SKIP_VALID] Dòng 37: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.202] [SKIP_VALID] Dòng 38: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.202] [SKIP_VALID] Dòng 39: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.203] [SKIP_VALID] Dòng 40: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.204] [SKIP_VALID] Dòng 41: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.205] [SKIP_VALID] Dòng 42: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.206] [SKIP_VALID] Dòng 43: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-08-20 10:36:11.206] [SKIP_VALID] Dòng 44: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.207] [SKIP_VALID] Dòng 45: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.208] [SKIP_VALID] Dòng 46: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.209] [SKIP_VALID] Dòng 47: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.210] [SKIP_VALID] Dòng 48: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.210] [SKIP_VALID] Dòng 49: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.211] [SKIP_VALID] Dòng 50: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.212] [SKIP_VALID] Dòng 51: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-08-20 10:36:11.213] [SKIP_VALID] Dòng 52: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-08-20 10:36:11.214] [SKIP_VALID] Dòng 53: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.215] [SKIP_VALID] Dòng 54: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.215] [SKIP_VALID] Dòng 55: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.216] [SKIP_VALID] Dòng 56: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.217] [SKIP_VALID] Dòng 57: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.218] [SKIP_VALID] Dòng 58: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-08-20 10:36:11.219] [SKIP_VALID] Dòng 59: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-08-20 10:36:11.220] [SKIP_VALID] Dòng 60: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.220] [SKIP_VALID] Dòng 61: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.221] [SKIP_VALID] Dòng 62: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.222] [SKIP_VALID] Dòng 63: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.223] [SKIP_VALID] Dòng 64: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.224] [SKIP_VALID] Dòng 65: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.225] [SKIP_VALID] Dòng 66: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.226] [SKIP_VALID] Dòng 67: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.226] [SKIP_VALID] Dòng 68: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.227] [SKIP_VALID] Dòng 69: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.228] [SKIP_VALID] Dòng 70: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.229] [SKIP_VALID] Dòng 71: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.230] [SKIP_VALID] Dòng 72: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.230] [SKIP_VALID] Dòng 73: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.231] [SKIP_VALID] Dòng 74: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.233] [SKIP_VALID] Dòng 75: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.234] [SKIP_VALID] Dòng 76: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.237] [SKIP_VALID] Dòng 77: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.238] [SKIP_VALID] Dòng 78: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.239] [SKIP_VALID] Dòng 79: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.240] [SKIP_VALID] Dòng 80: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.241] [SKIP_VALID] Dòng 81: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.242] [SKIP_VALID] Dòng 82: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.243] [SKIP_VALID] Dòng 83: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-08-20 10:36:11.243] [SKIP_VALID] Dòng 84: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-08-20 10:36:11.244] [SKIP_VALID] Dòng 85: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-08-20 10:36:11.245] [SKIP_VALID] Dòng 86: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.246] [SKIP_VALID] Dòng 87: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.247] [SKIP_VALID] Dòng 88: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.247] [SKIP_VALID] Dòng 89: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.249] [SKIP_VALID] Dòng 90: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.250] [SKIP_VALID] Dòng 91: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.251] [SKIP_VALID] Dòng 92: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.252] [SKIP_VALID] Dòng 93: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.253] [SKIP_VALID] Dòng 94: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.254] [SKIP_VALID] Dòng 95: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.255] [SKIP_VALID] Dòng 96: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.256] [SKIP_VALID] Dòng 97: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.257] [SKIP_VALID] Dòng 98: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-08-20 10:36:11.258] [SKIP_VALID] Dòng 99: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.259] [SKIP_VALID] Dòng 100: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.260] [SKIP_VALID] Dòng 101: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.261] [SKIP_VALID] Dòng 102: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.261] [SKIP_VALID] Dòng 103: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.262] [SKIP_VALID] Dòng 104: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.264] [SKIP_VALID] Dòng 105: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.266] [SKIP_VALID] Dòng 106: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.269] [SKIP_VALID] Dòng 107: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.270] [SKIP_VALID] Dòng 108: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.271] [SKIP_VALID] Dòng 109: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.272] [SKIP_VALID] Dòng 110: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-08-20 10:36:11.274] [SKIP_VALID] Dòng 111: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.275] [SKIP_VALID] Dòng 112: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.276] [SKIP_VALID] Dòng 113: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-08-20 10:36:11.277] [SKIP_VALID] Dòng 114: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.278] [SKIP_VALID] Dòng 115: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-08-20 10:36:11.279] [SKIP_VALID] Dòng 116: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-08-20 10:36:11.280] [SKIP_VALID] Dòng 117: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.281] [SKIP_VALID] Dòng 118: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-08-20 10:36:11.282] [SKIP_VALID] Dòng 119: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.284] [SKIP_VALID] Dòng 120: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.285] [SKIP_VALID] Dòng 121: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-08-20 10:36:11.286] [SKIP_VALID] Dòng 122: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-08-20 10:36:11.287] [TARGET_ROWS] Có 8 dòng cần kiểm tra EMR
+{
+  "rows": [
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130
+  ],
+  "skipped_valid": 116
+}
+[2026-08-20 10:36:12.396] [AUTOSAVE_INIT] Đã tạo/cập nhật file làm việc trước khi tìm EMR
+{
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:36:12.397] [BROWSER_START] Khởi động trình duyệt EMR
+{
+  "headless": false
+}
+[2026-08-20 10:36:14.151] [BROWSER_READY] Trình duyệt EMR đã sẵn sàng
+[2026-08-20 10:36:14.161] [ROW_BEGIN] [1/8] Bắt đầu dòng 123: NGUYỄN KHÁNH HÒA
+{
+  "raw_time": "2026/07/02 06:30",
+  "parsed_time": "06:30 02/07/2026",
+  "method": "Tiêm khớp cùng chậu",
+  "old_value": ""
+}
+[2026-08-20 10:36:14.163] [SEARCH_BEGIN] dòng 123: tìm NGUYỄN KHÁNH HÒA tại D/s Thủ thuật
+{
+  "patient": "NGUYỄN KHÁNH HÒA",
+  "target_time": "2026-07-02 06:30:00",
+  "target_method": "Tiêm khớp cùng chậu",
+  "source": "procedure"
+}
+[2026-08-20 10:36:14.202] [BROWSER] [LOGIN] http://192.168.2.26:2026/login.aspx
+[2026-08-20 10:36:16.738] [BROWSER] [LOGIN] Thành công: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103613
+[2026-08-20 10:36:17.339] [BROWSER] [NAV] D/s Thủ thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103613
+[2026-08-20 10:36:19.678] [BROWSER] [FILTER] 3 tháng
+[2026-08-20 10:36:20.547] [BROWSER] [SEARCH] Nhập 'NGUYỄN KHÁNH HÒA' vào #txtTimKiem
+[2026-08-20 10:36:20.802] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-08-20 10:36:20.840] [BROWSER] [RESULT] D/s Thủ thuật: 1 dòng
+[2026-08-20 10:36:20.856] [SEARCH_RESULT] D/s Thủ thuật: nhận 1 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103613",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Ngày thủ thuật",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Đối tượng",
+    "Nơi chỉ định",
+    "Chỉ định thủ thuật",
+    "Tạm ứng",
+    "Phải thanh toán",
+    "Tình trạng",
+    "Thời gian chỉ định",
+    "Trạng thái"
+  ],
+  "rows": [
+    {
+      "access_id": "db572705-7c94-405e-8b28-b47b009253e3",
+      "known_fields": {
+        "stt": "1",
+        "ngay_thu_thuat": "08:00 03/07/2026",
+        "ma_bn": "26069812",
+        "ho_ten": "NGUYỄN KHÁNH HÒA",
+        "gioi_tinh": "Nữ",
+        "tuoi": "80 tuổi",
+        "doi_tuong": "Bảo hiểm",
+        "noi_chi_dinh": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+        "chi_dinh_thu_thuat": "Tiêm khớp cùng chậu",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Thường",
+        "thoi_gian_chi_dinh": "06:30 02/07/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "1 08:00 03/07/2026 26069812 NGUYỄN KHÁNH HÒA Nữ 80 tuổi Bảo hiểm Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh Tiêm khớp cùng chậu 0 0 Thường 06:30 02/07/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "08:00 03/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "26069812",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "NGUYỄN KHÁNH HÒA",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "Nữ",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "80 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "Bảo hiểm",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "Tiêm khớp cùng chậu",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "06:30 02/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-08-20 10:36:20.862] [CANDIDATES] D/s Thủ thuật: có 1 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 210.0,
+      "list_datetime": "2026-07-02 06:30:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Tiêm khớp cùng chậu",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+      "row": {
+        "access_id": "db572705-7c94-405e-8b28-b47b009253e3",
+        "known_fields": {
+          "stt": "1",
+          "ngay_thu_thuat": "08:00 03/07/2026",
+          "ma_bn": "26069812",
+          "ho_ten": "NGUYỄN KHÁNH HÒA",
+          "gioi_tinh": "Nữ",
+          "tuoi": "80 tuổi",
+          "doi_tuong": "Bảo hiểm",
+          "noi_chi_dinh": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+          "chi_dinh_thu_thuat": "Tiêm khớp cùng chậu",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Thường",
+          "thoi_gian_chi_dinh": "06:30 02/07/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "1 08:00 03/07/2026 26069812 NGUYỄN KHÁNH HÒA Nữ 80 tuổi Bảo hiểm Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh Tiêm khớp cùng chậu 0 0 Thường 06:30 02/07/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "08:00 03/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "26069812",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "NGUYỄN KHÁNH HÒA",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "Nữ",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "80 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "Bảo hiểm",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "Tiêm khớp cùng chậu",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "06:30 02/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-08-20 10:36:20.865] [DETAIL_BEGIN] D/s Thủ thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+  "list_datetime": "2026-07-02 06:30:00",
+  "list_method": "Tiêm khớp cùng chậu",
+  "row": {
+    "access_id": "db572705-7c94-405e-8b28-b47b009253e3",
+    "known_fields": {
+      "stt": "1",
+      "ngay_thu_thuat": "08:00 03/07/2026",
+      "ma_bn": "26069812",
+      "ho_ten": "NGUYỄN KHÁNH HÒA",
+      "gioi_tinh": "Nữ",
+      "tuoi": "80 tuổi",
+      "doi_tuong": "Bảo hiểm",
+      "noi_chi_dinh": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+      "chi_dinh_thu_thuat": "Tiêm khớp cùng chậu",
+      "tam_ung": "0",
+      "phai_thanh_toan": "0",
+      "tinh_trang": "Thường",
+      "thoi_gian_chi_dinh": "06:30 02/07/2026",
+      "trang_thai": "Hoàn tất"
+    },
+    "raw_text": "1 08:00 03/07/2026 26069812 NGUYỄN KHÁNH HÒA Nữ 80 tuổi Bảo hiểm Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh Tiêm khớp cùng chậu 0 0 Thường 06:30 02/07/2026 Hoàn tất",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "08:00 03/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "26069812",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "NGUYỄN KHÁNH HÒA",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "Nữ",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "80 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "Bảo hiểm",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "Tiêm khớp cùng chậu",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "06:30 02/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      },
+      {
+        "text": "Hoàn tất",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-08-20 10:36:20.876] [BROWSER] [DETAIL] kind=procedure; access_id=db572705-7c94-405e-8b28-b47b009253e3; direct_url=yes; onclick=no
+[2026-08-20 10:36:20.878] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618
+[2026-08-20 10:36:22.113] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Trần Nguyễn Anh Duy (tnaduy) | TG nhấn hoàn tất: 07:05 03/07/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618", "doctor": "Trần Nguyễn Anh Duy", "doctor_candidates": [{"id": "txtBacSyChiDinh", "value": "Trần Nguyễn Anh Duy"}, {"id": "txtBacSiChiDinh", "value": ""}], "doctor_field": "txtBacSyChiDinh", "doctor_found": true, "method": "Tiêm khớp cùng chậu", "method_candidates": [{"id": "txtChiDinh", "value": "Tiêm khớp cùng chậu"}, {"id": "cbbPhuongPhapTT", "value": "Tiêm khớp cùng chậu"}], "method_field": "txtChiDinh", "patient_info": "(26069812 | NGUYỄN KHÁNH HÒA, 30/07/1946, Nữ, 80 tuổi | Bảo hiểm)", "root_found": true, "start_candidates": [{"id": "txtThoiGianChiDinh", "value": "06:30 02/07/2026"}, {"id": "txtTgBatDau", "value": "08:00 03/07/2026"}], "start_time": "06:30 02/07/2026", "start_time_field": "txtThoiGianChiDinh"}
+[2026-08-20 10:36:22.115] [BROWSER] [DETAIL] Nguồn bác sĩ: Bác sĩ chỉ định; field=txtBacSyChiDinh; value=Trần Nguyễn Anh Duy
+[2026-08-20 10:36:22.118] [DETAIL_OK] D/s Thủ thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Trần Nguyễn Anh Duy",
+  "mapped_alias": "DUY",
+  "mapped_name": "Trần Nguyễn Anh Duy",
+  "start_time": "06:30 02/07/2026",
+  "start_time_field": "txtThoiGianChiDinh",
+  "method": "Tiêm khớp cùng chậu",
+  "method_field": "txtChiDinh",
+  "list_time_source": "Thời gian chỉ định",
+  "list_method_source": "Chỉ định thủ thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=db572705-7c94-405e-8b28-b47b009253e3&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+  "total_score": 660.0,
+  "method_score": 1.0
+}
+[2026-08-20 10:36:22.121] [EVALUATED] D/s Thủ thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Trần Nguyễn Anh Duy",
+      "alias": "DUY",
+      "detail_datetime": "2026-07-02 06:30:00",
+      "method_score": 1.0,
+      "total_score": 660.0,
+      "confidence_ok": true
+    }
+  ]
+}
+[2026-08-20 10:36:22.122] [SOURCE_MATCH] D/s Thủ thuật: đã chọn bác sĩ, không tìm nguồn còn lại
+{
+  "alias": "DUY"
+}
+[2026-08-20 10:36:23.586] [AUTOSAVE_ROW] Dòng 123: đã điền DUY và lưu ngay
+{
+  "patient": "NGUYỄN KHÁNH HÒA",
+  "source": "D/s Thủ thuật",
+  "doctor_name": "Trần Nguyễn Anh Duy",
+  "emr_doctor": "Trần Nguyễn Anh Duy",
+  "matched_time": "06:30 02/07/2026",
+  "matched_method": "Tiêm khớp cùng chậu",
+  "progress": "1/8",
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:36:23.587] [ROW_END] Kết thúc dòng 123
+{
+  "status": "updated",
+  "new_value": "DUY",
+  "reason": null
+}
+[2026-08-20 10:36:23.588] [ROW_BEGIN] [2/8] Bắt đầu dòng 124: ĐOÀN VĂN TIẾN
+{
+  "raw_time": "2026/07/06 07:45",
+  "parsed_time": "07:45 06/07/2026",
+  "method": "Tiêm khớp khuỷu tay",
+  "old_value": ""
+}
+[2026-08-20 10:36:23.589] [SEARCH_BEGIN] dòng 124: tìm ĐOÀN VĂN TIẾN tại D/s Thủ thuật
+{
+  "patient": "ĐOÀN VĂN TIẾN",
+  "target_time": "2026-07-06 07:45:00",
+  "target_method": "Tiêm khớp khuỷu tay",
+  "source": "procedure"
+}
+[2026-08-20 10:36:24.194] [BROWSER] [NAV] D/s Thủ thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618
+[2026-08-20 10:36:26.170] [BROWSER] [FILTER] 3 tháng
+[2026-08-20 10:36:26.741] [BROWSER] [SEARCH] Nhập 'ĐOÀN VĂN TIẾN' vào #txtTimKiem
+[2026-08-20 10:36:27.010] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-08-20 10:36:27.043] [BROWSER] [RESULT] D/s Thủ thuật: 1 dòng
+[2026-08-20 10:36:27.054] [SEARCH_RESULT] D/s Thủ thuật: nhận 1 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103618",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Ngày thủ thuật",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Đối tượng",
+    "Nơi chỉ định",
+    "Chỉ định thủ thuật",
+    "Tạm ứng",
+    "Phải thanh toán",
+    "Tình trạng",
+    "Thời gian chỉ định",
+    "Trạng thái"
+  ],
+  "rows": [
+    {
+      "access_id": "762781c1-0247-4596-a151-b47f00881861",
+      "known_fields": {
+        "stt": "1",
+        "ngay_thu_thuat": "07:45 06/07/2026",
+        "ma_bn": "26064487",
+        "ho_ten": "ĐOÀN VĂN TIẾN",
+        "gioi_tinh": "Nam",
+        "tuoi": "52 tuổi",
+        "doi_tuong": "Viện phí",
+        "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "chi_dinh_thu_thuat": "Tiêm khớp khuỷu tay",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Thường",
+        "thoi_gian_chi_dinh": "07:45 06/07/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "1 07:45 06/07/2026 26064487 ĐOÀN VĂN TIẾN Nam 52 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Tiêm khớp khuỷu tay 0 0 Thường 07:45 06/07/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "07:45 06/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "26064487",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "ĐOÀN VĂN TIẾN",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "Nam",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "52 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "Viện phí",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "Tiêm khớp khuỷu tay",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "07:45 06/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-08-20 10:36:27.057] [CANDIDATES] D/s Thủ thuật: có 1 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 210.0,
+      "list_datetime": "2026-07-06 07:45:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Tiêm khớp khuỷu tay",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+      "row": {
+        "access_id": "762781c1-0247-4596-a151-b47f00881861",
+        "known_fields": {
+          "stt": "1",
+          "ngay_thu_thuat": "07:45 06/07/2026",
+          "ma_bn": "26064487",
+          "ho_ten": "ĐOÀN VĂN TIẾN",
+          "gioi_tinh": "Nam",
+          "tuoi": "52 tuổi",
+          "doi_tuong": "Viện phí",
+          "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "chi_dinh_thu_thuat": "Tiêm khớp khuỷu tay",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Thường",
+          "thoi_gian_chi_dinh": "07:45 06/07/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "1 07:45 06/07/2026 26064487 ĐOÀN VĂN TIẾN Nam 52 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Tiêm khớp khuỷu tay 0 0 Thường 07:45 06/07/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "07:45 06/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "26064487",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "ĐOÀN VĂN TIẾN",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "Nam",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "52 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "Viện phí",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "Tiêm khớp khuỷu tay",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "07:45 06/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-08-20 10:36:27.059] [DETAIL_BEGIN] D/s Thủ thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+  "list_datetime": "2026-07-06 07:45:00",
+  "list_method": "Tiêm khớp khuỷu tay",
+  "row": {
+    "access_id": "762781c1-0247-4596-a151-b47f00881861",
+    "known_fields": {
+      "stt": "1",
+      "ngay_thu_thuat": "07:45 06/07/2026",
+      "ma_bn": "26064487",
+      "ho_ten": "ĐOÀN VĂN TIẾN",
+      "gioi_tinh": "Nam",
+      "tuoi": "52 tuổi",
+      "doi_tuong": "Viện phí",
+      "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+      "chi_dinh_thu_thuat": "Tiêm khớp khuỷu tay",
+      "tam_ung": "0",
+      "phai_thanh_toan": "0",
+      "tinh_trang": "Thường",
+      "thoi_gian_chi_dinh": "07:45 06/07/2026",
+      "trang_thai": "Hoàn tất"
+    },
+    "raw_text": "1 07:45 06/07/2026 26064487 ĐOÀN VĂN TIẾN Nam 52 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Tiêm khớp khuỷu tay 0 0 Thường 07:45 06/07/2026 Hoàn tất",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "07:45 06/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "26064487",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "ĐOÀN VĂN TIẾN",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "Nam",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "52 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "Viện phí",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "Tiêm khớp khuỷu tay",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "07:45 06/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      },
+      {
+        "text": "Hoàn tất",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-08-20 10:36:27.070] [BROWSER] [DETAIL] kind=procedure; access_id=762781c1-0247-4596-a151-b47f00881861; direct_url=yes; onclick=no
+[2026-08-20 10:36:27.071] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624
+[2026-08-20 10:36:28.218] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Trần Quang Sơn (tqson) | TG nhấn hoàn tất: 08:49 06/07/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624", "doctor": "Trần Quang Sơn", "doctor_candidates": [{"id": "txtBacSyChiDinh", "value": "Trần Quang Sơn"}, {"id": "txtBacSiChiDinh", "value": ""}], "doctor_field": "txtBacSyChiDinh", "doctor_found": true, "method": "Tiêm khớp khuỷu tay", "method_candidates": [{"id": "txtChiDinh", "value": "Tiêm khớp khuỷu tay"}, {"id": "cbbPhuongPhapTT", "value": "Tiêm khớp khuỷu tay"}], "method_field": "txtChiDinh", "patient_info": "(26064487 | ĐOÀN VĂN TIẾN, 01/01/1974, Nam, 52 tuổi | Viện phí)", "root_found": true, "start_candidates": [{"id": "txtThoiGianChiDinh", "value": "07:45 06/07/2026"}, {"id": "txtTgBatDau", "value": "07:45 06/07/2026"}], "start_time": "07:45 06/07/2026", "start_time_field": "txtThoiGianChiDinh"}
+[2026-08-20 10:36:28.220] [BROWSER] [DETAIL] Nguồn bác sĩ: Bác sĩ chỉ định; field=txtBacSyChiDinh; value=Trần Quang Sơn
+[2026-08-20 10:36:28.221] [DETAIL_OK] D/s Thủ thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Trần Quang Sơn",
+  "mapped_alias": "SƠN",
+  "mapped_name": "Trần Quang Sơn",
+  "start_time": "07:45 06/07/2026",
+  "start_time_field": "txtThoiGianChiDinh",
+  "method": "Tiêm khớp khuỷu tay",
+  "method_field": "txtChiDinh",
+  "list_time_source": "Thời gian chỉ định",
+  "list_method_source": "Chỉ định thủ thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=762781c1-0247-4596-a151-b47f00881861&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+  "total_score": 660.0,
+  "method_score": 1.0
+}
+[2026-08-20 10:36:28.223] [EVALUATED] D/s Thủ thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Trần Quang Sơn",
+      "alias": "SƠN",
+      "detail_datetime": "2026-07-06 07:45:00",
+      "method_score": 1.0,
+      "total_score": 660.0,
+      "confidence_ok": true
+    }
+  ]
+}
+[2026-08-20 10:36:28.224] [SOURCE_MATCH] D/s Thủ thuật: đã chọn bác sĩ, không tìm nguồn còn lại
+{
+  "alias": "SƠN"
+}
+[2026-08-20 10:36:29.376] [AUTOSAVE_ROW] Dòng 124: đã điền SƠN và lưu ngay
+{
+  "patient": "ĐOÀN VĂN TIẾN",
+  "source": "D/s Thủ thuật",
+  "doctor_name": "Trần Quang Sơn",
+  "emr_doctor": "Trần Quang Sơn",
+  "matched_time": "07:45 06/07/2026",
+  "matched_method": "Tiêm khớp khuỷu tay",
+  "progress": "2/8",
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:36:29.378] [ROW_END] Kết thúc dòng 124
+{
+  "status": "updated",
+  "new_value": "SƠN",
+  "reason": null
+}
+[2026-08-20 10:36:29.379] [ROW_BEGIN] [3/8] Bắt đầu dòng 125: NGUYỄN THỊ ĐÈO
+{
+  "raw_time": "2026/07/13 08:34",
+  "parsed_time": "08:34 13/07/2026",
+  "method": "Hút nang bao hoạt dịch",
+  "old_value": ""
+}
+[2026-08-20 10:36:29.380] [SEARCH_BEGIN] dòng 125: tìm NGUYỄN THỊ ĐÈO tại D/s Thủ thuật
+{
+  "patient": "NGUYỄN THỊ ĐÈO",
+  "target_time": "2026-07-13 08:34:00",
+  "target_method": "Hút nang bao hoạt dịch",
+  "source": "procedure"
+}
+[2026-08-20 10:36:29.907] [BROWSER] [NAV] D/s Thủ thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624
+[2026-08-20 10:36:31.859] [BROWSER] [FILTER] 3 tháng
+[2026-08-20 10:36:32.461] [BROWSER] [SEARCH] Nhập 'NGUYỄN THỊ ĐÈO' vào #txtTimKiem
+[2026-08-20 10:36:32.744] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-08-20 10:36:32.775] [BROWSER] [RESULT] D/s Thủ thuật: 1 dòng
+[2026-08-20 10:36:32.785] [SEARCH_RESULT] D/s Thủ thuật: nhận 1 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103624",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Ngày thủ thuật",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Đối tượng",
+    "Nơi chỉ định",
+    "Chỉ định thủ thuật",
+    "Tạm ứng",
+    "Phải thanh toán",
+    "Tình trạng",
+    "Thời gian chỉ định",
+    "Trạng thái"
+  ],
+  "rows": [
+    {
+      "access_id": "7595245b-980c-4403-97cc-b48600910d03",
+      "known_fields": {
+        "stt": "1",
+        "ngay_thu_thuat": "08:34 13/07/2026",
+        "ma_bn": "26069520",
+        "ho_ten": "NGUYỄN THỊ ĐÈO",
+        "gioi_tinh": "Nữ",
+        "tuoi": "47 tuổi",
+        "doi_tuong": "Viện phí",
+        "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "chi_dinh_thu_thuat": "Hút nang bao hoạt dịch",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Thường",
+        "thoi_gian_chi_dinh": "08:34 13/07/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "1 08:34 13/07/2026 26069520 NGUYỄN THỊ ĐÈO Nữ 47 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Hút nang bao hoạt dịch 0 0 Thường 08:34 13/07/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "08:34 13/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "26069520",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "NGUYỄN THỊ ĐÈO",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "Nữ",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "47 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "Viện phí",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "Hút nang bao hoạt dịch",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "08:34 13/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-08-20 10:36:32.787] [CANDIDATES] D/s Thủ thuật: có 1 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 210.0,
+      "list_datetime": "2026-07-13 08:34:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Hút nang bao hoạt dịch",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+      "row": {
+        "access_id": "7595245b-980c-4403-97cc-b48600910d03",
+        "known_fields": {
+          "stt": "1",
+          "ngay_thu_thuat": "08:34 13/07/2026",
+          "ma_bn": "26069520",
+          "ho_ten": "NGUYỄN THỊ ĐÈO",
+          "gioi_tinh": "Nữ",
+          "tuoi": "47 tuổi",
+          "doi_tuong": "Viện phí",
+          "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "chi_dinh_thu_thuat": "Hút nang bao hoạt dịch",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Thường",
+          "thoi_gian_chi_dinh": "08:34 13/07/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "1 08:34 13/07/2026 26069520 NGUYỄN THỊ ĐÈO Nữ 47 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Hút nang bao hoạt dịch 0 0 Thường 08:34 13/07/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "08:34 13/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "26069520",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "NGUYỄN THỊ ĐÈO",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "Nữ",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "47 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "Viện phí",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "Hút nang bao hoạt dịch",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "08:34 13/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-08-20 10:36:32.789] [DETAIL_BEGIN] D/s Thủ thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+  "list_datetime": "2026-07-13 08:34:00",
+  "list_method": "Hút nang bao hoạt dịch",
+  "row": {
+    "access_id": "7595245b-980c-4403-97cc-b48600910d03",
+    "known_fields": {
+      "stt": "1",
+      "ngay_thu_thuat": "08:34 13/07/2026",
+      "ma_bn": "26069520",
+      "ho_ten": "NGUYỄN THỊ ĐÈO",
+      "gioi_tinh": "Nữ",
+      "tuoi": "47 tuổi",
+      "doi_tuong": "Viện phí",
+      "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+      "chi_dinh_thu_thuat": "Hút nang bao hoạt dịch",
+      "tam_ung": "0",
+      "phai_thanh_toan": "0",
+      "tinh_trang": "Thường",
+      "thoi_gian_chi_dinh": "08:34 13/07/2026",
+      "trang_thai": "Hoàn tất"
+    },
+    "raw_text": "1 08:34 13/07/2026 26069520 NGUYỄN THỊ ĐÈO Nữ 47 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Hút nang bao hoạt dịch 0 0 Thường 08:34 13/07/2026 Hoàn tất",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "08:34 13/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "26069520",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "NGUYỄN THỊ ĐÈO",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "Nữ",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "47 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "Viện phí",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "Hút nang bao hoạt dịch",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "08:34 13/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      },
+      {
+        "text": "Hoàn tất",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-08-20 10:36:32.800] [BROWSER] [DETAIL] kind=procedure; access_id=7595245b-980c-4403-97cc-b48600910d03; direct_url=yes; onclick=no
+[2026-08-20 10:36:32.801] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630
+[2026-08-20 10:36:34.381] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Trần Quỳnh Minh Thư (tqmthu) | TG nhấn hoàn tất: 16:29 13/07/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630", "doctor": "Trần Quang Sơn", "doctor_candidates": [{"id": "txtBacSyChiDinh", "value": "Trần Quang Sơn"}, {"id": "txtBacSiChiDinh", "value": ""}], "doctor_field": "txtBacSyChiDinh", "doctor_found": true, "method": "Hút nang bao hoạt dịch", "method_candidates": [{"id": "txtChiDinh", "value": "Hút nang bao hoạt dịch"}, {"id": "cbbPhuongPhapTT", "value": "Hút nang bao hoạt dịch"}], "method_field": "txtChiDinh", "patient_info": "(26069520 | NGUYỄN THỊ ĐÈO, 19/10/1979, Nữ, 47 tuổi | Viện phí)", "root_found": true, "start_candidates": [{"id": "txtThoiGianChiDinh", "value": "08:34 13/07/2026"}, {"id": "txtTgBatDau", "value": "08:34 13/07/2026"}], "start_time": "08:34 13/07/2026", "start_time_field": "txtThoiGianChiDinh"}
+[2026-08-20 10:36:34.382] [BROWSER] [DETAIL] Nguồn bác sĩ: Bác sĩ chỉ định; field=txtBacSyChiDinh; value=Trần Quang Sơn
+[2026-08-20 10:36:34.384] [DETAIL_OK] D/s Thủ thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Trần Quang Sơn",
+  "mapped_alias": "SƠN",
+  "mapped_name": "Trần Quang Sơn",
+  "start_time": "08:34 13/07/2026",
+  "start_time_field": "txtThoiGianChiDinh",
+  "method": "Hút nang bao hoạt dịch",
+  "method_field": "txtChiDinh",
+  "list_time_source": "Thời gian chỉ định",
+  "list_method_source": "Chỉ định thủ thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=7595245b-980c-4403-97cc-b48600910d03&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+  "total_score": 660.0,
+  "method_score": 1.0
+}
+[2026-08-20 10:36:34.386] [EVALUATED] D/s Thủ thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Trần Quang Sơn",
+      "alias": "SƠN",
+      "detail_datetime": "2026-07-13 08:34:00",
+      "method_score": 1.0,
+      "total_score": 660.0,
+      "confidence_ok": true
+    }
+  ]
+}
+[2026-08-20 10:36:34.387] [SOURCE_MATCH] D/s Thủ thuật: đã chọn bác sĩ, không tìm nguồn còn lại
+{
+  "alias": "SƠN"
+}
+[2026-08-20 10:36:35.652] [AUTOSAVE_ROW] Dòng 125: đã điền SƠN và lưu ngay
+{
+  "patient": "NGUYỄN THỊ ĐÈO",
+  "source": "D/s Thủ thuật",
+  "doctor_name": "Trần Quang Sơn",
+  "emr_doctor": "Trần Quang Sơn",
+  "matched_time": "08:34 13/07/2026",
+  "matched_method": "Hút nang bao hoạt dịch",
+  "progress": "3/8",
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:36:35.653] [ROW_END] Kết thúc dòng 125
+{
+  "status": "updated",
+  "new_value": "SƠN",
+  "reason": null
+}
+[2026-08-20 10:36:35.654] [ROW_BEGIN] [4/8] Bắt đầu dòng 126: DƯ THỊ HUYỀN CHÂU
+{
+  "raw_time": "2026/07/16 10:01",
+  "parsed_time": "10:01 16/07/2026",
+  "method": "Hút nang bao hoạt dịch",
+  "old_value": ""
+}
+[2026-08-20 10:36:35.655] [SEARCH_BEGIN] dòng 126: tìm DƯ THỊ HUYỀN CHÂU tại D/s Thủ thuật
+{
+  "patient": "DƯ THỊ HUYỀN CHÂU",
+  "target_time": "2026-07-16 10:01:00",
+  "target_method": "Hút nang bao hoạt dịch",
+  "source": "procedure"
+}
+[2026-08-20 10:36:36.169] [BROWSER] [NAV] D/s Thủ thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630
+[2026-08-20 10:36:38.132] [BROWSER] [FILTER] 3 tháng
+[2026-08-20 10:36:38.723] [BROWSER] [SEARCH] Nhập 'DƯ THỊ HUYỀN CHÂU' vào #txtTimKiem
+[2026-08-20 10:36:38.964] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-08-20 10:36:38.997] [BROWSER] [RESULT] D/s Thủ thuật: 2 dòng
+[2026-08-20 10:36:39.007] [SEARCH_RESULT] D/s Thủ thuật: nhận 2 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103630",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Ngày thủ thuật",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Đối tượng",
+    "Nơi chỉ định",
+    "Chỉ định thủ thuật",
+    "Tạm ứng",
+    "Phải thanh toán",
+    "Tình trạng",
+    "Thời gian chỉ định",
+    "Trạng thái"
+  ],
+  "rows": [
+    {
+      "access_id": "1afb0018-21ca-494c-b618-b48900a6d9f9",
+      "known_fields": {
+        "stt": "1",
+        "ngay_thu_thuat": "10:04 16/07/2026",
+        "ma_bn": "26070263",
+        "ho_ten": "DƯ THỊ HUYỀN CHÂU",
+        "gioi_tinh": "Nữ",
+        "tuoi": "48 tuổi",
+        "doi_tuong": "Viện phí",
+        "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+        "chi_dinh_thu_thuat": "Hút nang bao hoạt dịch",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Thường",
+        "thoi_gian_chi_dinh": "10:01 16/07/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "1 10:04 16/07/2026 26070263 DƯ THỊ HUYỀN CHÂU Nữ 48 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B Hút nang bao hoạt dịch 0 0 Thường 10:01 16/07/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "10:04 16/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "26070263",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "DƯ THỊ HUYỀN CHÂU",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Nữ",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "48 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Viện phí",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Hút nang bao hoạt dịch",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "10:01 16/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "access_id": "27b2d92d-946f-4af5-a55b-b4a000ae1aa9",
+      "known_fields": {
+        "stt": "2",
+        "ngay_thu_thuat": "10:25 08/08/2026",
+        "ma_bn": "26081970",
+        "ho_ten": "DƯ THỊ HUYỀN CHÂU",
+        "gioi_tinh": "Nữ",
+        "tuoi": "48 tuổi",
+        "doi_tuong": "Bảo hiểm",
+        "noi_chi_dinh": "PHÒNG KHÁM CẤP CỨU",
+        "chi_dinh_thu_thuat": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Cấp cứu",
+        "thoi_gian_chi_dinh": "10:24 08/08/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "2 10:25 08/08/2026 26081970 DƯ THỊ HUYỀN CHÂU Nữ 48 tuổi Bảo hiểm PHÒNG KHÁM CẤP CỨU Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông] 0 0 Cấp cứu 10:24 08/08/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "2",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "10:25 08/08/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "26081970",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "DƯ THỊ HUYỀN CHÂU",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Nữ",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "48 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Bảo hiểm",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG KHÁM CẤP CỨU",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Cấp cứu",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "10:24 08/08/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-08-20 10:36:39.010] [CANDIDATES] D/s Thủ thuật: có 2 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 210.0,
+      "list_datetime": "2026-07-16 10:01:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Hút nang bao hoạt dịch",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+      "row": {
+        "access_id": "1afb0018-21ca-494c-b618-b48900a6d9f9",
+        "known_fields": {
+          "stt": "1",
+          "ngay_thu_thuat": "10:04 16/07/2026",
+          "ma_bn": "26070263",
+          "ho_ten": "DƯ THỊ HUYỀN CHÂU",
+          "gioi_tinh": "Nữ",
+          "tuoi": "48 tuổi",
+          "doi_tuong": "Viện phí",
+          "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+          "chi_dinh_thu_thuat": "Hút nang bao hoạt dịch",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Thường",
+          "thoi_gian_chi_dinh": "10:01 16/07/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "1 10:04 16/07/2026 26070263 DƯ THỊ HUYỀN CHÂU Nữ 48 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B Hút nang bao hoạt dịch 0 0 Thường 10:01 16/07/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "10:04 16/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "26070263",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "DƯ THỊ HUYỀN CHÂU",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Nữ",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "48 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Viện phí",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Hút nang bao hoạt dịch",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "10:01 16/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          }
+        ]
+      }
+    },
+    {
+      "list_score": 42.14285714285714,
+      "list_datetime": "2026-08-08 10:24:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 0.3116883116883117,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+      "row": {
+        "access_id": "27b2d92d-946f-4af5-a55b-b4a000ae1aa9",
+        "known_fields": {
+          "stt": "2",
+          "ngay_thu_thuat": "10:25 08/08/2026",
+          "ma_bn": "26081970",
+          "ho_ten": "DƯ THỊ HUYỀN CHÂU",
+          "gioi_tinh": "Nữ",
+          "tuoi": "48 tuổi",
+          "doi_tuong": "Bảo hiểm",
+          "noi_chi_dinh": "PHÒNG KHÁM CẤP CỨU",
+          "chi_dinh_thu_thuat": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Cấp cứu",
+          "thoi_gian_chi_dinh": "10:24 08/08/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "2 10:25 08/08/2026 26081970 DƯ THỊ HUYỀN CHÂU Nữ 48 tuổi Bảo hiểm PHÒNG KHÁM CẤP CỨU Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông] 0 0 Cấp cứu 10:24 08/08/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "2",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "10:25 08/08/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "26081970",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "DƯ THỊ HUYỀN CHÂU",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Nữ",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "48 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Bảo hiểm",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG KHÁM CẤP CỨU",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Khâu vết thương phần mềm dài dưới 10 cm [tổn thương nông]",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Cấp cứu",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "10:24 08/08/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=27b2d92d-946f-4af5-a55b-b4a000ae1aa9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-08-20 10:36:39.012] [DETAIL_BEGIN] D/s Thủ thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+  "list_datetime": "2026-07-16 10:01:00",
+  "list_method": "Hút nang bao hoạt dịch",
+  "row": {
+    "access_id": "1afb0018-21ca-494c-b618-b48900a6d9f9",
+    "known_fields": {
+      "stt": "1",
+      "ngay_thu_thuat": "10:04 16/07/2026",
+      "ma_bn": "26070263",
+      "ho_ten": "DƯ THỊ HUYỀN CHÂU",
+      "gioi_tinh": "Nữ",
+      "tuoi": "48 tuổi",
+      "doi_tuong": "Viện phí",
+      "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+      "chi_dinh_thu_thuat": "Hút nang bao hoạt dịch",
+      "tam_ung": "0",
+      "phai_thanh_toan": "0",
+      "tinh_trang": "Thường",
+      "thoi_gian_chi_dinh": "10:01 16/07/2026",
+      "trang_thai": "Hoàn tất"
+    },
+    "raw_text": "1 10:04 16/07/2026 26070263 DƯ THỊ HUYỀN CHÂU Nữ 48 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B Hút nang bao hoạt dịch 0 0 Thường 10:01 16/07/2026 Hoàn tất",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "10:04 16/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "26070263",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "DƯ THỊ HUYỀN CHÂU",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "Nữ",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "48 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "Viện phí",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "Hút nang bao hoạt dịch",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "10:01 16/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      },
+      {
+        "text": "Hoàn tất",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-08-20 10:36:39.023] [BROWSER] [DETAIL] kind=procedure; access_id=1afb0018-21ca-494c-b618-b48900a6d9f9; direct_url=yes; onclick=no
+[2026-08-20 10:36:39.024] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636
+[2026-08-20 10:36:40.080] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Hồ Điền (hdien) | TG nhấn hoàn tất: 14:07 16/07/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636", "doctor": "Hồ Điền", "doctor_candidates": [{"id": "txtBacSyChiDinh", "value": "Hồ Điền"}, {"id": "txtBacSiChiDinh", "value": ""}], "doctor_field": "txtBacSyChiDinh", "doctor_found": true, "method": "Hút nang bao hoạt dịch", "method_candidates": [{"id": "txtChiDinh", "value": "Hút nang bao hoạt dịch"}, {"id": "cbbPhuongPhapTT", "value": "Hút nang bao hoạt dịch"}], "method_field": "txtChiDinh", "patient_info": "(26070263 | DƯ THỊ HUYỀN CHÂU, 03/01/1978, Nữ, 48 tuổi | Viện phí)", "root_found": true, "start_candidates": [{"id": "txtThoiGianChiDinh", "value": "10:01 16/07/2026"}, {"id": "txtTgBatDau", "value": "10:04 16/07/2026"}], "start_time": "10:01 16/07/2026", "start_time_field": "txtThoiGianChiDinh"}
+[2026-08-20 10:36:40.081] [BROWSER] [DETAIL] Nguồn bác sĩ: Bác sĩ chỉ định; field=txtBacSyChiDinh; value=Hồ Điền
+[2026-08-20 10:36:40.083] [DETAIL_OK] D/s Thủ thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Hồ Điền",
+  "mapped_alias": "ĐIỀN",
+  "mapped_name": "Hồ Điền",
+  "start_time": "10:01 16/07/2026",
+  "start_time_field": "txtThoiGianChiDinh",
+  "method": "Hút nang bao hoạt dịch",
+  "method_field": "txtChiDinh",
+  "list_time_source": "Thời gian chỉ định",
+  "list_method_source": "Chỉ định thủ thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=1afb0018-21ca-494c-b618-b48900a6d9f9&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+  "total_score": 660.0,
+  "method_score": 1.0
+}
+[2026-08-20 10:36:40.085] [EVALUATED] D/s Thủ thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Hồ Điền",
+      "alias": "ĐIỀN",
+      "detail_datetime": "2026-07-16 10:01:00",
+      "method_score": 1.0,
+      "total_score": 660.0,
+      "confidence_ok": true
+    }
+  ]
+}
+[2026-08-20 10:36:40.086] [SOURCE_MATCH] D/s Thủ thuật: đã chọn bác sĩ, không tìm nguồn còn lại
+{
+  "alias": "ĐIỀN"
+}
+[2026-08-20 10:36:41.308] [AUTOSAVE_ROW] Dòng 126: đã điền ĐIỀN và lưu ngay
+{
+  "patient": "DƯ THỊ HUYỀN CHÂU",
+  "source": "D/s Thủ thuật",
+  "doctor_name": "Hồ Điền",
+  "emr_doctor": "Hồ Điền",
+  "matched_time": "10:01 16/07/2026",
+  "matched_method": "Hút nang bao hoạt dịch",
+  "progress": "4/8",
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:36:41.310] [ROW_END] Kết thúc dòng 126
+{
+  "status": "updated",
+  "new_value": "ĐIỀN",
+  "reason": null
+}
+[2026-08-20 10:36:41.311] [ROW_BEGIN] [5/8] Bắt đầu dòng 127: ĐẶNG ANH QUÂN
+{
+  "raw_time": "2026/07/16 15:36",
+  "parsed_time": "15:36 16/07/2026",
+  "method": "Cắt móng quặm 1 ngón",
+  "old_value": ""
+}
+[2026-08-20 10:36:41.313] [SEARCH_BEGIN] dòng 127: tìm ĐẶNG ANH QUÂN tại D/s Thủ thuật
+{
+  "patient": "ĐẶNG ANH QUÂN",
+  "target_time": "2026-07-16 15:36:00",
+  "target_method": "Cắt móng quặm 1 ngón",
+  "source": "procedure"
+}
+[2026-08-20 10:36:41.858] [BROWSER] [NAV] D/s Thủ thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636
+[2026-08-20 10:36:43.776] [BROWSER] [FILTER] 3 tháng
+[2026-08-20 10:36:44.412] [BROWSER] [SEARCH] Nhập 'ĐẶNG ANH QUÂN' vào #txtTimKiem
+[2026-08-20 10:36:44.669] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-08-20 10:36:44.707] [BROWSER] [RESULT] D/s Thủ thuật: 1 dòng
+[2026-08-20 10:36:44.718] [SEARCH_RESULT] D/s Thủ thuật: nhận 1 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103636",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Ngày thủ thuật",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Đối tượng",
+    "Nơi chỉ định",
+    "Chỉ định thủ thuật",
+    "Tạm ứng",
+    "Phải thanh toán",
+    "Tình trạng",
+    "Thời gian chỉ định",
+    "Trạng thái"
+  ],
+  "rows": [
+    {
+      "access_id": "b0ee51f4-e77b-4eb4-887d-b48901029ee7",
+      "known_fields": {
+        "stt": "1",
+        "ngay_thu_thuat": "15:40 16/07/2026",
+        "ma_bn": "26061731",
+        "ho_ten": "ĐẶNG ANH QUÂN",
+        "gioi_tinh": "Nam",
+        "tuoi": "21 tuổi",
+        "doi_tuong": "Bảo hiểm",
+        "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "chi_dinh_thu_thuat": "Cắt móng quặm 1 ngón",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Thường",
+        "thoi_gian_chi_dinh": "15:36 16/07/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "1 15:40 16/07/2026 26061731 ĐẶNG ANH QUÂN Nam 21 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Cắt móng quặm 1 ngón 0 0 Thường 15:36 16/07/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "15:40 16/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "26061731",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "ĐẶNG ANH QUÂN",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "Nam",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "21 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "Bảo hiểm",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "Cắt móng quặm 1 ngón",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "15:36 16/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-08-20 10:36:44.721] [CANDIDATES] D/s Thủ thuật: có 1 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 210.0,
+      "list_datetime": "2026-07-16 15:36:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Cắt móng quặm 1 ngón",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+      "row": {
+        "access_id": "b0ee51f4-e77b-4eb4-887d-b48901029ee7",
+        "known_fields": {
+          "stt": "1",
+          "ngay_thu_thuat": "15:40 16/07/2026",
+          "ma_bn": "26061731",
+          "ho_ten": "ĐẶNG ANH QUÂN",
+          "gioi_tinh": "Nam",
+          "tuoi": "21 tuổi",
+          "doi_tuong": "Bảo hiểm",
+          "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "chi_dinh_thu_thuat": "Cắt móng quặm 1 ngón",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Thường",
+          "thoi_gian_chi_dinh": "15:36 16/07/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "1 15:40 16/07/2026 26061731 ĐẶNG ANH QUÂN Nam 21 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Cắt móng quặm 1 ngón 0 0 Thường 15:36 16/07/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "15:40 16/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "26061731",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "ĐẶNG ANH QUÂN",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "Nam",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "21 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "Bảo hiểm",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "Cắt móng quặm 1 ngón",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "15:36 16/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-08-20 10:36:44.723] [DETAIL_BEGIN] D/s Thủ thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+  "list_datetime": "2026-07-16 15:36:00",
+  "list_method": "Cắt móng quặm 1 ngón",
+  "row": {
+    "access_id": "b0ee51f4-e77b-4eb4-887d-b48901029ee7",
+    "known_fields": {
+      "stt": "1",
+      "ngay_thu_thuat": "15:40 16/07/2026",
+      "ma_bn": "26061731",
+      "ho_ten": "ĐẶNG ANH QUÂN",
+      "gioi_tinh": "Nam",
+      "tuoi": "21 tuổi",
+      "doi_tuong": "Bảo hiểm",
+      "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+      "chi_dinh_thu_thuat": "Cắt móng quặm 1 ngón",
+      "tam_ung": "0",
+      "phai_thanh_toan": "0",
+      "tinh_trang": "Thường",
+      "thoi_gian_chi_dinh": "15:36 16/07/2026",
+      "trang_thai": "Hoàn tất"
+    },
+    "raw_text": "1 15:40 16/07/2026 26061731 ĐẶNG ANH QUÂN Nam 21 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Cắt móng quặm 1 ngón 0 0 Thường 15:36 16/07/2026 Hoàn tất",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "15:40 16/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "26061731",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "ĐẶNG ANH QUÂN",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "Nam",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "21 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "Bảo hiểm",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "Cắt móng quặm 1 ngón",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "15:36 16/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      },
+      {
+        "text": "Hoàn tất",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-08-20 10:36:44.736] [BROWSER] [DETAIL] kind=procedure; access_id=b0ee51f4-e77b-4eb4-887d-b48901029ee7; direct_url=yes; onclick=no
+[2026-08-20 10:36:44.737] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642
+[2026-08-20 10:36:45.991] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Thạch Thị Thúy Đa (tttda) | TG nhấn hoàn tất: 16:23 16/07/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642", "doctor": "Hồ Điền", "doctor_candidates": [{"id": "txtBacSyChiDinh", "value": "Hồ Điền"}, {"id": "txtBacSiChiDinh", "value": ""}], "doctor_field": "txtBacSyChiDinh", "doctor_found": true, "method": "Cắt móng quặm 1 ngón", "method_candidates": [{"id": "txtChiDinh", "value": "Cắt móng quặm 1 ngón"}, {"id": "cbbPhuongPhapTT", "value": "Cắt móng quặm 1 ngón"}], "method_field": "txtChiDinh", "patient_info": "(26061731 | ĐẶNG ANH QUÂN, 16/11/2005, Nam, 21 tuổi | Bảo hiểm)", "root_found": true, "start_candidates": [{"id": "txtThoiGianChiDinh", "value": "15:36 16/07/2026"}, {"id": "txtTgBatDau", "value": "15:40 16/07/2026"}], "start_time": "15:36 16/07/2026", "start_time_field": "txtThoiGianChiDinh"}
+[2026-08-20 10:36:45.993] [BROWSER] [DETAIL] Nguồn bác sĩ: Bác sĩ chỉ định; field=txtBacSyChiDinh; value=Hồ Điền
+[2026-08-20 10:36:45.994] [DETAIL_OK] D/s Thủ thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Hồ Điền",
+  "mapped_alias": "ĐIỀN",
+  "mapped_name": "Hồ Điền",
+  "start_time": "15:36 16/07/2026",
+  "start_time_field": "txtThoiGianChiDinh",
+  "method": "Cắt móng quặm 1 ngón",
+  "method_field": "txtChiDinh",
+  "list_time_source": "Thời gian chỉ định",
+  "list_method_source": "Chỉ định thủ thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=b0ee51f4-e77b-4eb4-887d-b48901029ee7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+  "total_score": 660.0,
+  "method_score": 1.0
+}
+[2026-08-20 10:36:45.996] [EVALUATED] D/s Thủ thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Hồ Điền",
+      "alias": "ĐIỀN",
+      "detail_datetime": "2026-07-16 15:36:00",
+      "method_score": 1.0,
+      "total_score": 660.0,
+      "confidence_ok": true
+    }
+  ]
+}
+[2026-08-20 10:36:45.997] [SOURCE_MATCH] D/s Thủ thuật: đã chọn bác sĩ, không tìm nguồn còn lại
+{
+  "alias": "ĐIỀN"
+}
+[2026-08-20 10:36:47.293] [AUTOSAVE_ROW] Dòng 127: đã điền ĐIỀN và lưu ngay
+{
+  "patient": "ĐẶNG ANH QUÂN",
+  "source": "D/s Thủ thuật",
+  "doctor_name": "Hồ Điền",
+  "emr_doctor": "Hồ Điền",
+  "matched_time": "15:36 16/07/2026",
+  "matched_method": "Cắt móng quặm 1 ngón",
+  "progress": "5/8",
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:36:47.294] [ROW_END] Kết thúc dòng 127
+{
+  "status": "updated",
+  "new_value": "ĐIỀN",
+  "reason": null
+}
+[2026-08-20 10:36:47.295] [ROW_BEGIN] [6/8] Bắt đầu dòng 128: NGUYỄN TRẦN ÁNH LINH
+{
+  "raw_time": "2026/07/28 13:35",
+  "parsed_time": "13:35 28/07/2026",
+  "method": "Cắt móng quặm 2 ngón",
+  "old_value": ""
+}
+[2026-08-20 10:36:47.297] [SEARCH_BEGIN] dòng 128: tìm NGUYỄN TRẦN ÁNH LINH tại D/s Thủ thuật
+{
+  "patient": "NGUYỄN TRẦN ÁNH LINH",
+  "target_time": "2026-07-28 13:35:00",
+  "target_method": "Cắt móng quặm 2 ngón",
+  "source": "procedure"
+}
+[2026-08-20 10:36:47.912] [BROWSER] [NAV] D/s Thủ thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642
+[2026-08-20 10:36:49.862] [BROWSER] [FILTER] 3 tháng
+[2026-08-20 10:36:50.459] [BROWSER] [SEARCH] Nhập 'NGUYỄN TRẦN ÁNH LINH' vào #txtTimKiem
+[2026-08-20 10:36:50.758] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-08-20 10:36:50.792] [BROWSER] [RESULT] D/s Thủ thuật: 1 dòng
+[2026-08-20 10:36:50.803] [SEARCH_RESULT] D/s Thủ thuật: nhận 1 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103642",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Ngày thủ thuật",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Đối tượng",
+    "Nơi chỉ định",
+    "Chỉ định thủ thuật",
+    "Tạm ứng",
+    "Phải thanh toán",
+    "Tình trạng",
+    "Thời gian chỉ định",
+    "Trạng thái"
+  ],
+  "rows": [
+    {
+      "access_id": "01709280-5504-4ae1-87aa-b49500e2e4e7",
+      "known_fields": {
+        "stt": "1",
+        "ngay_thu_thuat": "13:35 28/07/2026",
+        "ma_bn": "26078663",
+        "ho_ten": "NGUYỄN TRẦN ÁNH LINH",
+        "gioi_tinh": "Nữ",
+        "tuoi": "21 tuổi",
+        "doi_tuong": "Viện phí",
+        "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+        "chi_dinh_thu_thuat": "Cắt móng quặm 2 ngón",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Thường",
+        "thoi_gian_chi_dinh": "13:35 28/07/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "1 13:35 28/07/2026 26078663 NGUYỄN TRẦN ÁNH LINH Nữ 21 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B Cắt móng quặm 2 ngón 0 0 Thường 13:35 28/07/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "13:35 28/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "26078663",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "NGUYỄN TRẦN ÁNH LINH",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "Nữ",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "21 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "Viện phí",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "Cắt móng quặm 2 ngón",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "13:35 28/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-08-20 10:36:50.805] [CANDIDATES] D/s Thủ thuật: có 1 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 210.0,
+      "list_datetime": "2026-07-28 13:35:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Cắt móng quặm 2 ngón",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+      "row": {
+        "access_id": "01709280-5504-4ae1-87aa-b49500e2e4e7",
+        "known_fields": {
+          "stt": "1",
+          "ngay_thu_thuat": "13:35 28/07/2026",
+          "ma_bn": "26078663",
+          "ho_ten": "NGUYỄN TRẦN ÁNH LINH",
+          "gioi_tinh": "Nữ",
+          "tuoi": "21 tuổi",
+          "doi_tuong": "Viện phí",
+          "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+          "chi_dinh_thu_thuat": "Cắt móng quặm 2 ngón",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Thường",
+          "thoi_gian_chi_dinh": "13:35 28/07/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "1 13:35 28/07/2026 26078663 NGUYỄN TRẦN ÁNH LINH Nữ 21 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B Cắt móng quặm 2 ngón 0 0 Thường 13:35 28/07/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "13:35 28/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "26078663",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "NGUYỄN TRẦN ÁNH LINH",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "Nữ",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "21 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "Viện phí",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "Cắt móng quặm 2 ngón",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "13:35 28/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-08-20 10:36:50.807] [DETAIL_BEGIN] D/s Thủ thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+  "list_datetime": "2026-07-28 13:35:00",
+  "list_method": "Cắt móng quặm 2 ngón",
+  "row": {
+    "access_id": "01709280-5504-4ae1-87aa-b49500e2e4e7",
+    "known_fields": {
+      "stt": "1",
+      "ngay_thu_thuat": "13:35 28/07/2026",
+      "ma_bn": "26078663",
+      "ho_ten": "NGUYỄN TRẦN ÁNH LINH",
+      "gioi_tinh": "Nữ",
+      "tuoi": "21 tuổi",
+      "doi_tuong": "Viện phí",
+      "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+      "chi_dinh_thu_thuat": "Cắt móng quặm 2 ngón",
+      "tam_ung": "0",
+      "phai_thanh_toan": "0",
+      "tinh_trang": "Thường",
+      "thoi_gian_chi_dinh": "13:35 28/07/2026",
+      "trang_thai": "Hoàn tất"
+    },
+    "raw_text": "1 13:35 28/07/2026 26078663 NGUYỄN TRẦN ÁNH LINH Nữ 21 tuổi Viện phí PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B Cắt móng quặm 2 ngón 0 0 Thường 13:35 28/07/2026 Hoàn tất",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "13:35 28/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "26078663",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "NGUYỄN TRẦN ÁNH LINH",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "Nữ",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "21 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "Viện phí",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20B",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "Cắt móng quặm 2 ngón",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "13:35 28/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      },
+      {
+        "text": "Hoàn tất",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-08-20 10:36:50.818] [BROWSER] [DETAIL] kind=procedure; access_id=01709280-5504-4ae1-87aa-b49500e2e4e7; direct_url=yes; onclick=no
+[2026-08-20 10:36:50.820] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648
+[2026-08-20 10:36:52.031] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Trần Quốc Toản (tqtoan) | TG nhấn hoàn tất: 17:03 28/07/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648", "doctor": "Phan Văn Tuấn", "doctor_candidates": [{"id": "txtBacSyChiDinh", "value": "Phan Văn Tuấn"}, {"id": "txtBacSiChiDinh", "value": ""}], "doctor_field": "txtBacSyChiDinh", "doctor_found": true, "method": "Cắt móng quặm 2 ngón", "method_candidates": [{"id": "txtChiDinh", "value": "Cắt móng quặm 2 ngón"}, {"id": "cbbPhuongPhapTT", "value": "Cắt móng quặm 2 ngón"}], "method_field": "txtChiDinh", "patient_info": "(26078663 | NGUYỄN TRẦN ÁNH LINH, 01/01/2005, Nữ, 21 tuổi | Viện phí)", "root_found": true, "start_candidates": [{"id": "txtThoiGianChiDinh", "value": "13:35 28/07/2026"}, {"id": "txtTgBatDau", "value": "13:35 28/07/2026"}], "start_time": "13:35 28/07/2026", "start_time_field": "txtThoiGianChiDinh"}
+[2026-08-20 10:36:52.032] [BROWSER] [DETAIL] Nguồn bác sĩ: Bác sĩ chỉ định; field=txtBacSyChiDinh; value=Phan Văn Tuấn
+[2026-08-20 10:36:52.034] [DETAIL_OK] D/s Thủ thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Phan Văn Tuấn",
+  "mapped_alias": "TUẤN",
+  "mapped_name": "Phan Văn Tuấn",
+  "start_time": "13:35 28/07/2026",
+  "start_time_field": "txtThoiGianChiDinh",
+  "method": "Cắt móng quặm 2 ngón",
+  "method_field": "txtChiDinh",
+  "list_time_source": "Thời gian chỉ định",
+  "list_method_source": "Chỉ định thủ thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=01709280-5504-4ae1-87aa-b49500e2e4e7&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+  "total_score": 660.0,
+  "method_score": 1.0
+}
+[2026-08-20 10:36:52.036] [EVALUATED] D/s Thủ thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Phan Văn Tuấn",
+      "alias": "TUẤN",
+      "detail_datetime": "2026-07-28 13:35:00",
+      "method_score": 1.0,
+      "total_score": 660.0,
+      "confidence_ok": true
+    }
+  ]
+}
+[2026-08-20 10:36:52.037] [SOURCE_MATCH] D/s Thủ thuật: đã chọn bác sĩ, không tìm nguồn còn lại
+{
+  "alias": "TUẤN"
+}
+[2026-08-20 10:36:53.258] [AUTOSAVE_ROW] Dòng 128: đã điền TUẤN và lưu ngay
+{
+  "patient": "NGUYỄN TRẦN ÁNH LINH",
+  "source": "D/s Thủ thuật",
+  "doctor_name": "Phan Văn Tuấn",
+  "emr_doctor": "Phan Văn Tuấn",
+  "matched_time": "13:35 28/07/2026",
+  "matched_method": "Cắt móng quặm 2 ngón",
+  "progress": "6/8",
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:36:53.259] [ROW_END] Kết thúc dòng 128
+{
+  "status": "updated",
+  "new_value": "TUẤN",
+  "reason": null
+}
+[2026-08-20 10:36:53.260] [ROW_BEGIN] [7/8] Bắt đầu dòng 129: PHẠM THỊ NGỌC KIM
+{
+  "raw_time": "2026/07/28 13:40",
+  "parsed_time": "13:40 28/07/2026",
+  "method": "Tiêm gân gót",
+  "old_value": ""
+}
+[2026-08-20 10:36:53.262] [SEARCH_BEGIN] dòng 129: tìm PHẠM THỊ NGỌC KIM tại D/s Thủ thuật
+{
+  "patient": "PHẠM THỊ NGỌC KIM",
+  "target_time": "2026-07-28 13:40:00",
+  "target_method": "Tiêm gân gót",
+  "source": "procedure"
+}
+[2026-08-20 10:36:53.833] [BROWSER] [NAV] D/s Thủ thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648
+[2026-08-20 10:36:55.784] [BROWSER] [FILTER] 3 tháng
+[2026-08-20 10:36:56.426] [BROWSER] [SEARCH] Nhập 'PHẠM THỊ NGỌC KIM' vào #txtTimKiem
+[2026-08-20 10:36:56.638] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-08-20 10:36:56.669] [BROWSER] [RESULT] D/s Thủ thuật: 1 dòng
+[2026-08-20 10:36:56.682] [SEARCH_RESULT] D/s Thủ thuật: nhận 1 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103648",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Ngày thủ thuật",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Đối tượng",
+    "Nơi chỉ định",
+    "Chỉ định thủ thuật",
+    "Tạm ứng",
+    "Phải thanh toán",
+    "Tình trạng",
+    "Thời gian chỉ định",
+    "Trạng thái"
+  ],
+  "rows": [
+    {
+      "access_id": "ebca1739-89f3-4ba8-99dc-b49500e14dca",
+      "known_fields": {
+        "stt": "1",
+        "ngay_thu_thuat": "13:41 28/07/2026",
+        "ma_bn": "26051253",
+        "ho_ten": "PHẠM THỊ NGỌC KIM",
+        "gioi_tinh": "Nữ",
+        "tuoi": "30 tuổi",
+        "doi_tuong": "Bảo hiểm",
+        "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "chi_dinh_thu_thuat": "Tiêm gân gót",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Thường",
+        "thoi_gian_chi_dinh": "13:40 28/07/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "1 13:41 28/07/2026 26051253 PHẠM THỊ NGỌC KIM Nữ 30 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Tiêm gân gót 0 0 Thường 13:40 28/07/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "13:41 28/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "26051253",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "PHẠM THỊ NGỌC KIM",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "Nữ",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "30 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "Bảo hiểm",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "Tiêm gân gót",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "13:40 28/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-08-20 10:36:56.685] [CANDIDATES] D/s Thủ thuật: có 1 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 210.0,
+      "list_datetime": "2026-07-28 13:40:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Tiêm gân gót",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+      "row": {
+        "access_id": "ebca1739-89f3-4ba8-99dc-b49500e14dca",
+        "known_fields": {
+          "stt": "1",
+          "ngay_thu_thuat": "13:41 28/07/2026",
+          "ma_bn": "26051253",
+          "ho_ten": "PHẠM THỊ NGỌC KIM",
+          "gioi_tinh": "Nữ",
+          "tuoi": "30 tuổi",
+          "doi_tuong": "Bảo hiểm",
+          "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "chi_dinh_thu_thuat": "Tiêm gân gót",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Thường",
+          "thoi_gian_chi_dinh": "13:40 28/07/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "1 13:41 28/07/2026 26051253 PHẠM THỊ NGỌC KIM Nữ 30 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Tiêm gân gót 0 0 Thường 13:40 28/07/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "13:41 28/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "26051253",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "PHẠM THỊ NGỌC KIM",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "Nữ",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "30 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "Bảo hiểm",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "Tiêm gân gót",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "13:40 28/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-08-20 10:36:56.686] [DETAIL_BEGIN] D/s Thủ thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+  "list_datetime": "2026-07-28 13:40:00",
+  "list_method": "Tiêm gân gót",
+  "row": {
+    "access_id": "ebca1739-89f3-4ba8-99dc-b49500e14dca",
+    "known_fields": {
+      "stt": "1",
+      "ngay_thu_thuat": "13:41 28/07/2026",
+      "ma_bn": "26051253",
+      "ho_ten": "PHẠM THỊ NGỌC KIM",
+      "gioi_tinh": "Nữ",
+      "tuoi": "30 tuổi",
+      "doi_tuong": "Bảo hiểm",
+      "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+      "chi_dinh_thu_thuat": "Tiêm gân gót",
+      "tam_ung": "0",
+      "phai_thanh_toan": "0",
+      "tinh_trang": "Thường",
+      "thoi_gian_chi_dinh": "13:40 28/07/2026",
+      "trang_thai": "Hoàn tất"
+    },
+    "raw_text": "1 13:41 28/07/2026 26051253 PHẠM THỊ NGỌC KIM Nữ 30 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Tiêm gân gót 0 0 Thường 13:40 28/07/2026 Hoàn tất",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "13:41 28/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "26051253",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "PHẠM THỊ NGỌC KIM",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "Nữ",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "30 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "Bảo hiểm",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "Tiêm gân gót",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "13:40 28/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      },
+      {
+        "text": "Hoàn tất",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-08-20 10:36:56.700] [BROWSER] [DETAIL] kind=procedure; access_id=ebca1739-89f3-4ba8-99dc-b49500e14dca; direct_url=yes; onclick=no
+[2026-08-20 10:36:56.703] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654
+[2026-08-20 10:36:57.955] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Phan Văn Tuấn (pvtuan) | TG nhấn hoàn tất: 14:01 28/07/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654", "doctor": "Trần Quốc Toản", "doctor_candidates": [{"id": "txtBacSyChiDinh", "value": "Trần Quốc Toản"}, {"id": "txtBacSiChiDinh", "value": ""}], "doctor_field": "txtBacSyChiDinh", "doctor_found": true, "method": "Tiêm gân gót", "method_candidates": [{"id": "txtChiDinh", "value": "Tiêm gân gót"}, {"id": "cbbPhuongPhapTT", "value": "Tiêm gân gót"}], "method_field": "txtChiDinh", "patient_info": "(26051253 | PHẠM THỊ NGỌC KIM, 30/03/1996, Nữ, 30 tuổi | Bảo hiểm)", "root_found": true, "start_candidates": [{"id": "txtThoiGianChiDinh", "value": "13:40 28/07/2026"}, {"id": "txtTgBatDau", "value": "13:41 28/07/2026"}], "start_time": "13:40 28/07/2026", "start_time_field": "txtThoiGianChiDinh"}
+[2026-08-20 10:36:57.958] [BROWSER] [DETAIL] Nguồn bác sĩ: Bác sĩ chỉ định; field=txtBacSyChiDinh; value=Trần Quốc Toản
+[2026-08-20 10:36:57.960] [DETAIL_OK] D/s Thủ thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Trần Quốc Toản",
+  "mapped_alias": "TOẢN",
+  "mapped_name": "Trần Quốc Toản",
+  "start_time": "13:40 28/07/2026",
+  "start_time_field": "txtThoiGianChiDinh",
+  "method": "Tiêm gân gót",
+  "method_field": "txtChiDinh",
+  "list_time_source": "Thời gian chỉ định",
+  "list_method_source": "Chỉ định thủ thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=ebca1739-89f3-4ba8-99dc-b49500e14dca&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+  "total_score": 660.0,
+  "method_score": 1.0
+}
+[2026-08-20 10:36:57.962] [EVALUATED] D/s Thủ thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Trần Quốc Toản",
+      "alias": "TOẢN",
+      "detail_datetime": "2026-07-28 13:40:00",
+      "method_score": 1.0,
+      "total_score": 660.0,
+      "confidence_ok": true
+    }
+  ]
+}
+[2026-08-20 10:36:57.963] [SOURCE_MATCH] D/s Thủ thuật: đã chọn bác sĩ, không tìm nguồn còn lại
+{
+  "alias": "TOẢN"
+}
+[2026-08-20 10:36:59.569] [AUTOSAVE_ROW] Dòng 129: đã điền TOẢN và lưu ngay
+{
+  "patient": "PHẠM THỊ NGỌC KIM",
+  "source": "D/s Thủ thuật",
+  "doctor_name": "Trần Quốc Toản",
+  "emr_doctor": "Trần Quốc Toản",
+  "matched_time": "13:40 28/07/2026",
+  "matched_method": "Tiêm gân gót",
+  "progress": "7/8",
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:36:59.570] [ROW_END] Kết thúc dòng 129
+{
+  "status": "updated",
+  "new_value": "TOẢN",
+  "reason": null
+}
+[2026-08-20 10:36:59.572] [ROW_BEGIN] [8/8] Bắt đầu dòng 130: HÀ HỒNG TUẤN
+{
+  "raw_time": "2026/07/31 10:00",
+  "parsed_time": "10:00 31/07/2026",
+  "method": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+  "old_value": ""
+}
+[2026-08-20 10:36:59.575] [SEARCH_BEGIN] dòng 130: tìm HÀ HỒNG TUẤN tại D/s Thủ thuật
+{
+  "patient": "HÀ HỒNG TUẤN",
+  "target_time": "2026-07-31 10:00:00",
+  "target_method": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+  "source": "procedure"
+}
+[2026-08-20 10:37:00.510] [BROWSER] [NAV] D/s Thủ thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654
+[2026-08-20 10:37:02.603] [BROWSER] [FILTER] 3 tháng
+[2026-08-20 10:37:03.291] [BROWSER] [SEARCH] Nhập 'HÀ HỒNG TUẤN' vào #txtTimKiem
+[2026-08-20 10:37:03.542] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-08-20 10:37:03.594] [BROWSER] [RESULT] D/s Thủ thuật: 1 dòng
+[2026-08-20 10:37:03.610] [SEARCH_RESULT] D/s Thủ thuật: nhận 1 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachthuthuatdraw&role=323&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103654",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Ngày thủ thuật",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Đối tượng",
+    "Nơi chỉ định",
+    "Chỉ định thủ thuật",
+    "Tạm ứng",
+    "Phải thanh toán",
+    "Tình trạng",
+    "Thời gian chỉ định",
+    "Trạng thái"
+  ],
+  "rows": [
+    {
+      "access_id": "0c092e75-abaf-4b52-81bc-b49800a4f72b",
+      "known_fields": {
+        "stt": "1",
+        "ngay_thu_thuat": "10:00 31/07/2026",
+        "ma_bn": "26065296",
+        "ho_ten": "HÀ HỒNG TUẤN",
+        "gioi_tinh": "Nam",
+        "tuoi": "38 tuổi",
+        "doi_tuong": "Bảo hiểm",
+        "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "chi_dinh_thu_thuat": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+        "tam_ung": "0",
+        "phai_thanh_toan": "0",
+        "tinh_trang": "Thường",
+        "thoi_gian_chi_dinh": "10:00 31/07/2026",
+        "trang_thai": "Hoàn tất"
+      },
+      "raw_text": "1 10:00 31/07/2026 26065296 HÀ HỒNG TUẤN Nam 38 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm 0 0 Thường 10:00 31/07/2026 Hoàn tất",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "10:00 31/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "26065296",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "HÀ HỒNG TUẤN",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "Nam",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "38 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "Bảo hiểm",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "0",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "10:00 31/07/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        },
+        {
+          "text": "Hoàn tất",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-08-20 10:37:03.613] [CANDIDATES] D/s Thủ thuật: có 1 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 210.0,
+      "list_datetime": "2026-07-31 10:00:00",
+      "list_time_source": "Thời gian chỉ định",
+      "list_method": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+      "list_method_source": "Chỉ định thủ thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+      "row": {
+        "access_id": "0c092e75-abaf-4b52-81bc-b49800a4f72b",
+        "known_fields": {
+          "stt": "1",
+          "ngay_thu_thuat": "10:00 31/07/2026",
+          "ma_bn": "26065296",
+          "ho_ten": "HÀ HỒNG TUẤN",
+          "gioi_tinh": "Nam",
+          "tuoi": "38 tuổi",
+          "doi_tuong": "Bảo hiểm",
+          "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+          "chi_dinh_thu_thuat": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+          "tam_ung": "0",
+          "phai_thanh_toan": "0",
+          "tinh_trang": "Thường",
+          "thoi_gian_chi_dinh": "10:00 31/07/2026",
+          "trang_thai": "Hoàn tất"
+        },
+        "raw_text": "1 10:00 31/07/2026 26065296 HÀ HỒNG TUẤN Nam 38 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm 0 0 Thường 10:00 31/07/2026 Hoàn tất",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "10:00 31/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "26065296",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "HÀ HỒNG TUẤN",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "Nam",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "38 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "Bảo hiểm",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "0",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "10:00 31/07/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          },
+          {
+            "text": "Hoàn tất",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-08-20 10:37:03.615] [DETAIL_BEGIN] D/s Thủ thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+  "list_datetime": "2026-07-31 10:00:00",
+  "list_method": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+  "row": {
+    "access_id": "0c092e75-abaf-4b52-81bc-b49800a4f72b",
+    "known_fields": {
+      "stt": "1",
+      "ngay_thu_thuat": "10:00 31/07/2026",
+      "ma_bn": "26065296",
+      "ho_ten": "HÀ HỒNG TUẤN",
+      "gioi_tinh": "Nam",
+      "tuoi": "38 tuổi",
+      "doi_tuong": "Bảo hiểm",
+      "noi_chi_dinh": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+      "chi_dinh_thu_thuat": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+      "tam_ung": "0",
+      "phai_thanh_toan": "0",
+      "tinh_trang": "Thường",
+      "thoi_gian_chi_dinh": "10:00 31/07/2026",
+      "trang_thai": "Hoàn tất"
+    },
+    "raw_text": "1 10:00 31/07/2026 26065296 HÀ HỒNG TUẤN Nam 38 tuổi Bảo hiểm PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20 Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm 0 0 Thường 10:00 31/07/2026 Hoàn tất",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "10:00 31/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "26065296",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "HÀ HỒNG TUẤN",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "Nam",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "38 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "Bảo hiểm",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "PHÒNG KHÁM CHẤN THƯƠNG CHỈNH HÌNH - 20",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "0",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "10:00 31/07/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      },
+      {
+        "text": "Hoàn tất",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-08-20 10:37:03.629] [BROWSER] [DETAIL] kind=procedure; access_id=0c092e75-abaf-4b52-81bc-b49800a4f72b; direct_url=yes; onclick=no
+[2026-08-20 10:37:03.630] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700
+[2026-08-20 10:37:04.988] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Thạch Thị Thúy Đa (tttda) | TG nhấn hoàn tất: 10:39 31/07/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700", "doctor": "Phạm Việt Tân", "doctor_candidates": [{"id": "txtBacSyChiDinh", "value": "Phạm Việt Tân"}, {"id": "txtBacSiChiDinh", "value": ""}], "doctor_field": "txtBacSyChiDinh", "doctor_found": true, "method": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm", "method_candidates": [{"id": "txtChiDinh", "value": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm"}, {"id": "cbbPhuongPhapTT", "value": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm"}], "method_field": "txtChiDinh", "patient_info": "(26065296 | HÀ HỒNG TUẤN, 01/10/1988, Nam, 38 tuổi | Bảo hiểm)", "root_found": true, "start_candidates": [{"id": "txtThoiGianChiDinh", "value": "10:00 31/07/2026"}, {"id": "txtTgBatDau", "value": "10:00 31/07/2026"}], "start_time": "10:00 31/07/2026", "start_time_field": "txtThoiGianChiDinh"}
+[2026-08-20 10:37:04.990] [BROWSER] [DETAIL] Nguồn bác sĩ: Bác sĩ chỉ định; field=txtBacSyChiDinh; value=Phạm Việt Tân
+[2026-08-20 10:37:04.992] [DETAIL_OK] D/s Thủ thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Phạm Việt Tân",
+  "mapped_alias": "V.TÂN",
+  "mapped_name": "Phạm Việt Tân",
+  "start_time": "10:00 31/07/2026",
+  "start_time_field": "txtThoiGianChiDinh",
+  "method": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+  "method_field": "txtChiDinh",
+  "list_time_source": "Thời gian chỉ định",
+  "list_method_source": "Chỉ định thủ thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=thuthuatnewdraw&thuthuatid=0c092e75-abaf-4b52-81bc-b49800a4f72b&usid=172.31.255.1_fv04bf3f5jcmkkg0gfeufstv9458e81d&st=103700",
+  "total_score": 660.0,
+  "method_score": 1.0
+}
+[2026-08-20 10:37:04.994] [EVALUATED] D/s Thủ thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Phạm Việt Tân",
+      "alias": "V.TÂN",
+      "detail_datetime": "2026-07-31 10:00:00",
+      "method_score": 1.0,
+      "total_score": 660.0,
+      "confidence_ok": true
+    }
+  ]
+}
+[2026-08-20 10:37:04.995] [SOURCE_MATCH] D/s Thủ thuật: đã chọn bác sĩ, không tìm nguồn còn lại
+{
+  "alias": "V.TÂN"
+}
+[2026-08-20 10:37:06.333] [AUTOSAVE_ROW] Dòng 130: đã điền V.TÂN và lưu ngay
+{
+  "patient": "HÀ HỒNG TUẤN",
+  "source": "D/s Thủ thuật",
+  "doctor_name": "Phạm Việt Tân",
+  "emr_doctor": "Phạm Việt Tân",
+  "matched_time": "10:00 31/07/2026",
+  "matched_method": "Hút ổ viêm/áp xe phần mềm dưới hướng dẫn của siêu âm",
+  "progress": "8/8",
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T7_NHAP_LIEU.xlsx"
+}
+[2026-08-20 10:37:06.334] [ROW_END] Kết thúc dòng 130
+{
+  "status": "updated",
+  "new_value": "V.TÂN",
+  "reason": null
+}
+[2026-08-20 10:37:08.864] [BROWSER_CLOSE] Đã đóng trình duyệt EMR
+[2026-08-20 10:37:10.035] [FINISH] Kết thúc phiên đối chiếu EMR
+{
+  "updatedRows": 8,
+  "unmatchedRows": 0
+}
