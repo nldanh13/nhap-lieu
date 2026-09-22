@@ -151,6 +151,29 @@
               <div class="surgery-tools" data-context="surgery">
                 <button class="btn accent" data-task="bo-sung-phu-mo" type="button">Điền PTV / phụ mổ</button>
                 <button id="clearAssistantsBtn" class="btn warning-outline" type="button">Xóa mẫu phụ mổ</button>
+                <details class="upload-details">
+                  <summary>＋ Nhập từ ảnh sổ (OCR)</summary>
+                  <div class="upload-popover">
+                    <label>Danh sách sơ bộ (Excel)</label>
+                    <div class="field-inline">
+                      <input id="soBoExcelInput" class="file-input" type="file" accept=".xlsx" />
+                      <label for="soBoExcelInput" class="upload-picker">
+                        <span id="soBoExcelFileName">Chọn file Excel</span>
+                        <strong>Duyệt file</strong>
+                      </label>
+                    </div>
+                    <label>ZIP ảnh nguồn</label>
+                    <div class="field-inline">
+                      <input id="soBoZipInput" class="file-input" type="file" accept=".zip" />
+                      <label for="soBoZipInput" class="upload-picker">
+                        <span id="soBoZipFileName">Chọn file ZIP</span>
+                        <strong>Duyệt file</strong>
+                      </label>
+                    </div>
+                    <button id="nhapPhauThuatSoBoBtn" class="btn primary" type="button">Nhập vào phauthuat</button>
+                    <div class="field-note">Cột "Loại phẫu thuật" và "Số tiền" cần tự điền sau — xem file báo cáo tải kèm.</div>
+                  </div>
+                </details>
               </div>
               <div class="procedure-tools" data-context="thuthuat">
                 <button class="btn accent" data-task="chuyen-tieu-phau" type="button">Chuyển tiểu phẫu + điền BS</button>

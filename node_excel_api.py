@@ -1792,6 +1792,35 @@ def command_task_chuyen_tieu_phau(args):
     respond(result)
 
 
+def command_task_nhap_phau_thuat_so_bo(args):
+    """Chuẩn hóa (tách 4 cột BS) file 'Danh sách sơ bộ' trích từ ảnh sổ phẫu
+    thuật, rồi nhập các dòng đó vào sheet phauthuat của file đang dùng."""
+    import xu_ly_so_phau_thuat as xu_ly_mod
+    import nhap_phau_thuat_tu_so_bo as nhap_mod
+
+    input_file = Path(args.file)
+    so_bo_file = Path(args.so_bo)
+    zip_file = Path(args.zip)
+    sheet_so_bo = args.sheet_so_bo or nhap_mod.SHEET_SO_BO_MAC_DINH
+    output_file = output_path_from_args(input_file, args.output, "_NHAP_LIEU")
+    report_file = report_path_for(output_file).with_name(
+        output_file.stem + "_bao_cao_nhap_phau_thuat.xlsx"
+    )
+    chuan_hoa_file = output_file.with_name(output_file.stem + "_so_bo_chuan_hoa_tmp.xlsx")
+
+    xu_ly_mod.normalize_workbook(so_bo_file, zip_file, chuan_hoa_file, sheet_so_bo)
+    result = nhap_mod.nhap_phau_thuat_tu_so_bo(input_file, chuan_hoa_file, output_file, sheet_so_bo)
+    nhap_mod.tao_bao_cao(result["bao_cao_rows"], report_file)
+    try:
+        chuan_hoa_file.unlink()
+    except Exception:
+        pass
+
+    result.pop("bao_cao_rows", None)
+    result.update({"ok": True, "file": str(output_file), "report": str(report_file)})
+    respond(result)
+
+
 def command_task_cap_nhat_cls_tieuphau(args):
     """Chuyển các CLS vừa bổ sung; lưu ngay và để Bác Sĩ trống cho EMR xử lý."""
     import chuyen_thu_thuat_sang_tieuphau_t5 as mod
@@ -1955,6 +1984,13 @@ def build_parser():
     p.add_argument("--file", required=True)
     p.add_argument("--output")
 
+    p = sub.add_parser("task-nhap-phau-thuat-so-bo")
+    p.add_argument("--file", required=True)
+    p.add_argument("--so-bo", required=True, dest="so_bo")
+    p.add_argument("--zip", required=True)
+    p.add_argument("--sheet-so-bo", dest="sheet_so_bo")
+    p.add_argument("--output")
+
     return parser
 
 
@@ -1982,6 +2018,7 @@ def main():
             "task-chuyen-tieu-phau": command_task_chuyen_tieu_phau,
             "task-cap-nhat-cls-tieuphau": command_task_cap_nhat_cls_tieuphau,
             "task-dien-bs": command_task_dien_bs,
+            "task-nhap-phau-thuat-so-bo": command_task_nhap_phau_thuat_so_bo,
         }
         commands[args.cmd](args)
     except SystemExit:

@@ -2070,6 +2070,49 @@ async function runTask(task) {
 }
 
 
+async function runNhapPhauThuatSoBo() {
+  const soBoInput = $('soBoExcelInput');
+  const zipInput = $('soBoZipInput');
+  if (!soBoInput.files.length || !zipInput.files.length) {
+    alert('Chọn đủ file Excel "Danh sách sơ bộ" và file ZIP ảnh nguồn.');
+    return;
+  }
+  if (!state.currentFile) return;
+  setBusy(true, 'Đang nhập dữ liệu từ ảnh sổ phẫu thuật...');
+  try {
+    await flushAllRows();
+    const form = new FormData();
+    form.append('file', state.currentFile);
+    form.append('soBo', soBoInput.files[0]);
+    form.append('zip', zipInput.files[0]);
+    const res = await fetch('/api/task-nhap-phau-thuat-so-bo', { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok || data.ok === false) throw new Error(data.error || 'Nhập dữ liệu lỗi.');
+    state.currentFile = data.file || state.currentFile;
+    showResult($('taskResult'), data);
+    soBoInput.value = '';
+    zipInput.value = '';
+    if ($('soBoExcelFileName')) $('soBoExcelFileName').textContent = 'Chọn file Excel';
+    if ($('soBoZipFileName')) $('soBoZipFileName').textContent = 'Chọn file ZIP';
+    await selectFile(state.currentFile);
+    if (state.sheets.includes('phauthuat')) $('sheetSelect').value = 'phauthuat';
+    await loadSheet('phauthuat');
+    await persistCleanState('Đã nhập dữ liệu từ ảnh sổ phẫu thuật');
+    const canKiemTra = Number(data.so_dong_can_kiem_tra || 0);
+    showToast(
+      `Đã thêm ${data.so_dong_them || 0} dòng; ${canKiemTra} dòng cần kiểm tra tên bác sĩ. Nhớ tự điền Loại phẫu thuật và Số tiền cho các dòng mới.`,
+      canKiemTra ? 'warning' : 'success',
+      8000
+    );
+    log(`Đã nhập ${data.so_dong_them || 0} dòng từ sổ phẫu thuật (OCR). Báo cáo: ${displayPath(data.report || '')}`);
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi nhập từ sổ phẫu thuật: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
 function switchMainTab(tabName) {
   const isData = tabName === 'data';
   const isStaff = tabName === 'staff';
@@ -2455,6 +2498,15 @@ function bindEvents() {
         ? (files.length === 1 ? files[0].name : `${files.length} file đã chọn`)
         : 'Chọn file Excel';
     }
+  });
+  $('nhapPhauThuatSoBoBtn')?.addEventListener('click', runNhapPhauThuatSoBo);
+  $('soBoExcelInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('soBoExcelFileName')) $('soBoExcelFileName').textContent = file ? file.name : 'Chọn file Excel';
+  });
+  $('soBoZipInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('soBoZipFileName')) $('soBoZipFileName').textContent = file ? file.name : 'Chọn file ZIP';
   });
   $('loadSheetBtn').addEventListener('click', () => {
     loadSheet().catch(err => alert(err.message));

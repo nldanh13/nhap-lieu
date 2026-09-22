@@ -526,6 +526,31 @@ app.post('/api/run-task', asyncHandler(async (req, res) => {
   res.json(data);
 }));
 
+const uploadSoBoPhauThuat = multer({ storage }).fields([
+  { name: 'soBo', maxCount: 1 },
+  { name: 'zip', maxCount: 1 },
+]);
+
+app.post('/api/task-nhap-phau-thuat-so-bo', uploadSoBoPhauThuat, asyncHandler(async (req, res) => {
+  const file = safeResolve(req.body.file);
+  const soBoFile = req.files?.soBo?.[0];
+  const zipFile = req.files?.zip?.[0];
+  if (!soBoFile) throw new Error('Chưa chọn file "Danh sách sơ bộ".');
+  if (!zipFile) throw new Error('Chưa chọn file ZIP ảnh nguồn.');
+
+  const output = outputPathFor(file);
+  const args = [
+    'task-nhap-phau-thuat-so-bo',
+    '--file', file,
+    '--so-bo', soBoFile.path,
+    '--zip', zipFile.path,
+    '--output', output,
+  ];
+  if (req.body.sheetSoBo) args.push('--sheet-so-bo', String(req.body.sheetSoBo));
+  const data = await runPython(args, { includeRaw: true });
+  res.json(data);
+}));
+
 app.get('/download', asyncHandler(async (req, res) => {
   const file = safeResolve(req.query.file);
   if (!fs.existsSync(file)) throw new Error('File không tồn tại.');
