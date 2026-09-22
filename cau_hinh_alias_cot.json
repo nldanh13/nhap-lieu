@@ -1,0 +1,9 @@
+{
+  "Ngày": ["Ngày", "NGÀY", "Ngày chỉ định"],
+  "Họ và tên": ["Họ và tên", "Họ và tên bệnh nhân", "Tên bệnh nhân"],
+  "Tuổi": ["Tuổi", "Năm sinh"],
+  "Tên CLS": ["Tên CLS", "Chẩn đoán và phương pháp phẫu thuật", "Tên dịch vụ/thuốc"],
+  "Số Lượng": ["Số Lượng", "Số lượng"],
+  "Bác Sĩ": ["Bác Sĩ", "BS"],
+  "Điều Dưỡng": ["Điều Dưỡng"]
+}
