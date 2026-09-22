@@ -528,24 +528,25 @@ def command_save_staff_list(args):
     for item in normalized:
         item["label"] = f"{item['biDanh']} — {item['hoTen']} ({item['nhom']})"
 
-    # Không cho trùng bí danh trong cùng nhóm vai trò đang hoạt động vì sẽ làm
-    # gợi ý nhập liệu không xác định được người dùng muốn chọn ai. Đến đây,
-    # bí danh giống hệt nhau đã được tự tách ở trên nếu đủ tên đệm, nên phần
-    # còn trùng chỉ có thể là gần giống (thường chỉ khác dấu) — báo rõ để
-    # người dùng kiểm tra có đúng là hai người khác nhau hay đánh nhầm dấu.
-    seen: dict[tuple[str, str], tuple[str, str]] = {}
+    # Bí danh chỉ khác dấu (vd "Thanh" so với "Thạnh") vẫn được coi là hai
+    # người khác nhau và cho lưu bình thường, không chặn. Chỉ khi bí danh
+    # giống hệt nhau từng ký tự (kể cả dấu) mới cần xử lý — bước
+    # _tu_dong_tach_biet_trung_ten ở trên đã tự thêm tên đệm để phân biệt.
+    # Nếu vẫn còn trùng y hệt sau khi đã thử tách (không đủ tên đệm khác
+    # nhau) thì mới chặn, vì lúc đó không có cách nào phân biệt hai người
+    # trên màn hình gợi ý nhập liệu.
+    seen: dict[tuple[str, str], str] = {}
     for item in normalized:
         if not item.get("active", True):
             continue
-        key = (_role_family(item["vaiTro"]), normalize_text(item["biDanh"]))
+        key = (_role_family(item["vaiTro"]), item["biDanh"])
         if key in seen:
-            ten_cu, bi_danh_cu = seen[key]
             raise ValueError(
-                f"Bí danh '{item['biDanh']}' của '{item['hoTen']}' rất giống bí danh '{bi_danh_cu}' của "
-                f"'{ten_cu}' (có thể chỉ khác dấu). Kiểm tra xem có đúng là hai người khác nhau không — nếu "
-                f"đúng, hãy đặt bí danh rõ ràng hơn (vd thêm tên đệm) để tránh gợi ý nhầm khi nhập liệu."
+                f"Bí danh '{item['biDanh']}' bị trùng y hệt giữa '{seen[key]}' và '{item['hoTen']}' — không đủ "
+                f"tên đệm khác nhau để tự phân biệt. Hãy đặt bí danh khác cho một trong hai (vd thêm tên đệm "
+                f"đầy đủ hơn)."
             )
-        seen[key] = (item["hoTen"], item["biDanh"])
+        seen[key] = item["hoTen"]
 
     data_to_write = {
         "version": 1,
