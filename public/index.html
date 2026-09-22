@@ -23,6 +23,7 @@
       <button id="dataTabBtn" class="main-tab active" type="button">Nhập dữ liệu</button>
       <button id="staffTabBtn" class="main-tab" type="button">Quản lý nhân sự</button>
       <button id="clsTabBtn" class="main-tab" type="button">Quản lý tên CLS</button>
+      <button id="soPhauThuatTabBtn" class="main-tab" type="button">Sổ phẫu thuật (ảnh)</button>
     </nav>
 
     <div class="topbar-actions">
@@ -362,6 +363,59 @@
             </table>
           </div>
         </section>
+      </section>
+    </section>
+
+    <section id="soPhauThuatView" class="app-view hidden">
+      <section class="staff-page-head">
+        <div>
+          <div class="eyebrow">SỐ HÓA SỔ VIẾT TAY</div>
+          <h2>Sổ phẫu thuật (ảnh)</h2>
+          <p>Upload file "Danh sách sơ bộ" (đã trích xuất từ ảnh) và ZIP ảnh gốc. Bấm vào người bệnh trong danh sách để xem đúng ảnh trang sổ tương ứng, đối chiếu trước khi nhập vào sheet phauthuat.</p>
+        </div>
+      </section>
+
+      <section class="so-pt-upload-bar">
+        <div class="field-inline">
+          <input id="soPtDanhSachInput" class="file-input" type="file" accept=".xlsx" />
+          <label for="soPtDanhSachInput" class="upload-picker">
+            <span id="soPtDanhSachFileName">Chọn file "Danh sách sơ bộ"</span>
+            <strong>Duyệt file</strong>
+          </label>
+          <button id="soPtDanhSachBtn" class="btn primary" type="button">Tải danh sách</button>
+        </div>
+        <div class="field-inline">
+          <input id="soPtZipInput" class="file-input" type="file" accept=".zip" />
+          <label for="soPtZipInput" class="upload-picker">
+            <span id="soPtZipFileName">Chọn file ZIP ảnh</span>
+            <strong>Duyệt file</strong>
+          </label>
+          <button id="soPtZipBtn" class="btn primary" type="button">Tải ảnh</button>
+        </div>
+        <span id="soPtStatus" class="field-note"></span>
+      </section>
+
+      <div class="staff-stats" id="soPtStats"></div>
+
+      <section class="staff-layout so-pt-layout">
+        <section class="staff-list-card">
+          <div class="staff-list-toolbar">
+            <div class="search-control staff-search">
+              <span class="search-icon">⌕</span>
+              <input id="soPtSearchInput" placeholder="Tìm người bệnh, bác sĩ, phương pháp..." />
+            </div>
+          </div>
+          <div class="staff-table-wrap">
+            <table class="staff-table so-pt-table">
+              <thead><tr><th>Ngày</th><th>Họ và tên</th><th>Chẩn đoán / Phương pháp</th><th>Bác sĩ</th><th>Ảnh</th></tr></thead>
+              <tbody id="soPtTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="so-pt-detail" id="soPtDetail">
+          <div class="so-pt-detail-empty">Bấm vào một người bệnh trong danh sách để xem ảnh gốc trang sổ.</div>
+        </aside>
       </section>
     </section>
   </main>

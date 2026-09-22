@@ -1821,6 +1821,40 @@ def command_task_nhap_phau_thuat_so_bo(args):
     respond(result)
 
 
+def command_extract_zip_images(args):
+    """Giải nén ảnh (.jpg/.jpeg/.png) từ ZIP vào một thư mục cố định, chỉ giữ
+    đúng 1 bộ ảnh đang dùng (xóa ảnh cũ trước khi giải nén) để khớp với đúng
+    một 'quyển sổ phẫu thuật' đang xem trên web."""
+    import zipfile
+
+    zip_path = Path(args.zip)
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    for existing in output_dir.glob("*"):
+        if existing.is_file():
+            try:
+                existing.unlink()
+            except Exception:
+                pass
+
+    extracted: list[str] = []
+    with zipfile.ZipFile(zip_path) as zf:
+        for name in zf.namelist():
+            if not name.lower().endswith((".jpg", ".jpeg", ".png")):
+                continue
+            base = Path(name).name
+            if not base:
+                continue
+            target = output_dir / base
+            with zf.open(name) as src, open(target, "wb") as dst:
+                dst.write(src.read())
+            extracted.append(base)
+
+    extracted.sort(key=str.casefold)
+    respond({"ok": True, "images": extracted, "count": len(extracted)})
+
+
 def command_task_cap_nhat_cls_tieuphau(args):
     """Chuyển các CLS vừa bổ sung; lưu ngay và để Bác Sĩ trống cho EMR xử lý."""
     import chuyen_thu_thuat_sang_tieuphau_t5 as mod
@@ -1991,6 +2025,10 @@ def build_parser():
     p.add_argument("--sheet-so-bo", dest="sheet_so_bo")
     p.add_argument("--output")
 
+    p = sub.add_parser("extract-zip-images")
+    p.add_argument("--zip", required=True)
+    p.add_argument("--output-dir", required=True, dest="output_dir")
+
     return parser
 
 
@@ -2019,6 +2057,7 @@ def main():
             "task-cap-nhat-cls-tieuphau": command_task_cap_nhat_cls_tieuphau,
             "task-dien-bs": command_task_dien_bs,
             "task-nhap-phau-thuat-so-bo": command_task_nhap_phau_thuat_so_bo,
+            "extract-zip-images": command_extract_zip_images,
         }
         commands[args.cmd](args)
     except SystemExit:

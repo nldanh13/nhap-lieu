@@ -11,6 +11,7 @@ const uploadDir = path.join(APP_ROOT, 'node_uploads');
 const outputDir = path.join(APP_ROOT, 'node_outputs');
 const autosaveDir = path.join(APP_ROOT, 'node_autosaves');
 const theoSoDir = path.join(APP_ROOT, 'TheoSo');
+const soPhauThuatAnhDir = path.join(uploadDir, 'so_phau_thuat_anh');
 const autosaveStateFile = path.join(autosaveDir, 'autosave_state.json');
 const emrConfigFile = path.join(APP_ROOT, 'emr_config.json');
 const WORK_SUFFIX = '_NHAP_LIEU';
@@ -24,6 +25,7 @@ fs.mkdirSync(uploadDir, { recursive: true });
 fs.mkdirSync(outputDir, { recursive: true });
 fs.mkdirSync(autosaveDir, { recursive: true });
 fs.mkdirSync(theoSoDir, { recursive: true });
+fs.mkdirSync(soPhauThuatAnhDir, { recursive: true });
 
 const app = express();
 app.use(express.json({ limit: '20mb' }));
@@ -550,6 +552,42 @@ app.post('/api/task-nhap-phau-thuat-so-bo', uploadSoBoPhauThuat, asyncHandler(as
   const data = await runPython(args, { includeRaw: true });
   res.json(data);
 }));
+
+// ===== Sổ phẫu thuật (ảnh): xem danh sách sơ bộ OCR kèm ảnh gốc trang sổ =====
+
+app.post('/api/so-phau-thuat/upload-danh-sach', upload.single('file'), asyncHandler(async (req, res) => {
+  if (!req.file) throw new Error('Chưa chọn file "Danh sách sơ bộ".');
+  const ext = path.extname(req.file.originalname || '').toLowerCase();
+  if (ext !== '.xlsx') {
+    try { fs.unlinkSync(req.file.path); } catch (_err) {}
+    throw new Error('Chỉ hỗ trợ file Excel .xlsx.');
+  }
+  res.json({ ok: true, file: req.file.path, name: req.file.originalname });
+}));
+
+const uploadSoPhauThuatAnh = multer({ storage }).single('zip');
+
+app.post('/api/so-phau-thuat/upload-anh', uploadSoPhauThuatAnh, asyncHandler(async (req, res) => {
+  if (!req.file) throw new Error('Chưa chọn file ZIP ảnh.');
+  const data = await runPython([
+    'extract-zip-images', '--zip', req.file.path, '--output-dir', soPhauThuatAnhDir,
+  ]);
+  res.json(data);
+}));
+
+app.get('/api/so-phau-thuat/anh/:filename', (req, res) => {
+  const name = path.basename(String(req.params.filename || ''));
+  if (!name || name !== req.params.filename) {
+    res.status(400).json({ ok: false, error: 'Tên file ảnh không hợp lệ.' });
+    return;
+  }
+  const target = path.join(soPhauThuatAnhDir, name);
+  if (!fs.existsSync(target)) {
+    res.status(404).json({ ok: false, error: 'Không tìm thấy ảnh. Hãy tải lại file ZIP ảnh.' });
+    return;
+  }
+  res.sendFile(target);
+});
 
 app.get('/download', asyncHandler(async (req, res) => {
   const file = safeResolve(req.query.file);
