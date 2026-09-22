@@ -594,6 +594,19 @@ tbody tr.saved-flash td { animation: savedFlash 1.35s ease-out; }
   .so-pt-layout { grid-template-columns: 1fr; }
   .so-pt-detail { position: static; }
 }
+
+.so-pt-goi-y-head { margin-top: 18px; }
+.so-pt-goi-y-list { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.so-pt-goi-y-card { border: 1px solid var(--line); border-radius: var(--radius); background: #fff; padding: 12px 14px; box-shadow: 0 3px 12px rgba(24,46,78,.04); }
+.so-pt-goi-y-head-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 13.5px; margin-bottom: 6px; }
+.so-pt-goi-y-head-row strong { font-size: 14.5px; }
+.so-pt-goi-y-body { font-size: 12px; color: var(--text); line-height: 1.55; }
+.so-pt-goi-y-body div { margin-bottom: 2px; }
+.so-pt-warn { color: #b45309; font-weight: 700; }
+.so-pt-goi-y-actions { display: flex; gap: 8px; margin-top: 10px; }
+.so-pt-goi-y-image { margin-top: 10px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #f7f9fc; }
+.so-pt-goi-y-image img { display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto; }
+.so-pt-goi-y-image.hidden { display: none; }
 .role-badge, .active-badge { display: inline-flex; min-height: 24px; align-items: center; padding: 4px 8px; border-radius: 999px; font-size: 11px; font-weight: 820; }
 .role-badge { background: #eef3f9; color: #4b5f77; }
 .role-badge.bsnt { background: #eaf1ff; color: #2355b4; }

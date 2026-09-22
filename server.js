@@ -589,6 +589,15 @@ app.get('/api/so-phau-thuat/anh/:filename', (req, res) => {
   res.sendFile(target);
 });
 
+app.get('/api/so-phau-thuat/doi-chieu', asyncHandler(async (req, res) => {
+  const file = safeResolve(req.query.file);
+  const soBo = safeResolve(req.query.soBo);
+  const args = ['doi-chieu-phau-thuat-anh', '--file', file, '--so-bo', soBo];
+  if (req.query.sheetSoBo) args.push('--sheet-so-bo', String(req.query.sheetSoBo));
+  const data = await runPython(args);
+  res.json(data);
+}));
+
 app.get('/download', asyncHandler(async (req, res) => {
   const file = safeResolve(req.query.file);
   if (!fs.existsSync(file)) throw new Error('File không tồn tại.');

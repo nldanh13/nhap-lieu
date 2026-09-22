@@ -25,6 +25,8 @@ const state = {
   pendingEmrAction: '',
   headerAliases: {},
   soPhauThuat: { danhSachFile: '', headers: [], rows: [], filtered: [], selectedIndex: -1, imagesLoaded: false },
+  soPtDoiChieu: [],
+  soPtDoiChieuOpenRows: new Set(),
 };
 
 const $ = (id) => document.getElementById(id);
@@ -2298,6 +2300,154 @@ function updateSoPtStats() {
   box.innerHTML = `<div class="overview-stat"><strong>${total}</strong><span>người bệnh</span></div>`;
 }
 
+async function runSoPtDoiChieu() {
+  if (!state.currentFile) {
+    alert('Chưa có file đang mở ở tab "Nhập dữ liệu".');
+    return;
+  }
+  if (!state.soPhauThuat.danhSachFile) {
+    alert('Chưa tải file "Danh sách sơ bộ" ở trên.');
+    return;
+  }
+  setBusy(true, 'Đang đối chiếu với sheet phauthuat...');
+  if ($('soPtDoiChieuStatus')) $('soPtDoiChieuStatus').textContent = 'Đang đối chiếu...';
+  try {
+    const data = await api(
+      `/api/so-phau-thuat/doi-chieu?file=${encodeURIComponent(state.currentFile)}&soBo=${encodeURIComponent(state.soPhauThuat.danhSachFile)}`
+    );
+    state.soPtDoiChieu = data.goiY || [];
+    state.soPtDoiChieuOpenRows = new Set();
+    renderSoPtDoiChieuList();
+    const count = state.soPtDoiChieu.length;
+    if ($('soPtDoiChieuStatus')) {
+      $('soPtDoiChieuStatus').textContent = count
+        ? `Tìm được ${count} dòng thiếu PTV chính có gợi ý từ ảnh.`
+        : 'Không có dòng nào thiếu PTV chính khớp được với dữ liệu ảnh.';
+    }
+    log(`Đối chiếu phauthuat với ảnh: ${count} gợi ý.`);
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi đối chiếu phauthuat với ảnh: ${err.message}`);
+    if ($('soPtDoiChieuStatus')) $('soPtDoiChieuStatus').textContent = '';
+  } finally {
+    setBusy(false);
+  }
+}
+
+function renderSoPtDoiChieuList() {
+  const box = $('soPtDoiChieuList');
+  if (!box) return;
+  if (!state.soPtDoiChieu.length) {
+    box.innerHTML = '';
+    return;
+  }
+  box.innerHTML = state.soPtDoiChieu.map(item => {
+    const phuMoText = (item.goiYPhuMo || []).filter(Boolean).join(', ') || '(không có)';
+    const warn = item.soUngVienCungTen > 1
+      ? `<div class="so-pt-warn">Có ${item.soUngVienCungTen} dòng ảnh cùng ngày + họ tên, độ khớp phương pháp ${item.doKhopPhuongPhap ?? '?'} — kiểm tra kỹ trước khi áp dụng.</div>`
+      : '';
+    const isOpen = state.soPtDoiChieuOpenRows.has(item.row);
+    return `
+      <div class="so-pt-goi-y-card" data-row="${item.row}">
+        <div class="so-pt-goi-y-head-row">
+          <strong>${escapeHtml(item.hoTen)}</strong>
+          <span>${escapeHtml(item.ngay || '')} · Dòng phauthuat ${item.row}</span>
+        </div>
+        <div class="so-pt-goi-y-body">
+          <div>Chẩn đoán/PP đang có: ${escapeHtml(item.chanDoanPhuongPhap || '(trống)')}</div>
+          <div>Đọc từ ảnh: ${escapeHtml(item.soBoChanDoan || '')}${item.soBoPhuongPhap ? ' — ' + escapeHtml(item.soBoPhuongPhap) : ''}</div>
+          <div>Gợi ý PTV chính: <strong>${escapeHtml(item.goiYPtvChinh || '(không đọc được)')}</strong></div>
+          <div>Gợi ý phụ mổ: ${escapeHtml(phuMoText)}</div>
+          ${warn}
+        </div>
+        <div class="so-pt-goi-y-actions">
+          <button class="btn subtle" type="button" data-action="xem-anh" data-row="${item.row}">${isOpen ? 'Ẩn ảnh' : 'Xem ảnh'}</button>
+          <button class="btn primary" type="button" data-action="ap-dung" data-row="${item.row}">Áp dụng vào dòng ${item.row}</button>
+        </div>
+        <div class="so-pt-goi-y-image${isOpen ? '' : ' hidden'}" data-image-for="${item.row}"></div>
+      </div>
+    `;
+  }).join('');
+
+  state.soPtDoiChieuOpenRows.forEach(row => fillSoPtGoiYImage(row));
+}
+
+function fillSoPtGoiYImage(row) {
+  const item = state.soPtDoiChieu.find(x => x.row === row);
+  const slot = document.querySelector(`.so-pt-goi-y-image[data-image-for="${row}"]`);
+  if (!item || !slot) return;
+  if (!item.anhNguon) {
+    slot.innerHTML = '<div class="so-pt-image-missing">Dòng ảnh này không có tên ảnh nguồn.</div>';
+    return;
+  }
+  slot.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = `/api/so-phau-thuat/anh/${encodeURIComponent(item.anhNguon)}`;
+  img.alt = item.anhNguon;
+  img.addEventListener('error', () => {
+    slot.innerHTML = `<div class="so-pt-image-missing">Chưa có ảnh "${escapeHtml(item.anhNguon)}" — bấm "Tải ảnh" ở trên trước.</div>`;
+  });
+  slot.appendChild(img);
+}
+
+function toggleSoPtGoiYAnh(row) {
+  if (state.soPtDoiChieuOpenRows.has(row)) state.soPtDoiChieuOpenRows.delete(row);
+  else state.soPtDoiChieuOpenRows.add(row);
+  renderSoPtDoiChieuList();
+}
+
+async function apDungSoPtGoiY(row) {
+  const item = state.soPtDoiChieu.find(x => x.row === row);
+  if (!item) return;
+  if (!state.currentFile) {
+    alert('Chưa có file đang mở ở tab "Nhập dữ liệu".');
+    return;
+  }
+
+  const data = {};
+  if (item.goiYPtvChinh) data['PTV chính'] = item.goiYPtvChinh;
+  (item.goiYPhuMo || []).forEach((value, i) => {
+    if (value) data[`Phụ mổ ${i + 1}`] = value;
+  });
+  if (!Object.keys(data).length) {
+    alert('Không có gợi ý nào để áp dụng cho dòng này.');
+    return;
+  }
+  if (!confirm(`Áp dụng vào dòng ${item.row} (${item.hoTen})?\nPTV chính: ${data['PTV chính'] || '(giữ trống)'}\nPhụ mổ: ${(item.goiYPhuMo || []).filter(Boolean).join(', ') || '(không có)'}`)) {
+    return;
+  }
+
+  setBusy(true, `Đang áp dụng vào dòng ${item.row}...`);
+  try {
+    const res = await api('/api/update-rows', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        file: state.currentFile,
+        sheet: 'phauthuat',
+        rows: [{ rowNumber: item.row, data }],
+        overwrite: false,
+        suffix: '_NHAP_LIEU',
+      }),
+    });
+    state.currentFile = res.file || state.currentFile;
+    addFileOptionIfMissing(state.currentFile);
+    state.soPtDoiChieu = state.soPtDoiChieu.filter(x => x.row !== row);
+    state.soPtDoiChieuOpenRows.delete(row);
+    renderSoPtDoiChieuList();
+    showToast(`Đã điền dòng ${item.row} (${item.hoTen}).`, 'success');
+    log(`Đã áp dụng gợi ý từ ảnh cho dòng ${item.row} sheet phauthuat (từ ${res.file}).`);
+    if (state.currentSheet === 'phauthuat' && document.getElementById('dataView') && !document.getElementById('dataView').classList.contains('hidden')) {
+      await loadSheet();
+    }
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi áp dụng gợi ý dòng ${item.row}: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
 function switchMainTab(tabName) {
   const isData = tabName === 'data';
   const isStaff = tabName === 'staff';
@@ -2654,6 +2804,14 @@ function bindEvents() {
     if ($('soPtZipFileName')) $('soPtZipFileName').textContent = file ? file.name : 'Chọn file ZIP ảnh';
   });
   $('soPtSearchInput')?.addEventListener('input', () => renderSoPtList());
+  $('soPtDoiChieuBtn')?.addEventListener('click', runSoPtDoiChieu);
+  $('soPtDoiChieuList')?.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-action]');
+    if (!btn) return;
+    const row = Number(btn.dataset.row);
+    if (btn.dataset.action === 'xem-anh') toggleSoPtGoiYAnh(row);
+    else if (btn.dataset.action === 'ap-dung') apDungSoPtGoiY(row);
+  });
   $('newStaffBtn')?.addEventListener('click', resetStaffForm);
   $('saveStaffBtn')?.addEventListener('click', saveStaffFromForm);
   $('cancelStaffEditBtn')?.addEventListener('click', resetStaffForm);

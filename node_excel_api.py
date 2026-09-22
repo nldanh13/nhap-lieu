@@ -1855,6 +1855,19 @@ def command_extract_zip_images(args):
     respond({"ok": True, "images": extracted, "count": len(extracted)})
 
 
+def command_doi_chieu_phau_thuat_anh(args):
+    """Đối chiếu (chỉ đọc, không ghi) các dòng phauthuat thiếu PTV chính với
+    dữ liệu OCR ảnh sổ — dùng khi tra TheoSo không có kết quả."""
+    import doi_chieu_phau_thuat_tu_anh as mod
+
+    ket_qua = mod.doi_chieu(
+        Path(args.file),
+        Path(args.so_bo),
+        args.sheet_so_bo or mod.SHEET_SO_BO_MAC_DINH,
+    )
+    respond({"ok": True, "goiY": ket_qua, "count": len(ket_qua)})
+
+
 def command_task_cap_nhat_cls_tieuphau(args):
     """Chuyển các CLS vừa bổ sung; lưu ngay và để Bác Sĩ trống cho EMR xử lý."""
     import chuyen_thu_thuat_sang_tieuphau_t5 as mod
@@ -2029,6 +2042,11 @@ def build_parser():
     p.add_argument("--zip", required=True)
     p.add_argument("--output-dir", required=True, dest="output_dir")
 
+    p = sub.add_parser("doi-chieu-phau-thuat-anh")
+    p.add_argument("--file", required=True)
+    p.add_argument("--so-bo", required=True, dest="so_bo")
+    p.add_argument("--sheet-so-bo", dest="sheet_so_bo")
+
     return parser
 
 
@@ -2058,6 +2076,7 @@ def main():
             "task-dien-bs": command_task_dien_bs,
             "task-nhap-phau-thuat-so-bo": command_task_nhap_phau_thuat_so_bo,
             "extract-zip-images": command_extract_zip_images,
+            "doi-chieu-phau-thuat-anh": command_doi_chieu_phau_thuat_anh,
         }
         commands[args.cmd](args)
     except SystemExit:
