@@ -94,7 +94,7 @@
       "id": "7ead7c80bd9a4895a7653d64d300929e",
       "hoTen": "Lê Nhỉ Khang",
       "biDanh": "KHANG",
-      "nhom": "BSNT 3",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -102,7 +102,7 @@
       "id": "f8722f4fd15c4ed3a8dc0f66615eeabe",
       "hoTen": "Lê Quốc Khánh",
       "biDanh": "KHÁNH",
-      "nhom": "BSNT 3",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -110,7 +110,7 @@
       "id": "a4819b7f9cc948a9b38ad938df340da2",
       "hoTen": "Nguyễn Hoài Linh",
       "biDanh": "LINH",
-      "nhom": "BSNT 3",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -118,7 +118,7 @@
       "id": "2f79c96fe5424732bc5ae789799a9d89",
       "hoTen": "Trần Trung Nghĩa",
       "biDanh": "NGHĨA",
-      "nhom": "BSNT 3",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -126,7 +126,7 @@
       "id": "c7e34a9ed8394cfd8b7eecfa21bf7d4c",
       "hoTen": "Nguyễn Văn Nghiêm",
       "biDanh": "NGHIÊM",
-      "nhom": "BSNT 3",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -134,7 +134,7 @@
       "id": "ed51f3774c4b47b0b909cffb47cf705e",
       "hoTen": "Nguyễn Trung Nhị",
       "biDanh": "NHỊ",
-      "nhom": "BSNT 3",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -142,7 +142,7 @@
       "id": "c725e9c0549d43fea47c99be7681238b",
       "hoTen": "Võ Ngọc Thiện",
       "biDanh": "THIỆN",
-      "nhom": "BSNT 3",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -150,7 +150,7 @@
       "id": "4c2d7fcf7ef746c4af916cfcf9d71e07",
       "hoTen": "Phạm Văn Hưởng",
       "biDanh": "V.HƯỞNG",
-      "nhom": "BSNT 3",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -158,7 +158,7 @@
       "id": "d358682e944b4cdca421180eefcab286",
       "hoTen": "Lê Cường Thạnh",
       "biDanh": "THẠNH",
-      "nhom": "BSNT 2",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -166,7 +166,7 @@
       "id": "4a864b7b80f1435e9fa6d82434938f8f",
       "hoTen": "Phạm Hữu Trọng",
       "biDanh": "TRỌNG",
-      "nhom": "BSNT 2",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -174,7 +174,7 @@
       "id": "718a15a20c7f4be3a3425d3af345cd81",
       "hoTen": "Công Chỉnh",
       "biDanh": "CHỈNH",
-      "nhom": "BSNT 1",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -182,7 +182,7 @@
       "id": "94c5c7bd88cb400c8acb7dd732077ebc",
       "hoTen": "Dương Minh Hậu",
       "biDanh": "HẬU",
-      "nhom": "BSNT 1",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -190,7 +190,7 @@
       "id": "dc0a9f82d81c467f951a9f338bf55e42",
       "hoTen": "Đặng Duy Lộc",
       "biDanh": "LỘC",
-      "nhom": "BSNT 1",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -198,7 +198,7 @@
       "id": "ace0a4c010524ddd9c06edf8db8704a7",
       "hoTen": "Trần Huỳnh Minh Thiện",
       "biDanh": "M.THIỆN",
-      "nhom": "BSNT 1",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -206,7 +206,7 @@
       "id": "e63f05e865394c4fa8760644500acabd",
       "hoTen": "Trịnh Thị Ý Như",
       "biDanh": "NHƯ",
-      "nhom": "BSNT 1",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -214,7 +214,7 @@
       "id": "848386e66ba34a238864b2ea3c25a9a9",
       "hoTen": "Nguyễn Thị Thanh Thuý",
       "biDanh": "THUÝ",
-      "nhom": "BSNT 1",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },
@@ -222,7 +222,7 @@
       "id": "9f14eaa7df104332b12e15e111dfdbe9",
       "hoTen": "Nguyễn Trần Việt Tiến",
       "biDanh": "TIẾN",
-      "nhom": "BSNT 1",
+      "nhom": "BSNT",
       "vaiTro": "bsnt",
       "active": true
     },

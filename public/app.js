@@ -615,8 +615,7 @@ function renderStaffQuickList() {
     if (!groups[group]) groups[group] = [];
     groups[group].push(item);
   });
-  const order = ['BSNT 3', 'BSNT 2', 'BSNT 1'];
-  const groupNames = [...order.filter(g => groups[g]), ...Object.keys(groups).filter(g => !order.includes(g))];
+  const groupNames = Object.keys(groups);
   box.innerHTML = groupNames.map(group => {
     const chips = groups[group].map(item =>
       `<button type="button" class="staff-chip" data-alias="${escapeHtml(item.biDanh)}" title="${escapeHtml(item.hoTen)}">${escapeHtml(item.biDanh)}</button>`
@@ -2206,8 +2205,10 @@ async function persistStaffList(nextStaff, successMessage) {
   });
   state.staff = data.staff || nextStaff;
   renderStaffManager();
-  showToast(successMessage || 'Đã lưu danh sách nhân sự.', 'success');
-  log(successMessage || 'Đã lưu danh sách nhân sự.');
+  const hasAutoAdjust = Array.isArray(data.autoAdjusted) && data.autoAdjusted.length > 0;
+  const message = hasAutoAdjust ? data.message : (successMessage || 'Đã lưu danh sách nhân sự.');
+  showToast(message, hasAutoAdjust ? 'warning' : 'success', hasAutoAdjust ? 7000 : 3600);
+  log(message);
 }
 
 async function saveStaffFromForm() {

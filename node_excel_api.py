@@ -474,26 +474,78 @@ def command_staff_list(args):
     })
 
 
+def _role_family(vai_tro: str) -> str:
+    return "bac_si_bsnt" if vai_tro in {"bac_si", "bsnt"} else vai_tro
+
+
+def _chu_cai_ten_dem(ho_ten: str) -> str:
+    """Chữ cái đầu của tên đệm (từ ngay trước tên chính), dùng để phân biệt
+    hai người trùng tên — vd 'Phạm Việt Tân' -> 'V'. Trả về rỗng nếu họ tên
+    chỉ có 1 từ, không đủ để lấy tên đệm."""
+    words = str(ho_ten or "").strip().split()
+    return words[-2][0].upper() if len(words) >= 2 else ""
+
+
+def _tu_dong_tach_biet_trung_ten(items: list[dict[str, Any]]) -> list[str]:
+    """Hai bác sĩ/BSNT khác người nhưng trùng tên 100% (cùng bí danh y hệt
+    nhau, không phải chỉ gần giống) sẽ tự được thêm chữ cái đầu tên đệm để
+    phân biệt, vd hai người cùng tên 'Tân' thành 'V.TÂN' và 'M.TÂN' — đúng
+    theo cách đặt bí danh đã dùng sẵn trong danh sách (vd 'M.THIỆN').
+    Nếu không đủ tên đệm để tách rõ ràng thì bỏ qua, để bước kiểm tra trùng
+    bí danh phía sau báo lỗi cho người dùng tự xử lý.
+
+    Trả về danh sách mô tả các thay đổi đã tự làm, để báo lại cho người dùng."""
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for item in items:
+        if not item.get("active", True):
+            continue
+        groups.setdefault((_role_family(item["vaiTro"]), item["biDanh"]), []).append(item)
+
+    ghi_chu: list[str] = []
+    for (_role_family_key, alias), group in groups.items():
+        if len(group) < 2:
+            continue
+
+        prefixes = [_chu_cai_ten_dem(item["hoTen"]) for item in group]
+        if not all(prefixes) or len(set(prefixes)) != len(prefixes):
+            continue
+
+        for item, prefix in zip(group, prefixes):
+            new_alias = f"{prefix}.{alias}"
+            ghi_chu.append(f"{item['hoTen']}: '{alias}' -> '{new_alias}' (trùng tên với người khác)")
+            item["biDanh"] = new_alias
+
+    return ghi_chu
+
+
 def command_save_staff_list(args):
     payload = json.loads(args.staff_json or "[]")
     if not isinstance(payload, list):
         raise ValueError("Danh sách nhân sự không đúng định dạng.")
     normalized = [_normalize_staff_item(item, idx) for idx, item in enumerate(payload)]
 
+    auto_adjusted = _tu_dong_tach_biet_trung_ten(normalized)
+    for item in normalized:
+        item["label"] = f"{item['biDanh']} — {item['hoTen']} ({item['nhom']})"
+
     # Không cho trùng bí danh trong cùng nhóm vai trò đang hoạt động vì sẽ làm
-    # gợi ý nhập liệu không xác định được người dùng muốn chọn ai.
-    seen: dict[tuple[str, str], str] = {}
+    # gợi ý nhập liệu không xác định được người dùng muốn chọn ai. Đến đây,
+    # bí danh giống hệt nhau đã được tự tách ở trên nếu đủ tên đệm, nên phần
+    # còn trùng chỉ có thể là gần giống (thường chỉ khác dấu) — báo rõ để
+    # người dùng kiểm tra có đúng là hai người khác nhau hay đánh nhầm dấu.
+    seen: dict[tuple[str, str], tuple[str, str]] = {}
     for item in normalized:
         if not item.get("active", True):
             continue
-        role_family = "bac_si_bsnt" if item["vaiTro"] in {"bac_si", "bsnt"} else item["vaiTro"]
-        key = (role_family, normalize_text(item["biDanh"]))
+        key = (_role_family(item["vaiTro"]), normalize_text(item["biDanh"]))
         if key in seen:
+            ten_cu, bi_danh_cu = seen[key]
             raise ValueError(
-                f"Bí danh '{item['biDanh']}' bị trùng giữa '{seen[key]}' và '{item['hoTen']}' "
-                f"trong cùng nhóm gợi ý."
+                f"Bí danh '{item['biDanh']}' của '{item['hoTen']}' rất giống bí danh '{bi_danh_cu}' của "
+                f"'{ten_cu}' (có thể chỉ khác dấu). Kiểm tra xem có đúng là hai người khác nhau không — nếu "
+                f"đúng, hãy đặt bí danh rõ ràng hơn (vd thêm tên đệm) để tránh gợi ý nhầm khi nhập liệu."
             )
-        seen[key] = item["hoTen"]
+        seen[key] = (item["hoTen"], item["biDanh"])
 
     data_to_write = {
         "version": 1,
@@ -514,13 +566,17 @@ def command_save_staff_list(args):
     tmp = STAFF_CONFIG_FILE.with_suffix(STAFF_CONFIG_FILE.suffix + ".tmp")
     tmp.write_text(json.dumps(data_to_write, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(STAFF_CONFIG_FILE)
+    message = "Đã lưu danh sách nhân sự."
+    if auto_adjusted:
+        message += " Đã tự thêm tên đệm để phân biệt: " + "; ".join(auto_adjusted) + "."
     respond({
         "ok": True,
         "staff": normalized,
         "count": len(normalized),
         "activeCount": sum(1 for item in normalized if item.get("active", True)),
         "file": str(STAFF_CONFIG_FILE),
-        "message": "Đã lưu danh sách nhân sự.",
+        "message": message,
+        "autoAdjusted": auto_adjusted,
     })
 
 
