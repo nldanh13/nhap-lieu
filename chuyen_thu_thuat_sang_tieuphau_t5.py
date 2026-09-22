@@ -161,6 +161,16 @@ DANH_SACH_TEN_CLS_CAN_CHUYEN = load_ten_cls_can_chuyen()
 # Các cột dữ liệu chuyển từ thu thuat sang tieuphau.
 COT_CAN_CHUYEN = ["Ngày", "Họ và tên", "Tuổi", "Tên CLS", "Số Lượng", "Thành tiền"]
 
+# Một số file "BẢNG KÊ TIỀN TIỂU PHẪU" đặt tên cột khác với sheet thu thuat dù
+# cùng ý nghĩa (ví dụ "Ngày chỉ định" thay vì "Ngày"). Khai báo thêm tên gọi khác
+# ở đây để script vẫn tìm đúng cột mà không cần sửa tiêu đề trong file Excel.
+HEADER_ALIASES: dict[str, list[str]] = {
+    "Ngày": ["Ngày", "Ngày chỉ định"],
+    "Họ và tên": ["Họ và tên", "Tên bệnh nhân"],
+    "Tuổi": ["Tuổi", "Năm sinh"],
+    "Tên CLS": ["Tên CLS", "Tên dịch vụ/thuốc"],
+}
+
 # =========================
 # TIỆN ÍCH
 # =========================
@@ -202,6 +212,11 @@ def find_sheet_case_insensitive(wb, wanted_name: str) -> str:
 
 def find_header_row_and_columns(ws, required_columns: list[str]) -> tuple[int, dict[str, int]]:
     required_keys = {normalize_header(x) for x in required_columns}
+    # canonical_key (vd "ngay") -> danh sách tên gọi khác chấp nhận được (vd "ngay", "ngaychidinh")
+    alias_keys_by_canonical = {
+        normalize_header(col): [normalize_header(name) for name in HEADER_ALIASES.get(col, [col])]
+        for col in required_columns
+    }
 
     best_row = None
     best_mapping: dict[str, int] = {}
@@ -215,6 +230,17 @@ def find_header_row_and_columns(ws, required_columns: list[str]) -> tuple[int, d
             key = normalize_header(cell.value)
             if key and key not in mapping:
                 mapping[key] = cell.column
+
+        # Bổ sung tên chuẩn (vd "ngay") trỏ về đúng cột nếu dòng này chỉ có
+        # tên gọi khác (vd "ngaychidinh"), giữ nguyên các tên gốc đã đọc được
+        # để những chỗ tra thêm cột khác (Bác Sĩ, Điều Dưỡng...) không bị ảnh hưởng.
+        for canonical_key, alias_keys in alias_keys_by_canonical.items():
+            if canonical_key in mapping:
+                continue
+            for alias_key in alias_keys:
+                if alias_key in mapping:
+                    mapping[canonical_key] = mapping[alias_key]
+                    break
 
         if required_keys.issubset(set(mapping.keys())):
             return row[0].row, mapping
