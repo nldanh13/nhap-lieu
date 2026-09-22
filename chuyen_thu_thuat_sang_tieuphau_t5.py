@@ -203,6 +203,10 @@ def find_sheet_case_insensitive(wb, wanted_name: str) -> str:
 def find_header_row_and_columns(ws, required_columns: list[str]) -> tuple[int, dict[str, int]]:
     required_keys = {normalize_header(x) for x in required_columns}
 
+    best_row = None
+    best_mapping: dict[str, int] = {}
+    best_matched = -1
+
     for row in ws.iter_rows(min_row=1, max_row=min(ws.max_row, 40)):
         mapping: dict[str, int] = {}
         for cell in row:
@@ -215,8 +219,26 @@ def find_header_row_and_columns(ws, required_columns: list[str]) -> tuple[int, d
         if required_keys.issubset(set(mapping.keys())):
             return row[0].row, mapping
 
+        matched = len(required_keys & set(mapping.keys()))
+        if matched > best_matched:
+            best_matched = matched
+            best_row = row[0].row
+            best_mapping = mapping
+
+    # Dòng khớp nhiều cột nhất trong 40 dòng đầu, dùng để báo cho người dùng
+    # biết chính xác đang thiếu cột nào thay vì chỉ báo chung chung.
+    missing_keys = required_keys - set(best_mapping.keys())
+    missing_labels = [c for c in required_columns if normalize_header(c) in missing_keys]
+    detail = ""
+    if best_row is not None:
+        found_headers = [ws.cell(best_row, col).value for col in sorted(best_mapping.values())]
+        detail = (
+            f" Dòng gần khớp nhất là dòng {best_row} với các tiêu đề đọc được: {found_headers}."
+            f" Còn thiếu cột: {missing_labels}."
+        )
+
     raise ValueError(
-        f"Không tìm thấy dòng tiêu đề có đủ các cột {required_columns} trong sheet '{ws.title}'."
+        f"Không tìm thấy dòng tiêu đề có đủ các cột {required_columns} trong sheet '{ws.title}'.{detail}"
     )
 
 

@@ -81,6 +81,23 @@
           </div>
         </details>
 
+        <details class="upload-details">
+          <summary>＋ Upload file vào TheoSo</summary>
+          <div class="upload-popover">
+            <label>File Sổ Thủ Thuật / Sổ Phẫu Thuật (HIS)</label>
+            <div class="field-inline">
+              <input id="theoSoUploadInput" class="file-input" type="file" accept=".xlsx,.xls" multiple />
+              <label for="theoSoUploadInput" class="upload-picker">
+                <span id="theoSoUploadFileName">Chọn file Excel</span>
+                <strong>Duyệt file</strong>
+              </label>
+              <button id="theoSoUploadBtn" class="btn primary" type="button">Upload vào TheoSo</button>
+            </div>
+            <div class="field-note">File được lưu vào thư mục <code>TheoSo/</code> để chạy <code>python chay_theo_so.py</code>.</div>
+            <ul id="theoSoFileList" class="theo-so-file-list"></ul>
+          </div>
+        </details>
+
         <a id="downloadCurrent" class="btn download-btn hidden" target="_blank">⭳ Tải Excel</a>
       </section>
 

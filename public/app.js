@@ -806,6 +806,48 @@ async function loadFiles() {
   }
 }
 
+async function loadTheoSoFiles() {
+  const list = $('theoSoFileList');
+  if (!list) return;
+  try {
+    const data = await api('/api/theo-so/files');
+    list.innerHTML = '';
+    (data.files || []).forEach(file => {
+      const li = document.createElement('li');
+      li.textContent = file.name;
+      list.appendChild(li);
+    });
+  } catch (err) {
+    log(`Không tải được danh sách file TheoSo: ${err.message}`);
+  }
+}
+
+async function uploadTheoSoFiles() {
+  const input = $('theoSoUploadInput');
+  if (!input.files.length) {
+    alert('Bạn chưa chọn file Excel.');
+    return;
+  }
+  setBusy(true, 'Đang upload file vào TheoSo...');
+  try {
+    const form = new FormData();
+    Array.from(input.files).forEach(file => form.append('files', file));
+    const res = await fetch('/api/theo-so/upload', { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok || data.ok === false) throw new Error(data.error || 'Upload lỗi.');
+    input.value = '';
+    if ($('theoSoUploadFileName')) $('theoSoUploadFileName').textContent = 'Chọn file Excel';
+    await loadTheoSoFiles();
+    showToast(`Đã upload ${data.uploaded.length} file vào TheoSo`, 'success', 5200);
+    log(`Đã upload vào TheoSo: ${data.uploaded.join(', ')}`);
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi upload TheoSo: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
 async function selectFile(file) {
   if (!file) return;
   const changingFile = Boolean(state.currentFile && file !== state.currentFile);
@@ -2397,6 +2439,15 @@ function bindEvents() {
     }
   });
   $('uploadBtn').addEventListener('click', uploadFile);
+  $('theoSoUploadBtn')?.addEventListener('click', uploadTheoSoFiles);
+  $('theoSoUploadInput')?.addEventListener('change', e => {
+    const files = Array.from(e.target.files || []);
+    if ($('theoSoUploadFileName')) {
+      $('theoSoUploadFileName').textContent = files.length
+        ? (files.length === 1 ? files[0].name : `${files.length} file đã chọn`)
+        : 'Chọn file Excel';
+    }
+  });
   $('loadSheetBtn').addEventListener('click', () => {
     loadSheet().catch(err => alert(err.message));
   });
@@ -2490,6 +2541,7 @@ async function initApp() {
   await loadStaffList();
   await loadClsList();
   await loadFiles();
+  await loadTheoSoFiles();
   await restoreBestDraftIfAny(true);
   updateContextUI();
   updateDashboardMetrics();

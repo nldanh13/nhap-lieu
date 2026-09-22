@@ -1,0 +1,13 @@
+node_modules/
+
+# Thư mục sinh ra lúc chạy web app, chứa file Excel/dữ liệu bệnh nhân thật.
+node_uploads/
+node_outputs/
+node_autosaves/
+TheoSo/
+
+# Cấu hình có mật khẩu thật, chỉ dùng emr_config.example.json làm mẫu.
+emr_config.json
+
+__pycache__/
+*.pyc

@@ -10,6 +10,7 @@ const PYTHON = process.env.PYTHON || (process.platform === 'win32' ? 'python' : 
 const uploadDir = path.join(APP_ROOT, 'node_uploads');
 const outputDir = path.join(APP_ROOT, 'node_outputs');
 const autosaveDir = path.join(APP_ROOT, 'node_autosaves');
+const theoSoDir = path.join(APP_ROOT, 'TheoSo');
 const autosaveStateFile = path.join(autosaveDir, 'autosave_state.json');
 const emrConfigFile = path.join(APP_ROOT, 'emr_config.json');
 const WORK_SUFFIX = '_NHAP_LIEU';
@@ -22,6 +23,7 @@ const GENERATED_SUFFIXES = [
 fs.mkdirSync(uploadDir, { recursive: true });
 fs.mkdirSync(outputDir, { recursive: true });
 fs.mkdirSync(autosaveDir, { recursive: true });
+fs.mkdirSync(theoSoDir, { recursive: true });
 
 const app = express();
 app.use(express.json({ limit: '20mb' }));
@@ -37,6 +39,16 @@ const storage = multer.diskStorage({
   }
 });
 const upload = multer({ storage });
+
+const theoSoStorage = multer.diskStorage({
+  destination: (_req, _file, cb) => cb(null, theoSoDir),
+  filename: (_req, file, cb) => {
+    const ext = path.extname(file.originalname || '.xlsx') || '.xlsx';
+    const base = path.basename(file.originalname || 'upload', ext).replace(/[\\/:*?"<>|]/g, '_');
+    cb(null, `${base}${ext}`);
+  }
+});
+const uploadTheoSo = multer({ storage: theoSoStorage });
 
 function safeResolve(filePath) {
   if (!filePath) throw new Error('Thiếu đường dẫn file.');
@@ -381,6 +393,32 @@ app.post('/api/upload', upload.single('file'), asyncHandler(async (req, res) => 
     storedName: req.file.filename,
     dateNormalization,
   });
+}));
+
+app.get('/api/theo-so/files', asyncHandler(async (_req, res) => {
+  const files = fs.readdirSync(theoSoDir)
+    .filter(name => /\.(xlsx|xls)$/i.test(name) && !name.startsWith('~$'))
+    .map(name => {
+      const stat = fs.statSync(path.join(theoSoDir, name));
+      return { name, size: stat.size, modifiedAt: stat.mtime };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'vi'));
+  res.json({ ok: true, files });
+}));
+
+app.post('/api/theo-so/upload', uploadTheoSo.array('files', 20), asyncHandler(async (req, res) => {
+  const files = req.files || [];
+  if (!files.length) throw new Error('Chưa chọn file Excel.');
+
+  const invalid = files.filter(f => !['.xlsx', '.xls'].includes(path.extname(f.originalname || '').toLowerCase()));
+  if (invalid.length) {
+    for (const f of files) {
+      try { fs.unlinkSync(f.path); } catch (_err) {}
+    }
+    throw new Error('Chỉ hỗ trợ file Excel .xlsx hoặc .xls (Sổ Thủ Thuật / Sổ Phẫu Thuật).');
+  }
+
+  res.json({ ok: true, uploaded: files.map(f => f.filename) });
 }));
 
 app.get('/api/workbook-info', asyncHandler(async (req, res) => {

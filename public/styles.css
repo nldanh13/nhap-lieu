@@ -200,6 +200,30 @@ select, input, textarea {
   box-shadow: var(--shadow);
 }
 .upload-popover > label { display: block; margin-bottom: 6px; color: #405169; font-size: 11px; font-weight: 850; }
+.theo-so-file-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  max-height: 140px;
+  overflow-y: auto;
+  border-top: 1px solid var(--line);
+}
+.theo-so-file-list li {
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 11px;
+  color: #405169;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.theo-so-file-list:empty::before {
+  content: 'Chưa có file nào trong TheoSo/.';
+  display: block;
+  padding: 8px 0 0;
+  color: #8493a6;
+  font-size: 10px;
+}
 select:focus, input:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(36,94,219,.12); }
 .file-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 .upload-picker {
