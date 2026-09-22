@@ -220,9 +220,12 @@ def coerce_value(header: str, text_value: Any, old_value: Any = None) -> Any:
 
 
 def find_header_row_generic(ws) -> tuple[int, list[str], dict[str, int]]:
+    # ws.max_column quét lại toàn bộ sheet mỗi lần gọi (không cache nội bộ),
+    # nên chỉ tính một lần ở đây thay vì gọi lại trong từng vòng lặp dòng/cột.
+    max_col = ws.max_column
     best = None
     for row_idx in range(1, min(ws.max_row, 50) + 1):
-        values = [ws.cell(row_idx, col).value for col in range(1, ws.max_column + 1)]
+        values = [ws.cell(row_idx, col).value for col in range(1, max_col + 1)]
         nonblank = [(i + 1, str(v).strip()) for i, v in enumerate(values) if not value_is_blank(v)]
         if len(nonblank) < 3:
             continue
@@ -243,7 +246,7 @@ def find_header_row_generic(ws) -> tuple[int, list[str], dict[str, int]]:
     headers: list[str] = []
     header_map: dict[str, int] = {}
     used: dict[str, int] = {}
-    for col in range(1, ws.max_column + 1):
+    for col in range(1, max_col + 1):
         raw = ws.cell(header_row, col).value
         if value_is_blank(raw):
             continue
@@ -272,19 +275,27 @@ def header_span_columns(ws, header_row: int, col_idx: int) -> list[int]:
     return [col_idx]
 
 
-def data_columns_for_header(ws, header_row: int, col_idx: int, header: str | None = None) -> list[int]:
+def data_columns_for_header(
+    ws, header_row: int, col_idx: int, header: str | None = None, max_col: int | None = None
+) -> list[int]:
     columns = header_span_columns(ws, header_row, col_idx)
     # Một số mẫu phẫu thuật để tiêu đề Tuổi ở cột D nhưng dữ liệu có thể nằm
     # ở D hoặc E (E không có tiêu đề). Xem hai cột như một trường duy nhất.
     if normalize_header(header or "") == "tuoi" and len(columns) == 1:
         next_col = col_idx + 1
-        if next_col <= ws.max_column and value_is_blank(ws.cell(header_row, next_col).value):
+        # ws.max_column quét lại toàn bộ sheet mỗi lần gọi (không cache), nên
+        # bên gọi trong vòng lặp theo dòng cần tự tính một lần và truyền vào
+        # qua max_col để tránh lặp lại hàng trăm nghìn lần trên sheet lớn.
+        effective_max_col = ws.max_column if max_col is None else max_col
+        if next_col <= effective_max_col and value_is_blank(ws.cell(header_row, next_col).value):
             columns.append(next_col)
     return columns
 
 
-def read_header_value(ws, header_row: int, row_idx: int, col_idx: int, header: str | None = None) -> Any:
-    columns = data_columns_for_header(ws, header_row, col_idx, header)
+def read_header_value(
+    ws, header_row: int, row_idx: int, col_idx: int, header: str | None = None, max_col: int | None = None
+) -> Any:
+    columns = data_columns_for_header(ws, header_row, col_idx, header, max_col)
     values = [ws.cell(row_idx, col).value for col in columns]
     epoch = getattr(ws.parent, "epoch", None)
     for value in values:
@@ -293,9 +304,11 @@ def read_header_value(ws, header_row: int, row_idx: int, col_idx: int, header: s
     return cell_value_to_display(values[0] if values else None, header=header, epoch=epoch)
 
 
-def target_column_for_header(ws, header_row: int, row_idx: int, col_idx: int, header: str | None = None) -> int:
+def target_column_for_header(
+    ws, header_row: int, row_idx: int, col_idx: int, header: str | None = None, max_col: int | None = None
+) -> int:
     """Chọn cột ghi phù hợp, ưu tiên cột đang có dữ liệu."""
-    columns = data_columns_for_header(ws, header_row, col_idx, header)
+    columns = data_columns_for_header(ws, header_row, col_idx, header, max_col)
     for col in columns:
         if not value_is_blank(ws.cell(row_idx, col).value):
             return col
@@ -944,6 +957,7 @@ def command_read_sheet(args):
     query = normalize_text(args.query or "")
     missing_only = bool(args.missing_only)
     required_headers = required_headers_for_sheet(real_name, headers)
+    max_col = ws.max_column
 
     rows = []
     matched_count = 0
@@ -961,7 +975,7 @@ def command_read_sheet(args):
         missing = []
         for header in headers:
             col = header_map[header]
-            val = read_header_value(ws, header_row, row_idx, col, header)
+            val = read_header_value(ws, header_row, row_idx, col, header, max_col)
             values[header] = val
             if not value_is_blank(val):
                 has_any = True
@@ -1096,6 +1110,7 @@ def apply_row_changes(ws, header_map: dict[str, int], row_number: int, data: dic
         else:
             normalized_header_map[key] = col_idx
 
+    max_col = ws.max_column
     for header, value in data.items():
         col = header_map.get(header)
         if col is None:
@@ -1103,7 +1118,7 @@ def apply_row_changes(ws, header_map: dict[str, int], row_number: int, data: dic
         if col is None:
             unknown_headers.append(str(header))
             continue
-        target_col = target_column_for_header(ws, header_row, row_number, col, str(header)) if header_row else col
+        target_col = target_column_for_header(ws, header_row, row_number, col, str(header), max_col) if header_row else col
         old = ws.cell(row_number, target_col).value
         ws.cell(row_number, target_col).value = coerce_value(str(header), value, old)
     return unknown_headers
