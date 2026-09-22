@@ -205,6 +205,14 @@ def tim_cot_bac_si(headers: list[str]) -> str | None:
     return None
 
 
+def tim_cot_ghi_chu(ws, header_row: int) -> int | None:
+    for col_idx in range(1, ws.max_column + 1):
+        header = str(ws.cell(header_row, col_idx).value or "").strip()
+        if normalize_text(header).replace(" ", "") == "ghichu":
+            return col_idx
+    return None
+
+
 def tim_sheet_va_cot(wb, sheet_arg: str | None, cot_arg: str | None) -> tuple[str, int, str, int]:
     """Trả về (tên sheet, dòng tiêu đề, tên cột Bác sĩ, số cột Bác sĩ)."""
     sheet_names = [sheet_arg] if sheet_arg else wb.sheetnames
@@ -257,6 +265,7 @@ def run(file_path: Path, sheet_arg: str | None, cot_arg: str | None, nguong: flo
     wb = load_workbook(file_path)
     sheet_name, header_row, cot_bac_si, col_bac_si = tim_sheet_va_cot(wb, sheet_arg, cot_arg)
     ws = wb[sheet_name]
+    col_ghi_chu = tim_cot_ghi_chu(ws, header_row)
 
     col_khop = ws.max_column + 1
     col_goi_y = ws.max_column + 2
@@ -332,6 +341,14 @@ def run(file_path: Path, sheet_arg: str | None, cot_arg: str | None, nguong: flo
         else:
             cell_khop.fill = bad_fill
 
+        # Ghi thẳng vào cột "Ghi chú" sẵn có (chỗ AI đang dùng để cảnh báo ảnh
+        # mờ/chưa đọc rõ) để thấy ngay khi lướt bảng chính, không phải mở
+        # thêm sheet riêng. Giữ lại ghi chú cũ nếu đã có.
+        if col_ghi_chu and trang_thai_tong not in ("Khớp chính xác", "Bỏ trống"):
+            note_moi = f"[Kiểm tra tên BS] {trang_thai_tong}: {goi_y_text}"
+            note_cu = str(ws.cell(row_idx, col_ghi_chu).value or "").strip()
+            ws.cell(row_idx, col_ghi_chu).value = f"{note_cu} | {note_moi}" if note_cu else note_moi
+
         if trang_thai_tong not in ("Khớp chính xác", "Bỏ trống"):
             can_kiem_tra.append(
                 {
@@ -363,6 +380,7 @@ def run(file_path: Path, sheet_arg: str | None, cot_arg: str | None, nguong: flo
         "tong_dong": sum(thong_ke.values()),
         "thong_ke": thong_ke,
         "so_dong_can_kiem_tra": len(can_kiem_tra),
+        "da_ghi_vao_cot_ghi_chu": col_ghi_chu is not None,
     }
 
 
@@ -394,6 +412,10 @@ def main() -> None:
     print(f"- Trùng cấu hình nhân sự (2 người cùng bí danh/tên): {tk['nhieu_nguoi']}")
     print(f"- Bỏ trống: {tk['bo_trong']}")
     print(f"- Số dòng cần kiểm tra (xem sheet 'Cần kiểm tra tên BS'): {result['so_dong_can_kiem_tra']}")
+    if result["da_ghi_vao_cot_ghi_chu"]:
+        print("- Đã ghi chú các dòng cần kiểm tra thẳng vào cột 'Ghi chú' của sheet gốc.")
+    else:
+        print("- Không tìm thấy cột 'Ghi chú' trong sheet gốc nên chỉ ghi vào 2 cột mới và sheet tổng hợp.")
     print(f"- File đầu ra: {result['file_dau_ra']}")
 
 
