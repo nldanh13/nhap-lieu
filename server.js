@@ -282,6 +282,15 @@ app.post('/api/clear-autosave-state', (_req, res) => {
   res.json({ ok: true });
 });
 
+app.get('/api/header-aliases', (_req, res) => {
+  try {
+    const raw = fs.readFileSync(path.join(APP_ROOT, 'cau_hinh_alias_cot.json'), 'utf8');
+    res.json({ ok: true, aliases: JSON.parse(raw) });
+  } catch (_err) {
+    res.json({ ok: true, aliases: {} });
+  }
+});
+
 app.get('/api/staff-list', asyncHandler(async (_req, res) => {
   const data = await runPython(['staff-list']);
   res.json(data);

@@ -162,14 +162,21 @@ DANH_SACH_TEN_CLS_CAN_CHUYEN = load_ten_cls_can_chuyen()
 COT_CAN_CHUYEN = ["Ngày", "Họ và tên", "Tuổi", "Tên CLS", "Số Lượng", "Thành tiền"]
 
 # Một số file "BẢNG KÊ TIỀN TIỂU PHẪU" đặt tên cột khác với sheet thu thuat dù
-# cùng ý nghĩa (ví dụ "Ngày chỉ định" thay vì "Ngày"). Khai báo thêm tên gọi khác
-# ở đây để script vẫn tìm đúng cột mà không cần sửa tiêu đề trong file Excel.
-HEADER_ALIASES: dict[str, list[str]] = {
-    "Ngày": ["Ngày", "Ngày chỉ định"],
-    "Họ và tên": ["Họ và tên", "Tên bệnh nhân"],
-    "Tuổi": ["Tuổi", "Năm sinh"],
-    "Tên CLS": ["Tên CLS", "Tên dịch vụ/thuốc"],
-}
+# cùng ý nghĩa (ví dụ "Ngày chỉ định" thay vì "Ngày"). Danh sách tên gọi khác
+# nằm chung trong cau_hinh_alias_cot.json, dùng chung với node_excel_api.py và
+# public/app.js để chỉ cần sửa một chỗ khi gặp mẫu file mới.
+FILE_ALIAS_COT = BASE_DIR / "cau_hinh_alias_cot.json"
+
+
+def load_header_aliases() -> dict[str, list[str]]:
+    try:
+        with open(FILE_ALIAS_COT, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+HEADER_ALIASES: dict[str, list[str]] = load_header_aliases()
 
 # =========================
 # TIỆN ÍCH

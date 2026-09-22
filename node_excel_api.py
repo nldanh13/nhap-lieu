@@ -72,12 +72,14 @@ try:
         update_total_formulas_tieuphau,
         update_formula_lien_ket_tong_cong,
         translate_formula,
+        HEADER_ALIASES,
     )
 except Exception as exc:
     HELPER_IMPORT_WARNING = (
         "Không nạp được các hàm hỗ trợ giữ định dạng/công thức từ "
         f"chuyen_thu_thuat_sang_tieuphau_t5.py: {exc}"
     )
+    HEADER_ALIASES = {}
     # Fallback tối thiểu nếu import lỗi.
     def normalize_text(value: Any) -> str:
         if value is None:
@@ -326,15 +328,24 @@ def load_sheet(file_path: Path, sheet_name: str | None):
     return wb, wb[real_name], real_name
 
 
+def _required_header_alias_keys(aliases: dict[str, list[str]]) -> dict[str, set[str]]:
+    """Suy ra bảng alias (key chuẩn hóa -> tập key thay thế) từ HEADER_ALIASES
+    (nạp từ cau_hinh_alias_cot.json), dùng chung với
+    chuyen_thu_thuat_sang_tieuphau_t5.py và public/app.js để chỉ cần sửa một
+    chỗ khi gặp mẫu file mới."""
+    result: dict[str, set[str]] = {}
+    for canonical_name, alias_names in aliases.items():
+        canonical_key = normalize_header(canonical_name)
+        alias_keys = {normalize_header(name) for name in alias_names if normalize_header(name) != canonical_key}
+        if alias_keys:
+            result[canonical_key] = alias_keys
+    return result
+
+
 # Một số file "BẢNG KÊ TIỀN TIỂU PHẪU" đặt tên cột khác nhưng cùng ý nghĩa
-# (vd "Ngày chỉ định" thay vì "Ngày"). Khai báo thêm để không bỏ sót các cột
-# này khi kiểm tra dòng thiếu dữ liệu.
-REQUIRED_HEADER_ALIAS_KEYS = {
-    "ngay": {"ngaychidinh"},
-    "hovaten": {"tenbenhnhan"},
-    "tuoi": {"namsinh"},
-    "tencls": {"tendichvuthuoc"},
-}
+# (vd "Ngày chỉ định" thay vì "Ngày"). Dùng thêm để không bỏ sót các cột này
+# khi kiểm tra dòng thiếu dữ liệu.
+REQUIRED_HEADER_ALIAS_KEYS = _required_header_alias_keys(HEADER_ALIASES)
 
 
 def required_headers_for_sheet(sheet_name: str, headers: list[str]) -> list[str]:

@@ -23,6 +23,7 @@ const state = {
   dismissedSampleNoticeFor: '',
   emrConfig: null,
   pendingEmrAction: '',
+  headerAliases: {},
 };
 
 const $ = (id) => document.getElementById(id);
@@ -494,14 +495,19 @@ function shouldHideHeader(header) {
   return false;
 }
 
+function aliasCandidates(canonicalName) {
+  const configured = state.headerAliases && state.headerAliases[canonicalName];
+  return configured && configured.length ? configured : [canonicalName];
+}
+
 function chooseDisplayHeaders() {
   const mode = currentViewMode();
   const surgery = [
     ['STT'],
-    ['NGÀY', 'Ngày'],
-    ['Họ và tên bệnh nhân', 'Họ và tên'],
-    ['Tuổi'],
-    ['Chẩn đoán và phương pháp phẫu thuật', 'Tên CLS'],
+    aliasCandidates('Ngày'),
+    aliasCandidates('Họ và tên'),
+    aliasCandidates('Tuổi'),
+    aliasCandidates('Tên CLS'),
     ['PTV chính'],
     ['Phụ mổ 1'],
     ['Phụ mổ 2'],
@@ -509,14 +515,14 @@ function chooseDisplayHeaders() {
   ];
   const procedure = [
     ['STT'],
-    ['Ngày', 'NGÀY', 'Ngày chỉ định'],
-    ['Họ và tên', 'Họ và tên bệnh nhân', 'Tên bệnh nhân'],
-    ['Tuổi', 'Năm sinh'],
-    ['Tên CLS', 'Chẩn đoán và phương pháp phẫu thuật', 'Tên dịch vụ/thuốc'],
-    ['Số Lượng', 'Số lượng'],
+    aliasCandidates('Ngày'),
+    aliasCandidates('Họ và tên'),
+    aliasCandidates('Tuổi'),
+    aliasCandidates('Tên CLS'),
+    aliasCandidates('Số Lượng'),
     ['Thành tiền'],
-    ['Bác Sĩ', 'BS'],
-    ['Điều Dưỡng'],
+    aliasCandidates('Bác Sĩ'),
+    aliasCandidates('Điều Dưỡng'),
     ['Ghi chú']
   ];
   const preferred = mode === 'surgery' ? surgery : (mode === 'procedure' ? procedure : [...surgery, ...procedure]);
@@ -2533,12 +2539,22 @@ function bindEvents() {
   });
 }
 
+async function loadHeaderAliases() {
+  try {
+    const data = await api('/api/header-aliases');
+    state.headerAliases = data.aliases || {};
+  } catch (_err) {
+    state.headerAliases = {};
+  }
+}
+
 async function initApp() {
   resetDocumentHorizontalScroll();
   window.addEventListener('pageshow', resetDocumentHorizontalScroll);
   window.addEventListener('resize', resetDocumentHorizontalScroll);
   bindEvents();
   autosaveStatus('Tự động lưu đang bật', 'ok');
+  await loadHeaderAliases();
   await loadStaffList();
   await loadClsList();
   await loadFiles();
