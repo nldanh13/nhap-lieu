@@ -31,6 +31,11 @@ from openpyxl.utils.datetime import from_excel
 
 from emr_integration.emr_list_search import EmrListSearcher, load_config
 
+try:
+    from chuyen_thu_thuat_sang_tieuphau_t5 import HEADER_ALIASES
+except Exception:
+    HEADER_ALIASES = {}
+
 
 APP_ROOT = Path(__file__).resolve().parent
 STAFF_FILE = APP_ROOT / "nhan_su_web.json"
@@ -196,6 +201,15 @@ def header_key(value: Any) -> str:
     return norm(value).replace(" ", "")
 
 
+# Tên gọi khác của cùng một cột (vd "Ngày chỉ định" thay cho "Ngày"), lấy
+# chung từ cau_hinh_alias_cot.json qua HEADER_ALIASES để không phải khai báo
+# lặp lại ở đây.
+ALIAS_KEYS_BY_CANONICAL: Dict[str, List[str]] = {
+    header_key(canonical): [header_key(name) for name in names]
+    for canonical, names in HEADER_ALIASES.items()
+}
+
+
 def is_blank(value: Any) -> bool:
     return value is None or str(value).strip() == ""
 
@@ -322,23 +336,36 @@ def find_sheet(wb, wanted: str):
 
 def find_headers(ws) -> Tuple[int, Dict[str, int], Dict[int, str]]:
     required = {"ngay", "hovaten", "tencls", "bacsi"}
+    max_col = ws.max_column  # ws.max_column quét lại cả sheet mỗi lần gọi, tính một lần ở đây.
     for row_idx in range(1, min(ws.max_row, 40) + 1):
         by_key: Dict[str, int] = {}
         by_col: Dict[int, str] = {}
-        for col_idx in range(1, ws.max_column + 1):
+        for col_idx in range(1, max_col + 1):
             raw = ws.cell(row_idx, col_idx).value
             key = header_key(raw)
             if key:
                 by_key.setdefault(key, col_idx)
                 by_col[col_idx] = str(raw).strip()
+
+        # Bổ sung tên chuẩn (vd "ngay") trỏ về đúng cột nếu dòng này chỉ có
+        # tên gọi khác (vd "ngaychidinh").
+        for canonical_key, alias_keys in ALIAS_KEYS_BY_CANONICAL.items():
+            if canonical_key in by_key:
+                continue
+            for alias_key in alias_keys:
+                if alias_key in by_key:
+                    by_key[canonical_key] = by_key[alias_key]
+                    break
+
         if required.issubset(by_key):
             return row_idx, by_key, by_col
     raise ValueError("Không nhận diện được các cột Ngày, Họ và tên, Tên CLS, Bác sĩ")
 
 
 def find_total_row(ws, header_row: int) -> int:
+    max_col = min(ws.max_column, 12)  # tránh gọi lại ws.max_column trong vòng lặp theo dòng.
     for row_idx in range(header_row + 1, ws.max_row + 1):
-        for col_idx in range(1, min(ws.max_column, 12) + 1):
+        for col_idx in range(1, max_col + 1):
             if norm(ws.cell(row_idx, col_idx).value) == "tong cong":
                 return row_idx
     return ws.max_row + 1
