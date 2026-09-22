@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T8_NHAP_LIEU.xlsx",
+  "sheet": "tieuphau",
+  "message": "Đã kiểm tra 1 dòng cần đối chiếu EMR.",
+  "checkedRows": 1,
+  "updatedRows": 0,
+  "skippedValidRows": 107,
+  "unmatchedRows": 1,
+  "debugFolder": "E:\\Thong_ke\\emr_debug\\20260922_171752_845",
+  "debugLog": "E:\\Thong_ke\\emr_debug\\20260922_171752_845\\debug.log",
+  "debugEvents": "E:\\Thong_ke\\emr_debug\\20260922_171752_845\\events.jsonl",
+  "results": [
+    {
+      "rowNumber": 15,
+      "patient": "DƯƠNG HOÀNG TRUNG",
+      "time": "10:00 07/08/2026",
+      "method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    }
+  ],
+  "unmatched": [
+    {
+      "rowNumber": 15,
+      "patient": "DƯƠNG HOÀNG TRUNG",
+      "time": "10:00 07/08/2026",
+      "method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+      "oldValue": "",
+      "status": "unmatched",
+      "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+    }
+  ],
+  "updated": []
+}

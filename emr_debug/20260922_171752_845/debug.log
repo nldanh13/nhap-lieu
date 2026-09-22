@@ -1,0 +1,829 @@
+[2026-09-22 17:17:52.845] [START] Bắt đầu phiên đối chiếu EMR
+{
+  "folder": "E:\\Thong_ke\\emr_debug\\20260922_171752_845"
+}
+[2026-09-22 17:17:52.846] [CONFIG] Thông tin phiên chạy
+{
+  "input_file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T8_NHAP_LIEU.xlsx",
+  "output_file": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T8_NHAP_LIEU.xlsx",
+  "config_file": "E:\\Thong_ke\\emr_config.json",
+  "only_row": null,
+  "headless_arg": true
+}
+[2026-09-22 17:17:53.250] [WORKBOOK] Đã đọc sheet tieuphau
+{
+  "sheet": "tieuphau",
+  "header_row": 6,
+  "total_row": 129,
+  "columns": {
+    "stt": 1,
+    "ngaychidinh": 2,
+    "tenbenhnhan": 3,
+    "namsinh": 4,
+    "tendichvuthuoc": 5,
+    "soluong": 6,
+    "thanhtien": 7,
+    "bacsi": 8,
+    "sotien": 9,
+    "dieuduong": 10,
+    "thuclanh": 12,
+    "ngay": 2,
+    "hovaten": 3,
+    "tuoi": 4,
+    "tencls": 5
+  },
+  "headers": {
+    "1": "STT",
+    "2": "Ngày chỉ định",
+    "3": "Tên bệnh nhân",
+    "4": "Năm sinh",
+    "5": "Tên dịch vụ/thuốc",
+    "6": "Số lượng",
+    "7": "Thành tiền",
+    "8": "Bác Sĩ",
+    "9": "Số Tiền",
+    "10": "Điều Dưỡng",
+    "11": "Số Tiền",
+    "12": "Thực Lãnh"
+  },
+  "doctor_count": 33
+}
+[2026-09-22 17:17:53.252] [SKIP_VALID] Dòng 7: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.254] [SKIP_VALID] Dòng 8: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.254] [SKIP_VALID] Dòng 9: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.254] [SKIP_VALID] Dòng 10: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.255] [SKIP_VALID] Dòng 11: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-09-22 17:17:53.255] [SKIP_VALID] Dòng 12: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-09-22 17:17:53.255] [SKIP_VALID] Dòng 13: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-09-22 17:17:53.255] [SKIP_VALID] Dòng 14: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-09-22 17:17:53.256] [SKIP_VALID] Dòng 16: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-09-22 17:17:53.256] [SKIP_VALID] Dòng 17: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.256] [SKIP_VALID] Dòng 18: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.256] [SKIP_VALID] Dòng 19: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-09-22 17:17:53.257] [SKIP_VALID] Dòng 20: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-09-22 17:17:53.257] [SKIP_VALID] Dòng 21: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-09-22 17:17:53.257] [SKIP_VALID] Dòng 22: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-09-22 17:17:53.258] [SKIP_VALID] Dòng 23: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.258] [SKIP_VALID] Dòng 24: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.258] [SKIP_VALID] Dòng 25: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-09-22 17:17:53.259] [SKIP_VALID] Dòng 26: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-09-22 17:17:53.259] [SKIP_VALID] Dòng 27: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.259] [SKIP_VALID] Dòng 28: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.260] [SKIP_VALID] Dòng 29: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.260] [SKIP_VALID] Dòng 30: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.260] [SKIP_VALID] Dòng 31: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-09-22 17:17:53.260] [SKIP_VALID] Dòng 32: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.261] [SKIP_VALID] Dòng 33: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-09-22 17:17:53.261] [SKIP_VALID] Dòng 34: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.261] [SKIP_VALID] Dòng 35: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.261] [SKIP_VALID] Dòng 36: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-09-22 17:17:53.262] [SKIP_VALID] Dòng 37: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.262] [SKIP_VALID] Dòng 38: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.262] [SKIP_VALID] Dòng 39: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.262] [SKIP_VALID] Dòng 40: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.263] [SKIP_VALID] Dòng 41: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.263] [SKIP_VALID] Dòng 42: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.263] [SKIP_VALID] Dòng 43: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.263] [SKIP_VALID] Dòng 44: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-09-22 17:17:53.264] [SKIP_VALID] Dòng 45: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-09-22 17:17:53.264] [SKIP_VALID] Dòng 46: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-09-22 17:17:53.264] [SKIP_VALID] Dòng 47: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.265] [SKIP_VALID] Dòng 48: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.265] [SKIP_VALID] Dòng 49: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-09-22 17:17:53.265] [SKIP_VALID] Dòng 50: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-09-22 17:17:53.266] [SKIP_VALID] Dòng 51: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-09-22 17:17:53.266] [SKIP_VALID] Dòng 52: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-09-22 17:17:53.266] [SKIP_VALID] Dòng 53: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-09-22 17:17:53.267] [SKIP_VALID] Dòng 54: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.267] [SKIP_VALID] Dòng 55: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.267] [SKIP_VALID] Dòng 56: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.268] [SKIP_VALID] Dòng 57: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.268] [SKIP_VALID] Dòng 58: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.269] [SKIP_VALID] Dòng 59: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.269] [SKIP_VALID] Dòng 60: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.269] [SKIP_VALID] Dòng 61: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.270] [SKIP_VALID] Dòng 62: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-09-22 17:17:53.270] [SKIP_VALID] Dòng 63: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-09-22 17:17:53.271] [SKIP_VALID] Dòng 64: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-09-22 17:17:53.271] [SKIP_VALID] Dòng 65: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.271] [SKIP_VALID] Dòng 66: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-09-22 17:17:53.272] [SKIP_VALID] Dòng 67: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.272] [SKIP_VALID] Dòng 68: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.274] [SKIP_VALID] Dòng 69: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.275] [SKIP_VALID] Dòng 70: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-09-22 17:17:53.275] [SKIP_VALID] Dòng 71: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.276] [SKIP_VALID] Dòng 72: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.276] [SKIP_VALID] Dòng 73: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-09-22 17:17:53.276] [SKIP_VALID] Dòng 74: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-09-22 17:17:53.277] [SKIP_VALID] Dòng 75: đã là bác sĩ hợp lệ
+{
+  "value": "TOẢN"
+}
+[2026-09-22 17:17:53.278] [SKIP_VALID] Dòng 76: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.278] [SKIP_VALID] Dòng 77: đã là bác sĩ hợp lệ
+{
+  "value": "TÚ"
+}
+[2026-09-22 17:17:53.278] [SKIP_VALID] Dòng 78: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.278] [SKIP_VALID] Dòng 79: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.279] [SKIP_VALID] Dòng 80: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.279] [SKIP_VALID] Dòng 81: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.280] [SKIP_VALID] Dòng 82: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.280] [SKIP_VALID] Dòng 83: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.280] [SKIP_VALID] Dòng 84: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.281] [SKIP_VALID] Dòng 85: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-09-22 17:17:53.281] [SKIP_VALID] Dòng 86: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.281] [SKIP_VALID] Dòng 87: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.281] [SKIP_VALID] Dòng 88: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.282] [SKIP_VALID] Dòng 89: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.282] [SKIP_VALID] Dòng 90: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.282] [SKIP_VALID] Dòng 91: đã là bác sĩ hợp lệ
+{
+  "value": "G.TỬ"
+}
+[2026-09-22 17:17:53.282] [SKIP_VALID] Dòng 92: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-09-22 17:17:53.283] [SKIP_VALID] Dòng 93: đã là bác sĩ hợp lệ
+{
+  "value": "V.TÂN"
+}
+[2026-09-22 17:17:53.283] [SKIP_VALID] Dòng 94: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.283] [SKIP_VALID] Dòng 95: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.283] [SKIP_VALID] Dòng 96: đã là bác sĩ hợp lệ
+{
+  "value": "BẢO"
+}
+[2026-09-22 17:17:53.284] [SKIP_VALID] Dòng 97: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.284] [SKIP_VALID] Dòng 98: đã là bác sĩ hợp lệ
+{
+  "value": "SƠN"
+}
+[2026-09-22 17:17:53.284] [SKIP_VALID] Dòng 99: đã là bác sĩ hợp lệ
+{
+  "value": "TUẤN"
+}
+[2026-09-22 17:17:53.284] [SKIP_VALID] Dòng 100: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.285] [SKIP_VALID] Dòng 101: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.285] [SKIP_VALID] Dòng 102: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.285] [SKIP_VALID] Dòng 103: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.285] [SKIP_VALID] Dòng 104: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.286] [SKIP_VALID] Dòng 105: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.287] [SKIP_VALID] Dòng 106: đã là bác sĩ hợp lệ
+{
+  "value": "DUY"
+}
+[2026-09-22 17:17:53.288] [SKIP_VALID] Dòng 107: đã là bác sĩ hợp lệ
+{
+  "value": "HOAN"
+}
+[2026-09-22 17:17:53.288] [SKIP_VALID] Dòng 108: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.288] [SKIP_VALID] Dòng 109: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.289] [SKIP_VALID] Dòng 110: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.289] [SKIP_VALID] Dòng 111: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.289] [SKIP_VALID] Dòng 112: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.290] [SKIP_VALID] Dòng 113: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.290] [SKIP_VALID] Dòng 114: đã là bác sĩ hợp lệ
+{
+  "value": "ĐIỀN"
+}
+[2026-09-22 17:17:53.290] [TARGET_ROWS] Có 1 dòng cần kiểm tra EMR
+{
+  "rows": [
+    15
+  ],
+  "skipped_valid": 107
+}
+[2026-09-22 17:17:53.785] [AUTOSAVE_INIT] Đã tạo/cập nhật file làm việc trước khi tìm EMR
+{
+  "output": "E:\\Thong_ke\\node_outputs\\PM khoa CTCH T8_NHAP_LIEU.xlsx"
+}
+[2026-09-22 17:17:53.785] [BROWSER_START] Khởi động trình duyệt EMR
+{
+  "headless": true
+}
+[2026-09-22 17:17:54.647] [BROWSER_READY] Trình duyệt EMR đã sẵn sàng
+[2026-09-22 17:17:54.651] [ROW_BEGIN] [1/1] Bắt đầu dòng 15: DƯƠNG HOÀNG TRUNG
+{
+  "raw_time": "2026/08/07 10:00",
+  "parsed_time": "10:00 07/08/2026",
+  "method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+  "old_value": ""
+}
+[2026-09-22 17:17:54.652] [SEARCH_BEGIN] dòng 15: tìm DƯƠNG HOÀNG TRUNG tại D/s Phẫu thuật
+{
+  "patient": "DƯƠNG HOÀNG TRUNG",
+  "target_time": "2026-08-07 10:00:00",
+  "target_method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+  "source": "surgery"
+}
+[2026-09-22 17:17:54.666] [BROWSER] [LOGIN] http://192.168.2.26:2026/login.aspx
+[2026-09-22 17:17:56.188] [BROWSER] [LOGIN] Thành công: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&role=323&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171753
+[2026-09-22 17:17:56.414] [BROWSER] [NAV] D/s Phẫu thuật: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachphauthuatdraw&role=323&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171754
+[2026-09-22 17:17:58.388] [BROWSER] [FILTER] 3 tháng
+[2026-09-22 17:17:58.830] [BROWSER] [SEARCH] Nhập 'DƯƠNG HOÀNG TRUNG' vào #txtTimKiem
+[2026-09-22 17:17:58.955] [BROWSER] [SEARCH] Đã bấm Tìm kiếm bằng #btnTimKiem
+[2026-09-22 17:17:58.983] [BROWSER] [RESULT] D/s Phẫu thuật: 1 dòng
+[2026-09-22 17:17:58.989] [SEARCH_RESULT] D/s Phẫu thuật: nhận 1 dòng
+{
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=danhsachphauthuatdraw&role=323&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171754",
+  "search_input_id": "txtTimKiem",
+  "search_trigger": "#btnTimKiem",
+  "headers": [
+    "STT",
+    "Mã BN",
+    "Họ tên",
+    "Giới tính",
+    "Tuổi",
+    "Phòng mổ",
+    "Nơi chuyển mổ",
+    "Nội dung phẫu thuật",
+    "Tình trạng",
+    "Thời gian",
+    "Trạng thái",
+    "Đối tượng",
+    "Đã tạm ứng"
+  ],
+  "rows": [
+    {
+      "access_id": "2cd04673-b056-4160-bfa6-b49f00d2aa95",
+      "known_fields": {
+        "stt": "1",
+        "ma_bn": "26080774",
+        "ho_ten": "DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa)",
+        "gioi_tinh": "Nam",
+        "tuoi": "43 tuổi",
+        "phong_mo": "PHÒNG PHẪU THUẬT",
+        "noi_chuyen_mo": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+        "noi_dung_phau_thuat": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+        "tinh_trang": "Thường",
+        "thoi_gian": "07/08/2026",
+        "trang_thai": "Hoàn tất",
+        "doi_tuong": "Bảo hiểm",
+        "tam_ung": "2,000,000"
+      },
+      "raw_text": "1 26080774 DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa) Nam 43 tuổi PHÒNG PHẪU THUẬT Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt Thường 07/08/2026 Hoàn tất Bảo hiểm 2,000,000",
+      "links": [
+        {
+          "text": "1",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "26080774",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa)",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "Nam",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "43 tuổi",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "PHÒNG PHẪU THUẬT",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "Thường",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        },
+        {
+          "text": "07/08/2026",
+          "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+          "onclick": ""
+        }
+      ]
+    }
+  ]
+}
+[2026-09-22 17:17:58.992] [CANDIDATES] D/s Phẫu thuật: có 1 ứng viên cùng người bệnh
+{
+  "candidates": [
+    {
+      "list_score": 125.0,
+      "list_datetime": "2026-08-07 00:00:00",
+      "list_time_source": "Thời gian",
+      "list_method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+      "list_method_source": "Nội dung phẫu thuật",
+      "method_score": 1.0,
+      "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+      "row": {
+        "access_id": "2cd04673-b056-4160-bfa6-b49f00d2aa95",
+        "known_fields": {
+          "stt": "1",
+          "ma_bn": "26080774",
+          "ho_ten": "DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa)",
+          "gioi_tinh": "Nam",
+          "tuoi": "43 tuổi",
+          "phong_mo": "PHÒNG PHẪU THUẬT",
+          "noi_chuyen_mo": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+          "noi_dung_phau_thuat": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+          "tinh_trang": "Thường",
+          "thoi_gian": "07/08/2026",
+          "trang_thai": "Hoàn tất",
+          "doi_tuong": "Bảo hiểm",
+          "tam_ung": "2,000,000"
+        },
+        "raw_text": "1 26080774 DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa) Nam 43 tuổi PHÒNG PHẪU THUẬT Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt Thường 07/08/2026 Hoàn tất Bảo hiểm 2,000,000",
+        "links": [
+          {
+            "text": "1",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "26080774",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa)",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "Nam",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "43 tuổi",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "PHÒNG PHẪU THUẬT",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "Thường",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          },
+          {
+            "text": "07/08/2026",
+            "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+            "onclick": ""
+          }
+        ]
+      }
+    }
+  ]
+}
+[2026-09-22 17:17:58.993] [DETAIL_BEGIN] D/s Phẫu thuật: mở ứng viên 1
+{
+  "detail_marker": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+  "list_datetime": "2026-08-07 00:00:00",
+  "list_method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+  "row": {
+    "access_id": "2cd04673-b056-4160-bfa6-b49f00d2aa95",
+    "known_fields": {
+      "stt": "1",
+      "ma_bn": "26080774",
+      "ho_ten": "DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa)",
+      "gioi_tinh": "Nam",
+      "tuoi": "43 tuổi",
+      "phong_mo": "PHÒNG PHẪU THUẬT",
+      "noi_chuyen_mo": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+      "noi_dung_phau_thuat": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+      "tinh_trang": "Thường",
+      "thoi_gian": "07/08/2026",
+      "trang_thai": "Hoàn tất",
+      "doi_tuong": "Bảo hiểm",
+      "tam_ung": "2,000,000"
+    },
+    "raw_text": "1 26080774 DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa) Nam 43 tuổi PHÒNG PHẪU THUẬT Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt Thường 07/08/2026 Hoàn tất Bảo hiểm 2,000,000",
+    "links": [
+      {
+        "text": "1",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "26080774",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "DƯƠNG HOÀNG TRUNG (Phẫu thuật tại khoa)",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "Nam",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "43 tuổi",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "PHÒNG PHẪU THUẬT",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "Khoa Ngoại Chấn Thương Chỉnh Hình và Thần Kinh",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "Thường",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      },
+      {
+        "text": "07/08/2026",
+        "href": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+        "onclick": ""
+      }
+    ]
+  }
+}
+[2026-09-22 17:17:58.999] [BROWSER] [DETAIL] kind=surgery; access_id=2cd04673-b056-4160-bfa6-b49f00d2aa95; direct_url=yes; onclick=no
+[2026-09-22 17:17:58.999] [BROWSER] [DETAIL] Mở liên kết trực tiếp: http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757
+[2026-09-22 17:18:00.220] [BROWSER] [DETAIL] Dữ liệu đọc được: {"ajax_active": 0, "complete_info": "Người hoàn tất: Nguyễn Hoàng Nam (nhnam) | TG nhấn hoàn tất: 12:56 07/08/2026", "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757", "doctor": "Nguyễn Hoàng Nam", "doctor_candidates": [{"id": "cbbBacSiPT", "value": "Nguyễn Hoàng Nam"}], "doctor_field": "cbbBacSiPT", "doctor_found": true, "method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt", "method_candidates": [{"id": "txtNoiDungPT", "value": ""}, {"id": "cbbPhuongPhapPT", "value": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt"}, {"id": "cbbChiDinhMoPT", "value": "(PT.1048)Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt"}], "method_field": "cbbPhuongPhapPT", "patient_info": "", "root_found": true, "start_candidates": [{"id": "txtBatDauPT", "value": "10:10 07/08/2026"}], "start_time": "10:10 07/08/2026", "start_time_field": "txtBatDauPT"}
+[2026-09-22 17:18:00.221] [BROWSER] [DETAIL] Nguồn bác sĩ: BS mổ chính; field=cbbBacSiPT; value=Nguyễn Hoàng Nam
+[2026-09-22 17:18:00.224] [DETAIL_OK] D/s Phẫu thuật: đọc được hồ sơ chi tiết
+{
+  "doctor_from_emr": "Nguyễn Hoàng Nam",
+  "mapped_alias": null,
+  "mapped_name": null,
+  "start_time": "10:10 07/08/2026",
+  "start_time_field": "txtBatDauPT",
+  "method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+  "method_field": "cbbPhuongPhapPT",
+  "list_time_source": "Thời gian",
+  "list_method_source": "Nội dung phẫu thuật",
+  "current_url": "http://192.168.2.26:2026/home.aspx?scope=sys&lang=vi&wpid=phauthuatdraw&phauthuatid=2cd04673-b056-4160-bfa6-b49f00d2aa95&keyword=d%C6%B0%C6%A1ng%20ho%C3%A0ng%20trung&tg=6&tungay=01/06/2026&denngay=23/09/2026&usid=172.31.255.1_4cqwj41otubmys3pqpibxaju63a8a4f4&st=171757",
+  "total_score": 255.0,
+  "method_score": 1.0
+}
+[2026-09-22 17:18:00.225] [EVALUATED] D/s Phẫu thuật: đánh giá 1 hồ sơ
+{
+  "items": [
+    {
+      "doctor": "Nguyễn Hoàng Nam",
+      "alias": null,
+      "detail_datetime": "2026-08-07 10:10:00",
+      "method_score": 1.0,
+      "total_score": 255.0,
+      "confidence_ok": false
+    }
+  ]
+}
+[2026-09-22 17:18:00.225] [STOP_AT_SOURCE] D/s Phẫu thuật: đã thấy ca cùng ngày nên không sang nguồn khác
+{
+  "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+}
+[2026-09-22 17:18:00.226] [ROW_UNMATCHED] Dòng 15: surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ
+{
+  "rowNumber": 15,
+  "patient": "DƯƠNG HOÀNG TRUNG",
+  "time": "10:00 07/08/2026",
+  "method": "Phẫu thuật rạch dẫn lưu viêm tấy lan toả vùng hàm mặt",
+  "oldValue": "",
+  "status": "unmatched",
+  "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+}
+[2026-09-22 17:18:00.226] [ROW_END] Kết thúc dòng 15
+{
+  "status": "unmatched",
+  "new_value": null,
+  "reason": "surgery: đã có ca cùng ngày nhưng chưa lấy được bác sĩ"
+}
+[2026-09-22 17:18:02.445] [BROWSER_CLOSE] Đã đóng trình duyệt EMR
+[2026-09-22 17:18:02.949] [FINISH] Kết thúc phiên đối chiếu EMR
+{
+  "updatedRows": 0,
+  "unmatchedRows": 1
+}
