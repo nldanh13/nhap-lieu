@@ -509,13 +509,14 @@ function chooseDisplayHeaders() {
   ];
   const procedure = [
     ['STT'],
-    ['Ngày', 'NGÀY'],
-    ['Họ và tên', 'Họ và tên bệnh nhân'],
-    ['Tuổi'],
-    ['Tên CLS', 'Chẩn đoán và phương pháp phẫu thuật'],
+    ['Ngày', 'NGÀY', 'Ngày chỉ định'],
+    ['Họ và tên', 'Họ và tên bệnh nhân', 'Tên bệnh nhân'],
+    ['Tuổi', 'Năm sinh'],
+    ['Tên CLS', 'Chẩn đoán và phương pháp phẫu thuật', 'Tên dịch vụ/thuốc'],
     ['Số Lượng', 'Số lượng'],
     ['Thành tiền'],
     ['Bác Sĩ', 'BS'],
+    ['Điều Dưỡng'],
     ['Ghi chú']
   ];
   const preferred = mode === 'surgery' ? surgery : (mode === 'procedure' ? procedure : [...surgery, ...procedure]);

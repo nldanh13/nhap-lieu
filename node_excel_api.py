@@ -313,11 +313,25 @@ def load_sheet(file_path: Path, sheet_name: str | None):
     return wb, wb[real_name], real_name
 
 
+# Một số file "BẢNG KÊ TIỀN TIỂU PHẪU" đặt tên cột khác nhưng cùng ý nghĩa
+# (vd "Ngày chỉ định" thay vì "Ngày"). Khai báo thêm để không bỏ sót các cột
+# này khi kiểm tra dòng thiếu dữ liệu.
+REQUIRED_HEADER_ALIAS_KEYS = {
+    "ngay": {"ngaychidinh"},
+    "hovaten": {"tenbenhnhan"},
+    "tuoi": {"namsinh"},
+    "tencls": {"tendichvuthuoc"},
+}
+
+
 def required_headers_for_sheet(sheet_name: str, headers: list[str]) -> list[str]:
     """Trả về đúng tên header thực tế cần kiểm tra bắt buộc cho từng sheet."""
     configured_keys = REQUIRED_HEADER_KEYS_BY_SHEET.get(normalize_header(sheet_name), set())
     if configured_keys:
-        return [header for header in headers if normalize_header(header) in configured_keys]
+        expanded_keys = set(configured_keys)
+        for key in configured_keys:
+            expanded_keys |= REQUIRED_HEADER_ALIAS_KEYS.get(key, set())
+        return [header for header in headers if normalize_header(header) in expanded_keys]
 
     # Sheet chưa cấu hình: chỉ suy luận các trường nhận diện cơ bản, không coi
     # toàn bộ hàng trăm cột là bắt buộc.
