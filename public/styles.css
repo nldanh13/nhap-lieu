@@ -578,10 +578,11 @@ tbody tr.saved-flash td { animation: savedFlash 1.35s ease-out; }
 .staff-table tbody tr:hover td { background: #f7faff; }
 .staff-table .alias-cell { font-weight: 900; }
 
-.so-pt-ai-bar { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; padding: 14px 16px; border: 1px dashed #b8c8e0; border-radius: var(--radius); background: #f6f9ff; }
-.so-pt-ai-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; }
-.so-pt-ai-head strong { font-size: 13.5px; }
-.so-pt-ai-head small { display: block; color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+.so-pt-ai-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+.so-pt-ai-warn { flex-basis: 100%; color: var(--muted); font-size: 11.5px; }
+.so-pt-advanced { margin-top: 10px; }
+.so-pt-advanced > summary { cursor: pointer; color: var(--muted); font-size: 12.5px; user-select: none; }
+.so-pt-advanced .so-pt-upload-bar { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
 .so-pt-upload-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 10px; }
 .so-pt-layout { grid-template-columns: minmax(0, 1.3fr) minmax(320px, 1fr); }
 .so-pt-table tbody tr { cursor: pointer; }
