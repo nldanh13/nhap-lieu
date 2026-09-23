@@ -51,13 +51,13 @@ def vertices_to_box(layout):
 
 
 def process_image(client, processor_name, filename, content):
+    # Không đặt process_options: field "enable_image_quality_scores" không có
+    # trong mọi phiên bản google-cloud-documentai (gây lỗi "Unknown field" ở
+    # phiên bản cũ hơn). Điểm chất lượng ảnh chỉ là thông tin phụ, bỏ qua nếu
+    # phiên bản thư viện không hỗ trợ — image_quality bên dưới tự về None.
     request = documentai.ProcessRequest(
         name=processor_name,
         raw_document=documentai.RawDocument(content=content, mime_type="image/jpeg"),
-        process_options=documentai.ProcessOptions(
-            # Trả thêm điểm chất lượng ảnh để biết ảnh nào cần chụp lại.
-            enable_image_quality_scores=True,
-        ),
     )
     result = client.process_document(request=request)
     doc = result.document
