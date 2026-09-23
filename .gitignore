@@ -5,6 +5,7 @@ node_uploads/
 node_outputs/
 node_autosaves/
 TheoSo/
+img/
 
 # Cấu hình có mật khẩu thật, chỉ dùng emr_config.example.json làm mẫu.
 emr_config.json
