@@ -27,6 +27,8 @@ const state = {
   soPhauThuat: { danhSachFile: '', headers: [], rows: [], filtered: [], selectedIndex: -1, imagesLoaded: false },
   soPtDoiChieu: [],
   soPtDoiChieuOpenRows: new Set(),
+  documentAiConfig: null,
+  documentAiRawOcrFile: '',
 };
 
 const $ = (id) => document.getElementById(id);
@@ -2201,6 +2203,133 @@ async function uploadSoPtAnh() {
   }
 }
 
+async function loadDocumentAiConfig() {
+  const data = await api('/api/document-ai-config');
+  state.documentAiConfig = data.config || {};
+  return state.documentAiConfig;
+}
+
+function closeDocumentAiConfigModal() {
+  $('documentAiConfigModal')?.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+async function openDocumentAiConfigModal() {
+  try {
+    const config = await loadDocumentAiConfig();
+    $('documentAiProjectIdInput').value = config.project_id || '';
+    $('documentAiLocationInput').value = config.location || 'us';
+    $('documentAiProcessorIdInput').value = config.processor_id || '';
+    if ($('documentAiCredentialsStatus')) {
+      $('documentAiCredentialsStatus').textContent = config.hasCredentials
+        ? 'Đã có file service-account.json.'
+        : 'Chưa tải file service-account.json.';
+    }
+  } catch (err) {
+    showToast(err.message, 'error', 5000);
+  }
+  $('documentAiConfigModal')?.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => $('documentAiProjectIdInput')?.focus(), 60);
+}
+
+async function saveDocumentAiConfig() {
+  const payload = {
+    project_id: $('documentAiProjectIdInput').value.trim(),
+    location: $('documentAiLocationInput').value.trim() || 'us',
+    processor_id: $('documentAiProcessorIdInput').value.trim(),
+  };
+  if (!payload.project_id || !payload.processor_id) {
+    showToast('Vui lòng nhập Project ID và Processor ID.', 'warning', 4500);
+    return;
+  }
+  setBusy(true, 'Đang lưu cấu hình Document AI...');
+  try {
+    const credInput = $('documentAiCredentialsInput');
+    if (credInput?.files.length) {
+      const form = new FormData();
+      form.append('file', credInput.files[0]);
+      const res = await fetch('/api/document-ai-credentials', { method: 'POST', body: form });
+      const credData = await res.json();
+      if (!res.ok || credData.ok === false) throw new Error(credData.error || 'Tải file khóa dịch vụ lỗi.');
+    }
+    const data = await api('/api/document-ai-config', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    state.documentAiConfig = data.config || {};
+    closeDocumentAiConfigModal();
+    showToast('Đã lưu cấu hình Document AI.', 'success');
+  } catch (err) {
+    showToast(err.message, 'error', 5000);
+  } finally {
+    setBusy(false);
+  }
+}
+
+async function runSoPtAiOcr() {
+  const input = $('soPtAiZipInput');
+  if (!input.files.length) {
+    alert('Chọn file ZIP ảnh thô cần OCR.');
+    return;
+  }
+  try {
+    const config = state.documentAiConfig || await loadDocumentAiConfig();
+    if (!config.configured) {
+      await openDocumentAiConfigModal();
+      return;
+    }
+  } catch (_err) {
+    await openDocumentAiConfigModal();
+    return;
+  }
+  setBusy(true, 'Đang chạy OCR (Google Document AI) — có thể mất vài phút...');
+  if ($('soPtAiStatus')) $('soPtAiStatus').textContent = 'Đang chạy OCR, đợi chút...';
+  try {
+    const form = new FormData();
+    form.append('zip', input.files[0]);
+    const res = await fetch('/api/so-phau-thuat/chay-ocr', { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok || data.ok === false) throw new Error(data.error || 'Chạy OCR lỗi.');
+    if ($('soPtAiZipFileName')) $('soPtAiZipFileName').textContent = input.files[0].name;
+    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = `Đã OCR ${data.imageCount || 0} ảnh. Bấm "Tách cột" để tạo Danh sách sơ bộ (CẦN KIỂM TRA LẠI).`;
+    if ($('soPtAiTachCotBtn')) $('soPtAiTachCotBtn').disabled = false;
+    showToast(`Đã OCR xong ${data.imageCount || 0} ảnh.`, 'success');
+    log(`Đã chạy Document AI OCR: ${data.imageCount || 0} ảnh.`);
+  } catch (err) {
+    alert(err.message);
+    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = '';
+    log(`Lỗi chạy Document AI OCR: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+async function runSoPtAiTachCot() {
+  setBusy(true, 'Đang tách cột từ kết quả OCR...');
+  try {
+    const data = await api('/api/so-phau-thuat/tach-cot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({}),
+    });
+    state.soPhauThuat.danhSachFile = data.file;
+    if ($('soPtDanhSachFileName')) $('soPtDanhSachFileName').textContent = `Tự tách từ OCR (${data.count || 0} dòng — CẦN KIỂM TRA)`;
+    await loadSoPtRows();
+    if ($('soPtAiStatus')) {
+      $('soPtAiStatus').textContent = `Đã tách ${data.count || 0} dòng — TẤT CẢ đều cần đối chiếu ảnh gốc trước khi dùng (cột có thể chưa đúng vị trí, hãy báo lại nếu sai để hiệu chỉnh).`;
+    }
+    showToast(`Đã tách ${data.count || 0} dòng từ OCR — cần kiểm tra lại toàn bộ.`, 'warning', 6000);
+    log(`Đã tách cột từ OCR: ${data.count || 0} dòng.`);
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi tách cột từ OCR: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
 function renderSoPtList() {
   const tbody = $('soPtTableBody');
   if (!tbody) return;
@@ -2805,6 +2934,23 @@ function bindEvents() {
   });
   $('soPtSearchInput')?.addEventListener('input', () => renderSoPtList());
   $('soPtDoiChieuBtn')?.addEventListener('click', runSoPtDoiChieu);
+  $('soPtAiConfigBtn')?.addEventListener('click', e => { e.preventDefault(); openDocumentAiConfigModal(); });
+  $('soPtAiOcrBtn')?.addEventListener('click', runSoPtAiOcr);
+  $('soPtAiTachCotBtn')?.addEventListener('click', runSoPtAiTachCot);
+  $('soPtAiZipInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('soPtAiZipFileName')) $('soPtAiZipFileName').textContent = file ? file.name : 'Chọn ZIP ảnh THÔ (chưa phân tích)';
+  });
+  $('closeDocumentAiConfigBtn')?.addEventListener('click', closeDocumentAiConfigModal);
+  $('cancelDocumentAiConfigBtn')?.addEventListener('click', closeDocumentAiConfigModal);
+  $('saveDocumentAiConfigBtn')?.addEventListener('click', saveDocumentAiConfig);
+  $('documentAiCredentialsInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('documentAiCredentialsFileName')) $('documentAiCredentialsFileName').textContent = file ? file.name : 'Chọn file khóa dịch vụ (service-account.json)';
+  });
+  $('documentAiConfigModal')?.addEventListener('mousedown', e => {
+    if (e.target === $('documentAiConfigModal')) closeDocumentAiConfigModal();
+  });
   $('soPtDoiChieuList')?.addEventListener('click', e => {
     const btn = e.target.closest('button[data-action]');
     if (!btn) return;
@@ -2949,6 +3095,7 @@ function bindEvents() {
     if (event.key !== 'Escape') return;
     if (!$('clearAssistantsModal').classList.contains('hidden')) closeClearAssistantsModal();
     if (!$('emrConfigModal')?.classList.contains('hidden')) closeEmrConfigModal();
+    if (!$('documentAiConfigModal')?.classList.contains('hidden')) closeDocumentAiConfigModal();
   });
   document.querySelectorAll('[data-task]').forEach(btn => {
     btn.addEventListener('click', () => runTask(btn.dataset.task));
