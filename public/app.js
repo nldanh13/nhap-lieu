@@ -133,7 +133,6 @@ function countNonBlankInHeader(header) {
 
 function updateDirtyMetrics() {
   const dirtyCount = Object.keys(state.rowChanges || {}).length + (state.newRowValues ? 1 : 0);
-  if ($('dirtyCountMetric')) $('dirtyCountMetric').textContent = String(dirtyCount);
   const chip = $('dirtyStatus');
   if (chip) {
     chip.textContent = dirtyCount ? `${dirtyCount} dòng chưa hoàn tất` : '0 thay đổi';
@@ -967,10 +966,11 @@ async function loadSheet(targetSheet = null) {
     updateSelectedInfo();
     requestAnimationFrame(() => focusFirstSurgeryEntry());
     const requiredInfo = (data.requiredHeaders || []).length
-      ? ` · Cột bắt buộc: ${(data.requiredHeaders || []).join(', ')}`
+      ? `Cột bắt buộc: ${(data.requiredHeaders || []).join(', ')}`
       : '';
-    const missingRows = state.rows.filter(row => (row.missing || []).length).length;
-    $('sheetSummary').textContent = `${data.matchedRowCount ?? data.rowCount} dòng · ${missingRows} dòng thiếu · Tổng Cộng ở dòng ${data.totalRow}${requiredInfo}`;
+    // Số dòng/dòng thiếu đã hiện ở các ô số liệu bên phải (data-overview) —
+    // không lặp lại ở đây để đỡ rối, chỉ còn thông tin dòng Tổng Cộng + cột bắt buộc.
+    $('sheetSummary').textContent = `Tổng Cộng ở dòng ${data.totalRow}${requiredInfo ? ' · ' + requiredInfo : ''}`;
     updateContextUI();
     updateDashboardMetrics();
     log(`Đã đọc sheet ${data.sheet}: ${data.matchedRowCount ?? data.rowCount} dòng.`);
@@ -1379,7 +1379,7 @@ async function restoreDraft(draft, silent = false) {
     applyDraftChangesToRows();
     renderTable();
     updateSelectedInfo();
-    autosaveStatus(`Đã khôi phục bản tự lưu ${new Date(draft.updatedAt || Date.now()).toLocaleString('vi-VN')}`, 'ok');
+    autosaveStatus(`Đã khôi phục bản nháp ${new Date(draft.updatedAt || Date.now()).toLocaleTimeString('vi-VN')}`, 'ok');
     if (!silent) log('Đã khôi phục dữ liệu tự lưu gần nhất.');
     const dirtyRows = Object.keys(state.rowChanges || {});
     dirtyRows.forEach(rowNumber => scheduleRowAutosave(Number(rowNumber), 400));

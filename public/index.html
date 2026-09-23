@@ -67,9 +67,9 @@
         </div>
 
         <details class="upload-details">
-          <summary>＋ Mở file tháng mới</summary>
-          <div class="upload-popover">
-            <label>File tháng mới</label>
+          <summary>＋ Tệp khác</summary>
+          <div class="upload-popover upload-popover-wide">
+            <label>Mở file tháng mới</label>
             <div class="field-inline">
               <input id="uploadInput" class="file-input" type="file" accept=".xlsx,.xlsm" />
               <label for="uploadInput" class="upload-picker">
@@ -79,13 +79,8 @@
               <button id="uploadBtn" class="btn primary" type="button">Mở file</button>
             </div>
             <div class="field-note">File gốc luôn được giữ nguyên — kết quả lưu vào file mới.</div>
-          </div>
-        </details>
 
-        <details class="upload-details">
-          <summary>＋ Upload file vào TheoSo</summary>
-          <div class="upload-popover">
-            <label>File Sổ Thủ Thuật / Sổ Phẫu Thuật (HIS)</label>
+            <label class="upload-popover-section">Upload file vào TheoSo</label>
             <div class="field-inline">
               <input id="theoSoUploadInput" class="file-input" type="file" accept=".xlsx,.xls" multiple />
               <label for="theoSoUploadInput" class="upload-picker">
@@ -94,7 +89,7 @@
               </label>
               <button id="theoSoUploadBtn" class="btn primary" type="button">Upload vào TheoSo</button>
             </div>
-            <div class="field-note">File được lưu vào thư mục <code>TheoSo/</code> để chạy <code>python chay_theo_so.py</code>.</div>
+            <div class="field-note">File Sổ Thủ Thuật / Sổ Phẫu Thuật (HIS), lưu vào thư mục <code>TheoSo/</code>.</div>
             <ul id="theoSoFileList" class="theo-so-file-list"></ul>
           </div>
         </details>
@@ -125,7 +120,6 @@
           <div class="data-overview">
             <div class="overview-stat warning-stat"><strong id="missingCountMetric">0</strong><span>dòng thiếu</span></div>
             <div class="overview-stat"><strong id="rowCountMetric">0</strong><span>tổng dòng</span></div>
-            <div class="overview-stat muted-stat"><strong id="dirtyCountMetric">0</strong><span>đang sửa</span></div>
             <details id="qualityDetails" class="quality-menu">
               <summary id="qualitySummary">Kiểm tra dữ liệu</summary>
               <div id="qualityPanel" class="quality-panel">Chưa có dữ liệu để đánh giá.</div>
