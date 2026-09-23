@@ -11,8 +11,12 @@ const uploadDir = path.join(APP_ROOT, 'node_uploads');
 const outputDir = path.join(APP_ROOT, 'node_outputs');
 const autosaveDir = path.join(APP_ROOT, 'node_autosaves');
 const theoSoDir = path.join(APP_ROOT, 'TheoSo');
+const soPhauThuatAnhDir = path.join(uploadDir, 'so_phau_thuat_anh');
 const autosaveStateFile = path.join(autosaveDir, 'autosave_state.json');
 const emrConfigFile = path.join(APP_ROOT, 'emr_config.json');
+const documentAiConfigFile = path.join(APP_ROOT, 'document_ai_config.json');
+const documentAiCredentialsFile = path.join(APP_ROOT, 'document_ai_service_account.json');
+const documentAiRawOcrFile = path.join(uploadDir, 'document_ai_raw_ocr.json');
 const WORK_SUFFIX = '_NHAP_LIEU';
 const GENERATED_SUFFIXES = [
   '_NHAP_LIEU', '_da_nhap_lieu_node', '_da_them_dong_node', '_da_xoa_dong_node',
@@ -24,6 +28,7 @@ fs.mkdirSync(uploadDir, { recursive: true });
 fs.mkdirSync(outputDir, { recursive: true });
 fs.mkdirSync(autosaveDir, { recursive: true });
 fs.mkdirSync(theoSoDir, { recursive: true });
+fs.mkdirSync(soPhauThuatAnhDir, { recursive: true });
 
 const app = express();
 app.use(express.json({ limit: '20mb' }));
@@ -206,6 +211,32 @@ function writeEmrConfig(input) {
   const tmp = emrConfigFile + '.tmp';
   fs.writeFileSync(tmp, JSON.stringify(next, null, 2), 'utf8');
   fs.renameSync(tmp, emrConfigFile);
+  return next;
+}
+
+function readDocumentAiConfigRaw() {
+  const defaults = { project_id: '', location: 'us', processor_id: '' };
+  try {
+    if (!fs.existsSync(documentAiConfigFile)) return defaults;
+    const loaded = JSON.parse(fs.readFileSync(documentAiConfigFile, 'utf8') || '{}');
+    return { ...defaults, ...(loaded || {}) };
+  } catch (_err) {
+    return defaults;
+  }
+}
+
+function writeDocumentAiConfig(input) {
+  const current = readDocumentAiConfigRaw();
+  const next = {
+    project_id: String(input.project_id || current.project_id || '').trim(),
+    location: String(input.location || current.location || 'us').trim(),
+    processor_id: String(input.processor_id || current.processor_id || '').trim(),
+  };
+  if (!next.project_id) throw new Error('Thiếu Project ID.');
+  if (!next.processor_id) throw new Error('Thiếu Processor ID.');
+  const tmp = documentAiConfigFile + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(next, null, 2), 'utf8');
+  fs.renameSync(tmp, documentAiConfigFile);
   return next;
 }
 
@@ -524,6 +555,161 @@ app.post('/api/run-task', asyncHandler(async (req, res) => {
   const output = outputPathFor(file);
   const data = await runPython([cmdMap[task], '--file', file, '--output', output], { includeRaw: true });
   res.json(data);
+}));
+
+const uploadSoBoPhauThuat = multer({ storage }).fields([
+  { name: 'soBo', maxCount: 1 },
+  { name: 'zip', maxCount: 1 },
+]);
+
+app.post('/api/task-nhap-phau-thuat-so-bo', uploadSoBoPhauThuat, asyncHandler(async (req, res) => {
+  const file = safeResolve(req.body.file);
+  const soBoFile = req.files?.soBo?.[0];
+  const zipFile = req.files?.zip?.[0];
+  if (!soBoFile) throw new Error('Chưa chọn file "Danh sách sơ bộ".');
+  if (!zipFile) throw new Error('Chưa chọn file ZIP ảnh nguồn.');
+
+  const output = outputPathFor(file);
+  const args = [
+    'task-nhap-phau-thuat-so-bo',
+    '--file', file,
+    '--so-bo', soBoFile.path,
+    '--zip', zipFile.path,
+    '--output', output,
+  ];
+  if (req.body.sheetSoBo) args.push('--sheet-so-bo', String(req.body.sheetSoBo));
+  const data = await runPython(args, { includeRaw: true });
+  res.json(data);
+}));
+
+// ===== Sổ phẫu thuật (ảnh): xem danh sách sơ bộ OCR kèm ảnh gốc trang sổ =====
+
+app.post('/api/so-phau-thuat/upload-danh-sach', upload.single('file'), asyncHandler(async (req, res) => {
+  if (!req.file) throw new Error('Chưa chọn file "Danh sách sơ bộ".');
+  const ext = path.extname(req.file.originalname || '').toLowerCase();
+  if (ext !== '.xlsx') {
+    try { fs.unlinkSync(req.file.path); } catch (_err) {}
+    throw new Error('Chỉ hỗ trợ file Excel .xlsx.');
+  }
+  res.json({ ok: true, file: req.file.path, name: req.file.originalname });
+}));
+
+const uploadSoPhauThuatAnh = multer({ storage }).single('zip');
+
+app.post('/api/so-phau-thuat/upload-anh', uploadSoPhauThuatAnh, asyncHandler(async (req, res) => {
+  if (!req.file) throw new Error('Chưa chọn file ZIP ảnh.');
+  const data = await runPython([
+    'extract-zip-images', '--zip', req.file.path, '--output-dir', soPhauThuatAnhDir,
+  ]);
+  res.json(data);
+}));
+
+app.get('/api/so-phau-thuat/anh/:filename', (req, res) => {
+  const name = path.basename(String(req.params.filename || ''));
+  if (!name || name !== req.params.filename) {
+    res.status(400).json({ ok: false, error: 'Tên file ảnh không hợp lệ.' });
+    return;
+  }
+  const target = path.join(soPhauThuatAnhDir, name);
+  if (!fs.existsSync(target)) {
+    res.status(404).json({ ok: false, error: 'Không tìm thấy ảnh. Hãy tải lại file ZIP ảnh.' });
+    return;
+  }
+  res.sendFile(target);
+});
+
+app.get('/api/so-phau-thuat/doi-chieu', asyncHandler(async (req, res) => {
+  const file = safeResolve(req.query.file);
+  const soBo = safeResolve(req.query.soBo);
+  const args = ['doi-chieu-phau-thuat-anh', '--file', file, '--so-bo', soBo];
+  if (req.query.sheetSoBo) args.push('--sheet-so-bo', String(req.query.sheetSoBo));
+  const data = await runPython(args);
+  res.json(data);
+}));
+
+// ===== Google Document AI: OCR ảnh thô ngay trong app =====
+
+app.get('/api/document-ai-config', (_req, res) => {
+  const config = readDocumentAiConfigRaw();
+  res.json({
+    ok: true,
+    config: {
+      project_id: config.project_id || '',
+      location: config.location || 'us',
+      processor_id: config.processor_id || '',
+      hasCredentials: fs.existsSync(documentAiCredentialsFile),
+      configured: Boolean(config.project_id && config.processor_id && fs.existsSync(documentAiCredentialsFile)),
+    },
+  });
+});
+
+app.post('/api/document-ai-config', asyncHandler(async (req, res) => {
+  const config = writeDocumentAiConfig(req.body || {});
+  res.json({
+    ok: true,
+    config: {
+      ...config,
+      hasCredentials: fs.existsSync(documentAiCredentialsFile),
+      configured: Boolean(config.project_id && config.processor_id && fs.existsSync(documentAiCredentialsFile)),
+    },
+  });
+}));
+
+const uploadDocumentAiCredentials = multer({ storage: multer.memoryStorage() }).single('file');
+
+app.post('/api/document-ai-credentials', uploadDocumentAiCredentials, asyncHandler(async (req, res) => {
+  if (!req.file) throw new Error('Chưa chọn file service-account.json.');
+  let parsed;
+  try {
+    parsed = JSON.parse(req.file.buffer.toString('utf8'));
+  } catch (_err) {
+    throw new Error('File không phải JSON hợp lệ.');
+  }
+  if (!parsed.type || !parsed.private_key) {
+    throw new Error('File không giống service-account key của Google Cloud (thiếu type/private_key).');
+  }
+  fs.writeFileSync(documentAiCredentialsFile, req.file.buffer);
+  res.json({ ok: true });
+}));
+
+const uploadAnhTho = multer({ storage }).single('zip');
+
+app.post('/api/so-phau-thuat/chay-ocr', uploadAnhTho, asyncHandler(async (req, res) => {
+  if (!req.file) throw new Error('Chưa chọn file ZIP ảnh thô.');
+  const config = readDocumentAiConfigRaw();
+  if (!config.project_id || !config.processor_id) {
+    throw new Error('Chưa cấu hình Google Document AI (Project ID/Processor ID).');
+  }
+  if (!fs.existsSync(documentAiCredentialsFile)) {
+    throw new Error('Chưa tải file service-account.json.');
+  }
+  const args = [
+    'chay-ocr-anh-tho',
+    '--zip', req.file.path,
+    '--project-id', config.project_id,
+    '--location', config.location || 'us',
+    '--processor-id', config.processor_id,
+    '--credentials', documentAiCredentialsFile,
+    '--output', documentAiRawOcrFile,
+  ];
+  if (req.body.limit) args.push('--limit', String(req.body.limit));
+  const data = await runPython(args, { includeRaw: true });
+  res.json(data);
+}));
+
+app.post('/api/so-phau-thuat/tach-cot', asyncHandler(async (req, res) => {
+  if (!fs.existsSync(documentAiRawOcrFile)) {
+    throw new Error('Chưa có kết quả OCR — bấm "Chạy OCR" trước.');
+  }
+  const output = path.join(uploadDir, `so_bo_tu_ocr_${Date.now()}.xlsx`);
+  const args = ['tach-cot-anh-so-phau-thuat', '--ocr-json', documentAiRawOcrFile, '--output', output];
+  if (req.body.cotJson) {
+    const cotFile = output + '.cot.json';
+    fs.writeFileSync(cotFile, JSON.stringify(req.body.cotJson), 'utf8');
+    args.push('--cot-json', cotFile);
+  }
+  const data = await runPython(args, { includeRaw: true });
+  res.json({ ...data, file: output });
 }));
 
 app.get('/download', asyncHandler(async (req, res) => {

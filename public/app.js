@@ -24,6 +24,11 @@ const state = {
   emrConfig: null,
   pendingEmrAction: '',
   headerAliases: {},
+  soPhauThuat: { danhSachFile: '', headers: [], rows: [], filtered: [], selectedIndex: -1, imagesLoaded: false },
+  soPtDoiChieu: [],
+  soPtDoiChieuOpenRows: new Set(),
+  documentAiConfig: null,
+  documentAiRawOcrFile: '',
 };
 
 const $ = (id) => document.getElementById(id);
@@ -615,8 +620,7 @@ function renderStaffQuickList() {
     if (!groups[group]) groups[group] = [];
     groups[group].push(item);
   });
-  const order = ['BSNT 3', 'BSNT 2', 'BSNT 1'];
-  const groupNames = [...order.filter(g => groups[g]), ...Object.keys(groups).filter(g => !order.includes(g))];
+  const groupNames = Object.keys(groups);
   box.innerHTML = groupNames.map(group => {
     const chips = groups[group].map(item =>
       `<button type="button" class="staff-chip" data-alias="${escapeHtml(item.biDanh)}" title="${escapeHtml(item.hoTen)}">${escapeHtml(item.biDanh)}</button>`
@@ -2071,16 +2075,521 @@ async function runTask(task) {
 }
 
 
+async function runNhapPhauThuatSoBo() {
+  const soBoInput = $('soBoExcelInput');
+  const zipInput = $('soBoZipInput');
+  if (!soBoInput.files.length || !zipInput.files.length) {
+    alert('Chọn đủ file Excel "Danh sách sơ bộ" và file ZIP ảnh nguồn.');
+    return;
+  }
+  if (!state.currentFile) return;
+  setBusy(true, 'Đang nhập dữ liệu từ ảnh sổ phẫu thuật...');
+  try {
+    await flushAllRows();
+    const form = new FormData();
+    form.append('file', state.currentFile);
+    form.append('soBo', soBoInput.files[0]);
+    form.append('zip', zipInput.files[0]);
+    const res = await fetch('/api/task-nhap-phau-thuat-so-bo', { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok || data.ok === false) throw new Error(data.error || 'Nhập dữ liệu lỗi.');
+    state.currentFile = data.file || state.currentFile;
+    showResult($('taskResult'), data);
+    soBoInput.value = '';
+    zipInput.value = '';
+    if ($('soBoExcelFileName')) $('soBoExcelFileName').textContent = 'Chọn file Excel';
+    if ($('soBoZipFileName')) $('soBoZipFileName').textContent = 'Chọn file ZIP';
+    await selectFile(state.currentFile);
+    if (state.sheets.includes('phauthuat')) $('sheetSelect').value = 'phauthuat';
+    await loadSheet('phauthuat');
+    await persistCleanState('Đã nhập dữ liệu từ ảnh sổ phẫu thuật');
+    const canKiemTra = Number(data.so_dong_can_kiem_tra || 0);
+    showToast(
+      `Đã thêm ${data.so_dong_them || 0} dòng; ${canKiemTra} dòng cần kiểm tra tên bác sĩ. Nhớ tự điền Loại phẫu thuật và Số tiền cho các dòng mới.`,
+      canKiemTra ? 'warning' : 'success',
+      8000
+    );
+    log(`Đã nhập ${data.so_dong_them || 0} dòng từ sổ phẫu thuật (OCR). Báo cáo: ${displayPath(data.report || '')}`);
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi nhập từ sổ phẫu thuật: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+function soPtFindHeader(candidates) {
+  const headers = state.soPhauThuat.headers || [];
+  for (const candidate of candidates) {
+    const hit = headers.find(h => normalizeKey(h) === normalizeKey(candidate));
+    if (hit) return hit;
+  }
+  return null;
+}
+
+function soPtBacSiText(row) {
+  const single = soPtFindHeader(['Bác sĩ phẫu thuật', 'Kíp phẫu thuật (đọc theo chuỗi)']);
+  if (single && row.values[single]) return String(row.values[single]);
+  const parts = [];
+  for (let i = 1; i <= 4; i++) {
+    const h = soPtFindHeader([`BS phẫu thuật ${i}`]);
+    const v = h ? row.values[h] : null;
+    if (v && v !== '-') parts.push(v);
+  }
+  return parts.join(', ');
+}
+
+async function loadSoPtRows() {
+  if (!state.soPhauThuat.danhSachFile) return;
+  const data = await api(`/api/sheet-data?file=${encodeURIComponent(state.soPhauThuat.danhSachFile)}&limit=0`);
+  state.soPhauThuat.headers = data.headers || [];
+  state.soPhauThuat.rows = data.rows || [];
+  state.soPhauThuat.selectedIndex = -1;
+  renderSoPtList();
+  renderSoPtDetail();
+  updateSoPtStats();
+}
+
+async function uploadSoPtDanhSach() {
+  const input = $('soPtDanhSachInput');
+  if (!input.files.length) {
+    alert('Chọn file "Danh sách sơ bộ".');
+    return;
+  }
+  setBusy(true, 'Đang tải danh sách sơ bộ...');
+  try {
+    const form = new FormData();
+    form.append('file', input.files[0]);
+    const res = await fetch('/api/so-phau-thuat/upload-danh-sach', { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok || data.ok === false) throw new Error(data.error || 'Tải file lỗi.');
+    state.soPhauThuat.danhSachFile = data.file;
+    if ($('soPtDanhSachFileName')) $('soPtDanhSachFileName').textContent = data.name;
+    await loadSoPtRows();
+    showToast(`Đã tải "${data.name}" — ${state.soPhauThuat.rows.length} người bệnh.`, 'success');
+    log(`Đã tải danh sách sơ bộ: ${data.name}`);
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi tải danh sách sơ bộ: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+async function uploadSoPtAnh() {
+  const input = $('soPtZipInput');
+  if (!input.files.length) {
+    alert('Chọn file ZIP ảnh.');
+    return;
+  }
+  setBusy(true, 'Đang giải nén ảnh...');
+  try {
+    const form = new FormData();
+    form.append('zip', input.files[0]);
+    const res = await fetch('/api/so-phau-thuat/upload-anh', { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok || data.ok === false) throw new Error(data.error || 'Tải ảnh lỗi.');
+    state.soPhauThuat.imagesLoaded = true;
+    if ($('soPtZipFileName')) $('soPtZipFileName').textContent = input.files[0].name;
+    if ($('soPtStatus')) $('soPtStatus').textContent = `Đã tải ${data.count} ảnh.`;
+    showToast(`Đã tải ${data.count} ảnh vào sổ phẫu thuật.`, 'success');
+    log(`Đã tải ${data.count} ảnh vào Sổ phẫu thuật (ảnh).`);
+    renderSoPtDetail();
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi tải ảnh sổ phẫu thuật: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+async function loadDocumentAiConfig() {
+  const data = await api('/api/document-ai-config');
+  state.documentAiConfig = data.config || {};
+  return state.documentAiConfig;
+}
+
+function closeDocumentAiConfigModal() {
+  $('documentAiConfigModal')?.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+async function openDocumentAiConfigModal() {
+  try {
+    const config = await loadDocumentAiConfig();
+    $('documentAiProjectIdInput').value = config.project_id || '';
+    $('documentAiLocationInput').value = config.location || 'us';
+    $('documentAiProcessorIdInput').value = config.processor_id || '';
+    if ($('documentAiCredentialsStatus')) {
+      $('documentAiCredentialsStatus').textContent = config.hasCredentials
+        ? 'Đã có file service-account.json.'
+        : 'Chưa tải file service-account.json.';
+    }
+  } catch (err) {
+    showToast(err.message, 'error', 5000);
+  }
+  $('documentAiConfigModal')?.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => $('documentAiProjectIdInput')?.focus(), 60);
+}
+
+async function saveDocumentAiConfig() {
+  const payload = {
+    project_id: $('documentAiProjectIdInput').value.trim(),
+    location: $('documentAiLocationInput').value.trim() || 'us',
+    processor_id: $('documentAiProcessorIdInput').value.trim(),
+  };
+  if (!payload.project_id || !payload.processor_id) {
+    showToast('Vui lòng nhập Project ID và Processor ID.', 'warning', 4500);
+    return;
+  }
+  setBusy(true, 'Đang lưu cấu hình Document AI...');
+  try {
+    const credInput = $('documentAiCredentialsInput');
+    if (credInput?.files.length) {
+      const form = new FormData();
+      form.append('file', credInput.files[0]);
+      const res = await fetch('/api/document-ai-credentials', { method: 'POST', body: form });
+      const credData = await res.json();
+      if (!res.ok || credData.ok === false) throw new Error(credData.error || 'Tải file khóa dịch vụ lỗi.');
+    }
+    const data = await api('/api/document-ai-config', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    state.documentAiConfig = data.config || {};
+    closeDocumentAiConfigModal();
+    showToast('Đã lưu cấu hình Document AI.', 'success');
+  } catch (err) {
+    showToast(err.message, 'error', 5000);
+  } finally {
+    setBusy(false);
+  }
+}
+
+async function runSoPtAiOcr() {
+  const input = $('soPtAiZipInput');
+  if (!input.files.length) {
+    alert('Chọn file ZIP ảnh thô cần OCR.');
+    return;
+  }
+  try {
+    const config = state.documentAiConfig || await loadDocumentAiConfig();
+    if (!config.configured) {
+      await openDocumentAiConfigModal();
+      return;
+    }
+  } catch (_err) {
+    await openDocumentAiConfigModal();
+    return;
+  }
+  setBusy(true, 'Đang chạy OCR (Google Document AI) — có thể mất vài phút...');
+  if ($('soPtAiStatus')) $('soPtAiStatus').textContent = 'Đang chạy OCR, đợi chút...';
+  try {
+    const form = new FormData();
+    form.append('zip', input.files[0]);
+    const res = await fetch('/api/so-phau-thuat/chay-ocr', { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok || data.ok === false) throw new Error(data.error || 'Chạy OCR lỗi.');
+    if ($('soPtAiZipFileName')) $('soPtAiZipFileName').textContent = input.files[0].name;
+    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = `Đã OCR ${data.imageCount || 0} ảnh. Bấm "Tách cột" để tạo Danh sách sơ bộ (CẦN KIỂM TRA LẠI).`;
+    if ($('soPtAiTachCotBtn')) $('soPtAiTachCotBtn').disabled = false;
+    showToast(`Đã OCR xong ${data.imageCount || 0} ảnh.`, 'success');
+    log(`Đã chạy Document AI OCR: ${data.imageCount || 0} ảnh.`);
+  } catch (err) {
+    alert(err.message);
+    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = '';
+    log(`Lỗi chạy Document AI OCR: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+async function runSoPtAiTachCot() {
+  setBusy(true, 'Đang tách cột từ kết quả OCR...');
+  try {
+    const data = await api('/api/so-phau-thuat/tach-cot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({}),
+    });
+    state.soPhauThuat.danhSachFile = data.file;
+    if ($('soPtDanhSachFileName')) $('soPtDanhSachFileName').textContent = `Tự tách từ OCR (${data.count || 0} dòng — CẦN KIỂM TRA)`;
+    await loadSoPtRows();
+    if ($('soPtAiStatus')) {
+      $('soPtAiStatus').textContent = `Đã tách ${data.count || 0} dòng — TẤT CẢ đều cần đối chiếu ảnh gốc trước khi dùng (cột có thể chưa đúng vị trí, hãy báo lại nếu sai để hiệu chỉnh).`;
+    }
+    showToast(`Đã tách ${data.count || 0} dòng từ OCR — cần kiểm tra lại toàn bộ.`, 'warning', 6000);
+    log(`Đã tách cột từ OCR: ${data.count || 0} dòng.`);
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi tách cột từ OCR: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+function renderSoPtList() {
+  const tbody = $('soPtTableBody');
+  if (!tbody) return;
+  const query = normalizeKey($('soPtSearchInput')?.value || '');
+  const hNgay = soPtFindHeader(['Ngày ghi sổ', 'Ngày']);
+  const hHoTen = soPtFindHeader(['Họ tên người bệnh', 'Họ và tên']);
+  const hChanDoan = soPtFindHeader(['Chẩn đoán đọc từ sổ', 'Chẩn đoán']);
+  const hPhuongPhap = soPtFindHeader(['Phương pháp phẫu thuật', 'Phương pháp']);
+  const hAnh = soPtFindHeader(['Ảnh nguồn', 'Ảnh nguồn trong ZIP']);
+
+  const filtered = (state.soPhauThuat.rows || []).filter(row => {
+    if (!query) return true;
+    const haystack = normalizeKey(Object.values(row.values || {}).join(' '));
+    return haystack.includes(query);
+  });
+  state.soPhauThuat.filtered = filtered;
+  if (state.soPhauThuat.selectedIndex >= filtered.length) state.soPhauThuat.selectedIndex = -1;
+
+  if (!filtered.length) {
+    tbody.innerHTML = `<tr><td colspan="5" class="so-pt-detail-empty">${state.soPhauThuat.rows.length ? 'Không tìm thấy dòng phù hợp.' : 'Chưa tải file "Danh sách sơ bộ".'}</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map((row, idx) => {
+    const activeClass = idx === state.soPhauThuat.selectedIndex ? ' class="active"' : '';
+    const ngay = hNgay ? (row.values[hNgay] ?? '') : '';
+    const hoTen = hHoTen ? (row.values[hHoTen] ?? '') : '';
+    const chanDoanPp = [hChanDoan ? row.values[hChanDoan] : '', hPhuongPhap ? row.values[hPhuongPhap] : '']
+      .filter(v => v !== null && v !== undefined && v !== '')
+      .join(' — ');
+    const bacSi = soPtBacSiText(row);
+    const anh = hAnh ? (row.values[hAnh] ?? '') : '';
+    return `<tr${activeClass} data-idx="${idx}"><td>${escapeHtml(ngay)}</td><td>${escapeHtml(hoTen)}</td><td>${escapeHtml(chanDoanPp)}</td><td>${escapeHtml(bacSi)}</td><td>${escapeHtml(anh)}</td></tr>`;
+  }).join('');
+
+  tbody.querySelectorAll('tr[data-idx]').forEach(tr => {
+    tr.addEventListener('click', () => selectSoPtRow(Number(tr.dataset.idx)));
+  });
+}
+
+function selectSoPtRow(idx) {
+  state.soPhauThuat.selectedIndex = idx;
+  renderSoPtList();
+  renderSoPtDetail();
+}
+
+function renderSoPtDetail() {
+  const box = $('soPtDetail');
+  if (!box) return;
+  const row = state.soPhauThuat.filtered?.[state.soPhauThuat.selectedIndex];
+  if (!row) {
+    box.innerHTML = '<div class="so-pt-detail-empty">Bấm vào một người bệnh trong danh sách để xem ảnh gốc trang sổ.</div>';
+    return;
+  }
+
+  const hAnh = soPtFindHeader(['Ảnh nguồn', 'Ảnh nguồn trong ZIP']);
+  const anhName = hAnh ? String(row.values[hAnh] || '').trim() : '';
+
+  box.innerHTML = '';
+
+  const imageWrap = document.createElement('div');
+  if (anhName) {
+    imageWrap.className = 'so-pt-image-wrap';
+    const img = document.createElement('img');
+    img.src = `/api/so-phau-thuat/anh/${encodeURIComponent(anhName)}`;
+    img.alt = anhName;
+    img.addEventListener('error', () => {
+      imageWrap.className = 'so-pt-image-missing';
+      imageWrap.textContent = `Chưa tải được ảnh "${anhName}" — bấm "Tải ảnh" ở trên rồi thử lại.`;
+    });
+    imageWrap.appendChild(img);
+  } else {
+    imageWrap.className = 'so-pt-image-missing';
+    imageWrap.textContent = 'Dòng này chưa có tên ảnh nguồn.';
+  }
+  box.appendChild(imageWrap);
+
+  const skipHeaders = new Set([hAnh].filter(Boolean));
+  (state.soPhauThuat.headers || []).forEach(h => {
+    if (skipHeaders.has(h)) return;
+    const value = row.values[h];
+    if (value === null || value === undefined || value === '') return;
+    const field = document.createElement('div');
+    field.className = 'so-pt-field';
+    const label = document.createElement('strong');
+    label.textContent = h;
+    field.appendChild(label);
+    field.appendChild(document.createTextNode(String(value)));
+    box.appendChild(field);
+  });
+}
+
+function updateSoPtStats() {
+  const box = $('soPtStats');
+  if (!box) return;
+  const total = state.soPhauThuat.rows.length;
+  box.innerHTML = `<div class="overview-stat"><strong>${total}</strong><span>người bệnh</span></div>`;
+}
+
+async function runSoPtDoiChieu() {
+  if (!state.currentFile) {
+    alert('Chưa có file đang mở ở tab "Nhập dữ liệu".');
+    return;
+  }
+  if (!state.soPhauThuat.danhSachFile) {
+    alert('Chưa tải file "Danh sách sơ bộ" ở trên.');
+    return;
+  }
+  setBusy(true, 'Đang đối chiếu với sheet phauthuat...');
+  if ($('soPtDoiChieuStatus')) $('soPtDoiChieuStatus').textContent = 'Đang đối chiếu...';
+  try {
+    const data = await api(
+      `/api/so-phau-thuat/doi-chieu?file=${encodeURIComponent(state.currentFile)}&soBo=${encodeURIComponent(state.soPhauThuat.danhSachFile)}`
+    );
+    state.soPtDoiChieu = data.goiY || [];
+    state.soPtDoiChieuOpenRows = new Set();
+    renderSoPtDoiChieuList();
+    const count = state.soPtDoiChieu.length;
+    if ($('soPtDoiChieuStatus')) {
+      $('soPtDoiChieuStatus').textContent = count
+        ? `Tìm được ${count} dòng thiếu PTV chính có gợi ý từ ảnh.`
+        : 'Không có dòng nào thiếu PTV chính khớp được với dữ liệu ảnh.';
+    }
+    log(`Đối chiếu phauthuat với ảnh: ${count} gợi ý.`);
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi đối chiếu phauthuat với ảnh: ${err.message}`);
+    if ($('soPtDoiChieuStatus')) $('soPtDoiChieuStatus').textContent = '';
+  } finally {
+    setBusy(false);
+  }
+}
+
+function renderSoPtDoiChieuList() {
+  const box = $('soPtDoiChieuList');
+  if (!box) return;
+  if (!state.soPtDoiChieu.length) {
+    box.innerHTML = '';
+    return;
+  }
+  box.innerHTML = state.soPtDoiChieu.map(item => {
+    const phuMoText = (item.goiYPhuMo || []).filter(Boolean).join(', ') || '(không có)';
+    const warn = item.soUngVienCungTen > 1
+      ? `<div class="so-pt-warn">Có ${item.soUngVienCungTen} dòng ảnh cùng ngày + họ tên, độ khớp phương pháp ${item.doKhopPhuongPhap ?? '?'} — kiểm tra kỹ trước khi áp dụng.</div>`
+      : '';
+    const isOpen = state.soPtDoiChieuOpenRows.has(item.row);
+    return `
+      <div class="so-pt-goi-y-card" data-row="${item.row}">
+        <div class="so-pt-goi-y-head-row">
+          <strong>${escapeHtml(item.hoTen)}</strong>
+          <span>${escapeHtml(item.ngay || '')} · Dòng phauthuat ${item.row}</span>
+        </div>
+        <div class="so-pt-goi-y-body">
+          <div>Chẩn đoán/PP đang có: ${escapeHtml(item.chanDoanPhuongPhap || '(trống)')}</div>
+          <div>Đọc từ ảnh: ${escapeHtml(item.soBoChanDoan || '')}${item.soBoPhuongPhap ? ' — ' + escapeHtml(item.soBoPhuongPhap) : ''}</div>
+          <div>Gợi ý PTV chính: <strong>${escapeHtml(item.goiYPtvChinh || '(không đọc được)')}</strong></div>
+          <div>Gợi ý phụ mổ: ${escapeHtml(phuMoText)}</div>
+          ${warn}
+        </div>
+        <div class="so-pt-goi-y-actions">
+          <button class="btn subtle" type="button" data-action="xem-anh" data-row="${item.row}">${isOpen ? 'Ẩn ảnh' : 'Xem ảnh'}</button>
+          <button class="btn primary" type="button" data-action="ap-dung" data-row="${item.row}">Áp dụng vào dòng ${item.row}</button>
+        </div>
+        <div class="so-pt-goi-y-image${isOpen ? '' : ' hidden'}" data-image-for="${item.row}"></div>
+      </div>
+    `;
+  }).join('');
+
+  state.soPtDoiChieuOpenRows.forEach(row => fillSoPtGoiYImage(row));
+}
+
+function fillSoPtGoiYImage(row) {
+  const item = state.soPtDoiChieu.find(x => x.row === row);
+  const slot = document.querySelector(`.so-pt-goi-y-image[data-image-for="${row}"]`);
+  if (!item || !slot) return;
+  if (!item.anhNguon) {
+    slot.innerHTML = '<div class="so-pt-image-missing">Dòng ảnh này không có tên ảnh nguồn.</div>';
+    return;
+  }
+  slot.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = `/api/so-phau-thuat/anh/${encodeURIComponent(item.anhNguon)}`;
+  img.alt = item.anhNguon;
+  img.addEventListener('error', () => {
+    slot.innerHTML = `<div class="so-pt-image-missing">Chưa có ảnh "${escapeHtml(item.anhNguon)}" — bấm "Tải ảnh" ở trên trước.</div>`;
+  });
+  slot.appendChild(img);
+}
+
+function toggleSoPtGoiYAnh(row) {
+  if (state.soPtDoiChieuOpenRows.has(row)) state.soPtDoiChieuOpenRows.delete(row);
+  else state.soPtDoiChieuOpenRows.add(row);
+  renderSoPtDoiChieuList();
+}
+
+async function apDungSoPtGoiY(row) {
+  const item = state.soPtDoiChieu.find(x => x.row === row);
+  if (!item) return;
+  if (!state.currentFile) {
+    alert('Chưa có file đang mở ở tab "Nhập dữ liệu".');
+    return;
+  }
+
+  const data = {};
+  if (item.goiYPtvChinh) data['PTV chính'] = item.goiYPtvChinh;
+  (item.goiYPhuMo || []).forEach((value, i) => {
+    if (value) data[`Phụ mổ ${i + 1}`] = value;
+  });
+  if (!Object.keys(data).length) {
+    alert('Không có gợi ý nào để áp dụng cho dòng này.');
+    return;
+  }
+  if (!confirm(`Áp dụng vào dòng ${item.row} (${item.hoTen})?\nPTV chính: ${data['PTV chính'] || '(giữ trống)'}\nPhụ mổ: ${(item.goiYPhuMo || []).filter(Boolean).join(', ') || '(không có)'}`)) {
+    return;
+  }
+
+  setBusy(true, `Đang áp dụng vào dòng ${item.row}...`);
+  try {
+    const res = await api('/api/update-rows', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        file: state.currentFile,
+        sheet: 'phauthuat',
+        rows: [{ rowNumber: item.row, data }],
+        overwrite: false,
+        suffix: '_NHAP_LIEU',
+      }),
+    });
+    state.currentFile = res.file || state.currentFile;
+    addFileOptionIfMissing(state.currentFile);
+    state.soPtDoiChieu = state.soPtDoiChieu.filter(x => x.row !== row);
+    state.soPtDoiChieuOpenRows.delete(row);
+    renderSoPtDoiChieuList();
+    showToast(`Đã điền dòng ${item.row} (${item.hoTen}).`, 'success');
+    log(`Đã áp dụng gợi ý từ ảnh cho dòng ${item.row} sheet phauthuat (từ ${res.file}).`);
+    if (state.currentSheet === 'phauthuat' && document.getElementById('dataView') && !document.getElementById('dataView').classList.contains('hidden')) {
+      await loadSheet();
+    }
+  } catch (err) {
+    alert(err.message);
+    log(`Lỗi áp dụng gợi ý dòng ${item.row}: ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
 function switchMainTab(tabName) {
   const isData = tabName === 'data';
   const isStaff = tabName === 'staff';
   const isCls = tabName === 'cls';
+  const isSoPt = tabName === 'sopt';
   $('dataView')?.classList.toggle('hidden', !isData);
   $('staffView')?.classList.toggle('hidden', !isStaff);
   $('clsView')?.classList.toggle('hidden', !isCls);
+  $('soPhauThuatView')?.classList.toggle('hidden', !isSoPt);
   $('dataTabBtn')?.classList.toggle('active', isData);
   $('staffTabBtn')?.classList.toggle('active', isStaff);
   $('clsTabBtn')?.classList.toggle('active', isCls);
+  $('soPhauThuatTabBtn')?.classList.toggle('active', isSoPt);
   hideSuggestPanel();
   if (isStaff) {
     renderStaffManager();
@@ -2090,6 +2599,11 @@ function switchMainTab(tabName) {
     renderClsManager();
     resetClsForm();
     document.title = 'Quản lý tên CLS | PM CTCH';
+  } else if (isSoPt) {
+    renderSoPtList();
+    renderSoPtDetail();
+    updateSoPtStats();
+    document.title = 'Sổ phẫu thuật (ảnh) | PM CTCH';
   } else {
     updateWorkspaceIdentity();
   }
@@ -2206,8 +2720,10 @@ async function persistStaffList(nextStaff, successMessage) {
   });
   state.staff = data.staff || nextStaff;
   renderStaffManager();
-  showToast(successMessage || 'Đã lưu danh sách nhân sự.', 'success');
-  log(successMessage || 'Đã lưu danh sách nhân sự.');
+  const hasAutoAdjust = Array.isArray(data.autoAdjusted) && data.autoAdjusted.length > 0;
+  const message = hasAutoAdjust ? data.message : (successMessage || 'Đã lưu danh sách nhân sự.');
+  showToast(message, hasAutoAdjust ? 'warning' : 'success', hasAutoAdjust ? 7000 : 3600);
+  log(message);
 }
 
 async function saveStaffFromForm() {
@@ -2405,6 +2921,43 @@ function bindEvents() {
   $('dataTabBtn')?.addEventListener('click', () => switchMainTab('data'));
   $('staffTabBtn')?.addEventListener('click', () => switchMainTab('staff'));
   $('clsTabBtn')?.addEventListener('click', () => switchMainTab('cls'));
+  $('soPhauThuatTabBtn')?.addEventListener('click', () => switchMainTab('sopt'));
+  $('soPtDanhSachBtn')?.addEventListener('click', uploadSoPtDanhSach);
+  $('soPtZipBtn')?.addEventListener('click', uploadSoPtAnh);
+  $('soPtDanhSachInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('soPtDanhSachFileName')) $('soPtDanhSachFileName').textContent = file ? file.name : 'Chọn file "Danh sách sơ bộ"';
+  });
+  $('soPtZipInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('soPtZipFileName')) $('soPtZipFileName').textContent = file ? file.name : 'Chọn file ZIP ảnh';
+  });
+  $('soPtSearchInput')?.addEventListener('input', () => renderSoPtList());
+  $('soPtDoiChieuBtn')?.addEventListener('click', runSoPtDoiChieu);
+  $('soPtAiConfigBtn')?.addEventListener('click', e => { e.preventDefault(); openDocumentAiConfigModal(); });
+  $('soPtAiOcrBtn')?.addEventListener('click', runSoPtAiOcr);
+  $('soPtAiTachCotBtn')?.addEventListener('click', runSoPtAiTachCot);
+  $('soPtAiZipInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('soPtAiZipFileName')) $('soPtAiZipFileName').textContent = file ? file.name : 'Chọn ZIP ảnh THÔ (chưa phân tích)';
+  });
+  $('closeDocumentAiConfigBtn')?.addEventListener('click', closeDocumentAiConfigModal);
+  $('cancelDocumentAiConfigBtn')?.addEventListener('click', closeDocumentAiConfigModal);
+  $('saveDocumentAiConfigBtn')?.addEventListener('click', saveDocumentAiConfig);
+  $('documentAiCredentialsInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('documentAiCredentialsFileName')) $('documentAiCredentialsFileName').textContent = file ? file.name : 'Chọn file khóa dịch vụ (service-account.json)';
+  });
+  $('documentAiConfigModal')?.addEventListener('mousedown', e => {
+    if (e.target === $('documentAiConfigModal')) closeDocumentAiConfigModal();
+  });
+  $('soPtDoiChieuList')?.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-action]');
+    if (!btn) return;
+    const row = Number(btn.dataset.row);
+    if (btn.dataset.action === 'xem-anh') toggleSoPtGoiYAnh(row);
+    else if (btn.dataset.action === 'ap-dung') apDungSoPtGoiY(row);
+  });
   $('newStaffBtn')?.addEventListener('click', resetStaffForm);
   $('saveStaffBtn')?.addEventListener('click', saveStaffFromForm);
   $('cancelStaffEditBtn')?.addEventListener('click', resetStaffForm);
@@ -2454,6 +3007,15 @@ function bindEvents() {
         ? (files.length === 1 ? files[0].name : `${files.length} file đã chọn`)
         : 'Chọn file Excel';
     }
+  });
+  $('nhapPhauThuatSoBoBtn')?.addEventListener('click', runNhapPhauThuatSoBo);
+  $('soBoExcelInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('soBoExcelFileName')) $('soBoExcelFileName').textContent = file ? file.name : 'Chọn file Excel';
+  });
+  $('soBoZipInput')?.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if ($('soBoZipFileName')) $('soBoZipFileName').textContent = file ? file.name : 'Chọn file ZIP';
   });
   $('loadSheetBtn').addEventListener('click', () => {
     loadSheet().catch(err => alert(err.message));
@@ -2533,6 +3095,7 @@ function bindEvents() {
     if (event.key !== 'Escape') return;
     if (!$('clearAssistantsModal').classList.contains('hidden')) closeClearAssistantsModal();
     if (!$('emrConfigModal')?.classList.contains('hidden')) closeEmrConfigModal();
+    if (!$('documentAiConfigModal')?.classList.contains('hidden')) closeDocumentAiConfigModal();
   });
   document.querySelectorAll('[data-task]').forEach(btn => {
     btn.addEventListener('click', () => runTask(btn.dataset.task));

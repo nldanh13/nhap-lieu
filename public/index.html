@@ -23,6 +23,7 @@
       <button id="dataTabBtn" class="main-tab active" type="button">Nhập dữ liệu</button>
       <button id="staffTabBtn" class="main-tab" type="button">Quản lý nhân sự</button>
       <button id="clsTabBtn" class="main-tab" type="button">Quản lý tên CLS</button>
+      <button id="soPhauThuatTabBtn" class="main-tab" type="button">Sổ phẫu thuật (ảnh)</button>
     </nav>
 
     <div class="topbar-actions">
@@ -151,6 +152,29 @@
               <div class="surgery-tools" data-context="surgery">
                 <button class="btn accent" data-task="bo-sung-phu-mo" type="button">Điền PTV / phụ mổ</button>
                 <button id="clearAssistantsBtn" class="btn warning-outline" type="button">Xóa mẫu phụ mổ</button>
+                <details class="upload-details">
+                  <summary>＋ Nhập từ ảnh sổ (OCR)</summary>
+                  <div class="upload-popover">
+                    <label>Danh sách sơ bộ (Excel)</label>
+                    <div class="field-inline">
+                      <input id="soBoExcelInput" class="file-input" type="file" accept=".xlsx" />
+                      <label for="soBoExcelInput" class="upload-picker">
+                        <span id="soBoExcelFileName">Chọn file Excel</span>
+                        <strong>Duyệt file</strong>
+                      </label>
+                    </div>
+                    <label>ZIP ảnh nguồn</label>
+                    <div class="field-inline">
+                      <input id="soBoZipInput" class="file-input" type="file" accept=".zip" />
+                      <label for="soBoZipInput" class="upload-picker">
+                        <span id="soBoZipFileName">Chọn file ZIP</span>
+                        <strong>Duyệt file</strong>
+                      </label>
+                    </div>
+                    <button id="nhapPhauThuatSoBoBtn" class="btn primary" type="button">Nhập vào phauthuat</button>
+                    <div class="field-note">Cột "Loại phẫu thuật" và "Số tiền" cần tự điền sau — xem file báo cáo tải kèm.</div>
+                  </div>
+                </details>
               </div>
               <div class="procedure-tools" data-context="thuthuat">
                 <button class="btn accent" data-task="chuyen-tieu-phau" type="button">Chuyển tiểu phẫu + điền BS</button>
@@ -247,7 +271,7 @@
           </label>
           <label class="form-field">
             <span>Nhóm / khóa</span>
-            <input id="staffGroupInput" placeholder="Ví dụ: Bác sĩ, BSNT 2" />
+            <input id="staffGroupInput" placeholder="Ví dụ: Bác sĩ, BSNT" />
           </label>
           <label class="active-check">
             <input id="staffActiveInput" type="checkbox" checked />
@@ -341,6 +365,90 @@
         </section>
       </section>
     </section>
+
+    <section id="soPhauThuatView" class="app-view hidden">
+      <section class="staff-page-head">
+        <div>
+          <div class="eyebrow">SỐ HÓA SỔ VIẾT TAY</div>
+          <h2>Sổ phẫu thuật (ảnh)</h2>
+          <p>Upload file "Danh sách sơ bộ" (đã trích xuất từ ảnh) và ZIP ảnh gốc. Bấm vào người bệnh trong danh sách để xem đúng ảnh trang sổ tương ứng, đối chiếu trước khi nhập vào sheet phauthuat.</p>
+        </div>
+      </section>
+
+      <section class="so-pt-ai-bar">
+        <div class="so-pt-ai-head">
+          <div>
+            <strong>Tự động phân tích ảnh sổ (Google Document AI)</strong>
+            <small>Chưa chỉnh cột theo cuốn sổ thật — kết quả luôn cần kiểm tra lại toàn bộ trước khi dùng.</small>
+          </div>
+          <button id="soPtAiConfigBtn" class="btn subtle" type="button">Cấu hình Document AI</button>
+        </div>
+        <div class="field-inline">
+          <input id="soPtAiZipInput" class="file-input" type="file" accept=".zip" />
+          <label for="soPtAiZipInput" class="upload-picker">
+            <span id="soPtAiZipFileName">Chọn ZIP ảnh THÔ (chưa phân tích)</span>
+            <strong>Duyệt file</strong>
+          </label>
+          <button id="soPtAiOcrBtn" class="btn primary" type="button">Chạy OCR</button>
+          <button id="soPtAiTachCotBtn" class="btn" type="button" disabled>Tách cột → Danh sách sơ bộ</button>
+        </div>
+        <span id="soPtAiStatus" class="field-note"></span>
+      </section>
+
+      <section class="so-pt-upload-bar">
+        <div class="field-inline">
+          <input id="soPtDanhSachInput" class="file-input" type="file" accept=".xlsx" />
+          <label for="soPtDanhSachInput" class="upload-picker">
+            <span id="soPtDanhSachFileName">Chọn file "Danh sách sơ bộ"</span>
+            <strong>Duyệt file</strong>
+          </label>
+          <button id="soPtDanhSachBtn" class="btn primary" type="button">Tải danh sách</button>
+        </div>
+        <div class="field-inline">
+          <input id="soPtZipInput" class="file-input" type="file" accept=".zip" />
+          <label for="soPtZipInput" class="upload-picker">
+            <span id="soPtZipFileName">Chọn file ZIP ảnh</span>
+            <strong>Duyệt file</strong>
+          </label>
+          <button id="soPtZipBtn" class="btn primary" type="button">Tải ảnh</button>
+        </div>
+        <span id="soPtStatus" class="field-note"></span>
+      </section>
+
+      <div class="staff-stats" id="soPtStats"></div>
+
+      <section class="staff-layout so-pt-layout">
+        <section class="staff-list-card">
+          <div class="staff-list-toolbar">
+            <div class="search-control staff-search">
+              <span class="search-icon">⌕</span>
+              <input id="soPtSearchInput" placeholder="Tìm người bệnh, bác sĩ, phương pháp..." />
+            </div>
+          </div>
+          <div class="staff-table-wrap">
+            <table class="staff-table so-pt-table">
+              <thead><tr><th>Ngày</th><th>Họ và tên</th><th>Chẩn đoán / Phương pháp</th><th>Bác sĩ</th><th>Ảnh</th></tr></thead>
+              <tbody id="soPtTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="so-pt-detail" id="soPtDetail">
+          <div class="so-pt-detail-empty">Bấm vào một người bệnh trong danh sách để xem ảnh gốc trang sổ.</div>
+        </aside>
+      </section>
+
+      <section class="staff-page-head so-pt-goi-y-head">
+        <div>
+          <div class="eyebrow">HỖ TRỢ KHI THEOSO KHÔNG CÓ</div>
+          <h2>Gợi ý điền PTV / phụ mổ còn thiếu</h2>
+          <p>Ưu tiên 1 vẫn là dò TheoSo (nút "Điền PTV / phụ mổ" ở tab Nhập dữ liệu). Chỗ này chỉ gợi ý cho các dòng phauthuat mà TheoSo không tìm được PTV chính — luôn xem ảnh gốc để xác minh trước khi áp dụng.</p>
+        </div>
+        <button id="soPtDoiChieuBtn" class="btn primary" type="button">Đối chiếu với phauthuat đang mở</button>
+      </section>
+      <div id="soPtDoiChieuStatus" class="field-note"></div>
+      <div id="soPtDoiChieuList" class="so-pt-goi-y-list"></div>
+    </section>
   </main>
 
   <div id="clearAssistantsModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="clearModalTitle">
@@ -402,6 +510,45 @@
       <div class="modal-actions">
         <button id="cancelEmrConfigBtn" class="btn subtle" type="button">Hủy</button>
         <button id="saveEmrConfigBtn" class="btn primary" type="button">Lưu cấu hình</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="documentAiConfigModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="documentAiConfigTitle">
+    <div class="modal-card emr-config-card">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">GOOGLE DOCUMENT AI</div>
+          <h2 id="documentAiConfigTitle">Cấu hình OCR ảnh sổ phẫu thuật</h2>
+        </div>
+        <button id="closeDocumentAiConfigBtn" class="icon-button" type="button" aria-label="Đóng">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="safety-note">Đây là kết nối tới dịch vụ trả phí của Google Cloud. Thông tin cấu hình chỉ lưu trong file <strong>document_ai_config.json</strong> và tệp khóa dịch vụ <strong>document_ai_service_account.json</strong> trên máy đang chạy chương trình.</div>
+        <label class="form-field emr-field">
+          <span>Project ID</span>
+          <input id="documentAiProjectIdInput" placeholder="ten-project-google-cloud" />
+        </label>
+        <label class="form-field emr-field">
+          <span>Location</span>
+          <input id="documentAiLocationInput" placeholder="us" value="us" />
+        </label>
+        <label class="form-field emr-field">
+          <span>Processor ID</span>
+          <input id="documentAiProcessorIdInput" placeholder="id-processor-document-ai" />
+        </label>
+        <div class="field-inline">
+          <input id="documentAiCredentialsInput" class="file-input" type="file" accept=".json" />
+          <label for="documentAiCredentialsInput" class="upload-picker">
+            <span id="documentAiCredentialsFileName">Chọn file khóa dịch vụ (service-account.json)</span>
+            <strong>Duyệt file</strong>
+          </label>
+        </div>
+        <span id="documentAiCredentialsStatus" class="field-note"></span>
+      </div>
+      <div class="modal-actions">
+        <button id="cancelDocumentAiConfigBtn" class="btn subtle" type="button">Hủy</button>
+        <button id="saveDocumentAiConfigBtn" class="btn primary" type="button">Lưu cấu hình</button>
       </div>
     </div>
   </div>

@@ -49,6 +49,14 @@ REQUIRED_HEADER_KEYS_BY_SHEET = {
         "bacsi",
         "dieuduong",
     },
+    # Sheet "Danh sách sơ bộ" tự tách từ OCR ảnh: chỉ coi họ tên là bắt buộc.
+    # Nếu dùng "tuoi" như các sheet khác, những dòng OCR không đọc được tuổi
+    # (rất thường gặp vì chữ viết tay) sẽ bị coi là "dòng mẫu" và biến mất
+    # hoàn toàn khỏi danh sách hiển thị, dù các trường khác (tên, chẩn đoán,
+    # bác sĩ...) vẫn đọc được và cần người dùng kiểm tra.
+    "danhsachsobo": {
+        "hotennguoibenh",
+    },
 }
 
 # Sheet phẫu thuật chỉ được phép cập nhật bốn cột nhân sự này. Đây là lớp
@@ -474,24 +482,77 @@ def command_staff_list(args):
     })
 
 
+def _role_family(vai_tro: str) -> str:
+    return "bac_si_bsnt" if vai_tro in {"bac_si", "bsnt"} else vai_tro
+
+
+def _chu_cai_ten_dem(ho_ten: str) -> str:
+    """Chữ cái đầu của tên đệm (từ ngay trước tên chính), dùng để phân biệt
+    hai người trùng tên — vd 'Phạm Việt Tân' -> 'V'. Trả về rỗng nếu họ tên
+    chỉ có 1 từ, không đủ để lấy tên đệm."""
+    words = str(ho_ten or "").strip().split()
+    return words[-2][0].upper() if len(words) >= 2 else ""
+
+
+def _tu_dong_tach_biet_trung_ten(items: list[dict[str, Any]]) -> list[str]:
+    """Hai bác sĩ/BSNT khác người nhưng trùng tên 100% (cùng bí danh y hệt
+    nhau, không phải chỉ gần giống) sẽ tự được thêm chữ cái đầu tên đệm để
+    phân biệt, vd hai người cùng tên 'Tân' thành 'V.TÂN' và 'M.TÂN' — đúng
+    theo cách đặt bí danh đã dùng sẵn trong danh sách (vd 'M.THIỆN').
+    Nếu không đủ tên đệm để tách rõ ràng thì bỏ qua, để bước kiểm tra trùng
+    bí danh phía sau báo lỗi cho người dùng tự xử lý.
+
+    Trả về danh sách mô tả các thay đổi đã tự làm, để báo lại cho người dùng."""
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for item in items:
+        if not item.get("active", True):
+            continue
+        groups.setdefault((_role_family(item["vaiTro"]), item["biDanh"]), []).append(item)
+
+    ghi_chu: list[str] = []
+    for (_role_family_key, alias), group in groups.items():
+        if len(group) < 2:
+            continue
+
+        prefixes = [_chu_cai_ten_dem(item["hoTen"]) for item in group]
+        if not all(prefixes) or len(set(prefixes)) != len(prefixes):
+            continue
+
+        for item, prefix in zip(group, prefixes):
+            new_alias = f"{prefix}.{alias}"
+            ghi_chu.append(f"{item['hoTen']}: '{alias}' -> '{new_alias}' (trùng tên với người khác)")
+            item["biDanh"] = new_alias
+
+    return ghi_chu
+
+
 def command_save_staff_list(args):
     payload = json.loads(args.staff_json or "[]")
     if not isinstance(payload, list):
         raise ValueError("Danh sách nhân sự không đúng định dạng.")
     normalized = [_normalize_staff_item(item, idx) for idx, item in enumerate(payload)]
 
-    # Không cho trùng bí danh trong cùng nhóm vai trò đang hoạt động vì sẽ làm
-    # gợi ý nhập liệu không xác định được người dùng muốn chọn ai.
+    auto_adjusted = _tu_dong_tach_biet_trung_ten(normalized)
+    for item in normalized:
+        item["label"] = f"{item['biDanh']} — {item['hoTen']} ({item['nhom']})"
+
+    # Bí danh chỉ khác dấu (vd "Thanh" so với "Thạnh") vẫn được coi là hai
+    # người khác nhau và cho lưu bình thường, không chặn. Chỉ khi bí danh
+    # giống hệt nhau từng ký tự (kể cả dấu) mới cần xử lý — bước
+    # _tu_dong_tach_biet_trung_ten ở trên đã tự thêm tên đệm để phân biệt.
+    # Nếu vẫn còn trùng y hệt sau khi đã thử tách (không đủ tên đệm khác
+    # nhau) thì mới chặn, vì lúc đó không có cách nào phân biệt hai người
+    # trên màn hình gợi ý nhập liệu.
     seen: dict[tuple[str, str], str] = {}
     for item in normalized:
         if not item.get("active", True):
             continue
-        role_family = "bac_si_bsnt" if item["vaiTro"] in {"bac_si", "bsnt"} else item["vaiTro"]
-        key = (role_family, normalize_text(item["biDanh"]))
+        key = (_role_family(item["vaiTro"]), item["biDanh"])
         if key in seen:
             raise ValueError(
-                f"Bí danh '{item['biDanh']}' bị trùng giữa '{seen[key]}' và '{item['hoTen']}' "
-                f"trong cùng nhóm gợi ý."
+                f"Bí danh '{item['biDanh']}' bị trùng y hệt giữa '{seen[key]}' và '{item['hoTen']}' — không đủ "
+                f"tên đệm khác nhau để tự phân biệt. Hãy đặt bí danh khác cho một trong hai (vd thêm tên đệm "
+                f"đầy đủ hơn)."
             )
         seen[key] = item["hoTen"]
 
@@ -514,13 +575,17 @@ def command_save_staff_list(args):
     tmp = STAFF_CONFIG_FILE.with_suffix(STAFF_CONFIG_FILE.suffix + ".tmp")
     tmp.write_text(json.dumps(data_to_write, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(STAFF_CONFIG_FILE)
+    message = "Đã lưu danh sách nhân sự."
+    if auto_adjusted:
+        message += " Đã tự thêm tên đệm để phân biệt: " + "; ".join(auto_adjusted) + "."
     respond({
         "ok": True,
         "staff": normalized,
         "count": len(normalized),
         "activeCount": sum(1 for item in normalized if item.get("active", True)),
         "file": str(STAFF_CONFIG_FILE),
-        "message": "Đã lưu danh sách nhân sự.",
+        "message": message,
+        "autoAdjusted": auto_adjusted,
     })
 
 
@@ -1735,6 +1800,121 @@ def command_task_chuyen_tieu_phau(args):
     respond(result)
 
 
+def command_task_nhap_phau_thuat_so_bo(args):
+    """Chuẩn hóa (tách 4 cột BS) file 'Danh sách sơ bộ' trích từ ảnh sổ phẫu
+    thuật, rồi nhập các dòng đó vào sheet phauthuat của file đang dùng."""
+    import xu_ly_so_phau_thuat as xu_ly_mod
+    import nhap_phau_thuat_tu_so_bo as nhap_mod
+
+    input_file = Path(args.file)
+    so_bo_file = Path(args.so_bo)
+    zip_file = Path(args.zip)
+    sheet_so_bo = args.sheet_so_bo or nhap_mod.SHEET_SO_BO_MAC_DINH
+    output_file = output_path_from_args(input_file, args.output, "_NHAP_LIEU")
+    report_file = report_path_for(output_file).with_name(
+        output_file.stem + "_bao_cao_nhap_phau_thuat.xlsx"
+    )
+    chuan_hoa_file = output_file.with_name(output_file.stem + "_so_bo_chuan_hoa_tmp.xlsx")
+
+    xu_ly_mod.normalize_workbook(so_bo_file, zip_file, chuan_hoa_file, sheet_so_bo)
+    result = nhap_mod.nhap_phau_thuat_tu_so_bo(input_file, chuan_hoa_file, output_file, sheet_so_bo)
+    nhap_mod.tao_bao_cao(result["bao_cao_rows"], report_file)
+    try:
+        chuan_hoa_file.unlink()
+    except Exception:
+        pass
+
+    result.pop("bao_cao_rows", None)
+    result.update({"ok": True, "file": str(output_file), "report": str(report_file)})
+    respond(result)
+
+
+def command_extract_zip_images(args):
+    """Giải nén ảnh (.jpg/.jpeg/.png) từ ZIP vào một thư mục cố định, chỉ giữ
+    đúng 1 bộ ảnh đang dùng (xóa ảnh cũ trước khi giải nén) để khớp với đúng
+    một 'quyển sổ phẫu thuật' đang xem trên web."""
+    import zipfile
+
+    zip_path = Path(args.zip)
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    for existing in output_dir.glob("*"):
+        if existing.is_file():
+            try:
+                existing.unlink()
+            except Exception:
+                pass
+
+    extracted: list[str] = []
+    with zipfile.ZipFile(zip_path) as zf:
+        for name in zf.namelist():
+            if not name.lower().endswith((".jpg", ".jpeg", ".png")):
+                continue
+            base = Path(name).name
+            if not base:
+                continue
+            target = output_dir / base
+            with zf.open(name) as src, open(target, "wb") as dst:
+                dst.write(src.read())
+            extracted.append(base)
+
+    extracted.sort(key=str.casefold)
+    respond({"ok": True, "images": extracted, "count": len(extracted)})
+
+
+def command_doi_chieu_phau_thuat_anh(args):
+    """Đối chiếu (chỉ đọc, không ghi) các dòng phauthuat thiếu PTV chính với
+    dữ liệu OCR ảnh sổ — dùng khi tra TheoSo không có kết quả."""
+    import doi_chieu_phau_thuat_tu_anh as mod
+
+    ket_qua = mod.doi_chieu(
+        Path(args.file),
+        Path(args.so_bo),
+        args.sheet_so_bo or mod.SHEET_SO_BO_MAC_DINH,
+    )
+    respond({"ok": True, "goiY": ket_qua, "count": len(ket_qua)})
+
+
+def command_chay_ocr_anh_tho(args):
+    """Gọi Google Document AI OCR toàn bộ ảnh trong ZIP, lưu kết quả thô ra
+    JSON. Tách riêng khỏi bước tách cột để không phải gọi lại (tốn phí) mỗi
+    lần chỉnh ranh giới cột."""
+    import ocr_so_phau_thuat_google as ocr_mod
+
+    output_file = Path(args.output)
+
+    def _progress(index, total, filename):
+        print(f"[{index}/{total}] {filename}", file=sys.stderr)
+
+    payload = ocr_mod.run_ocr(
+        Path(args.zip),
+        args.project_id,
+        args.location,
+        args.processor_id,
+        credentials_path=Path(args.credentials) if args.credentials else None,
+        limit=int(args.limit or 0),
+        on_progress=_progress,
+    )
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    output_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    respond({"ok": True, "imageCount": payload.get("image_count", 0), "file": str(output_file)})
+
+
+def command_tach_cot_anh_so_phau_thuat(args):
+    """Tách bảng dữ liệu từ JSON OCR thô đã lưu sẵn (không gọi lại Document
+    AI) — dùng khi cần chỉnh ranh giới cột nhiều lần cho khớp cuốn sổ thật."""
+    import phan_tich_anh_so_phau_thuat as mod
+
+    ocr_payload = json.loads(Path(args.ocr_json).read_text(encoding="utf-8"))
+    ranh_gioi = None
+    if args.cot_json:
+        ranh_gioi = json.loads(Path(args.cot_json).read_text(encoding="utf-8"))
+    dong_ra = mod.phan_tich(ocr_payload, ranh_gioi)
+    mod.xuat_excel(dong_ra, Path(args.output))
+    respond({"ok": True, "count": len(dong_ra), "file": str(args.output)})
+
+
 def command_task_cap_nhat_cls_tieuphau(args):
     """Chuyển các CLS vừa bổ sung; lưu ngay và để Bác Sĩ trống cho EMR xử lý."""
     import chuyen_thu_thuat_sang_tieuphau_t5 as mod
@@ -1898,6 +2078,36 @@ def build_parser():
     p.add_argument("--file", required=True)
     p.add_argument("--output")
 
+    p = sub.add_parser("task-nhap-phau-thuat-so-bo")
+    p.add_argument("--file", required=True)
+    p.add_argument("--so-bo", required=True, dest="so_bo")
+    p.add_argument("--zip", required=True)
+    p.add_argument("--sheet-so-bo", dest="sheet_so_bo")
+    p.add_argument("--output")
+
+    p = sub.add_parser("extract-zip-images")
+    p.add_argument("--zip", required=True)
+    p.add_argument("--output-dir", required=True, dest="output_dir")
+
+    p = sub.add_parser("doi-chieu-phau-thuat-anh")
+    p.add_argument("--file", required=True)
+    p.add_argument("--so-bo", required=True, dest="so_bo")
+    p.add_argument("--sheet-so-bo", dest="sheet_so_bo")
+
+    p = sub.add_parser("chay-ocr-anh-tho")
+    p.add_argument("--zip", required=True)
+    p.add_argument("--project-id", required=True, dest="project_id")
+    p.add_argument("--location", default="us")
+    p.add_argument("--processor-id", required=True, dest="processor_id")
+    p.add_argument("--credentials")
+    p.add_argument("--output", required=True)
+    p.add_argument("--limit", default="0")
+
+    p = sub.add_parser("tach-cot-anh-so-phau-thuat")
+    p.add_argument("--ocr-json", required=True, dest="ocr_json")
+    p.add_argument("--output", required=True)
+    p.add_argument("--cot-json", dest="cot_json")
+
     return parser
 
 
@@ -1925,6 +2135,11 @@ def main():
             "task-chuyen-tieu-phau": command_task_chuyen_tieu_phau,
             "task-cap-nhat-cls-tieuphau": command_task_cap_nhat_cls_tieuphau,
             "task-dien-bs": command_task_dien_bs,
+            "task-nhap-phau-thuat-so-bo": command_task_nhap_phau_thuat_so_bo,
+            "extract-zip-images": command_extract_zip_images,
+            "doi-chieu-phau-thuat-anh": command_doi_chieu_phau_thuat_anh,
+            "chay-ocr-anh-tho": command_chay_ocr_anh_tho,
+            "tach-cot-anh-so-phau-thuat": command_tach_cot_anh_so_phau_thuat,
         }
         commands[args.cmd](args)
     except SystemExit:
