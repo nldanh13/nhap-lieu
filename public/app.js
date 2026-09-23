@@ -2268,10 +2268,10 @@ async function saveDocumentAiConfig() {
   }
 }
 
-async function runSoPtAiOcr() {
+async function runSoPtXuLyAnh() {
   const input = $('soPtAiZipInput');
   if (!input.files.length) {
-    alert('Chọn file ZIP ảnh thô cần OCR.');
+    alert('Chọn file ZIP ảnh sổ cần xử lý.');
     return;
   }
   try {
@@ -2284,47 +2284,44 @@ async function runSoPtAiOcr() {
     await openDocumentAiConfigModal();
     return;
   }
-  setBusy(true, 'Đang chạy OCR (Google Document AI) — có thể mất vài phút...');
-  if ($('soPtAiStatus')) $('soPtAiStatus').textContent = 'Đang chạy OCR, đợi chút...';
+  const zipFile = input.files[0];
+  if ($('soPtAiZipFileName')) $('soPtAiZipFileName').textContent = zipFile.name;
+  setBusy(true, 'Đang xử lý ảnh sổ...');
   try {
-    const form = new FormData();
-    form.append('zip', input.files[0]);
-    const res = await fetch('/api/so-phau-thuat/chay-ocr', { method: 'POST', body: form });
-    const data = await res.json();
-    if (!res.ok || data.ok === false) throw new Error(data.error || 'Chạy OCR lỗi.');
-    if ($('soPtAiZipFileName')) $('soPtAiZipFileName').textContent = input.files[0].name;
-    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = `Đã OCR ${data.imageCount || 0} ảnh. Bấm "Tách cột" để tạo Danh sách sơ bộ (CẦN KIỂM TRA LẠI).`;
-    if ($('soPtAiTachCotBtn')) $('soPtAiTachCotBtn').disabled = false;
-    showToast(`Đã OCR xong ${data.imageCount || 0} ảnh.`, 'success');
-    log(`Đã chạy Document AI OCR: ${data.imageCount || 0} ảnh.`);
-  } catch (err) {
-    alert(err.message);
-    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = '';
-    log(`Lỗi chạy Document AI OCR: ${err.message}`);
-  } finally {
-    setBusy(false);
-  }
-}
+    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = 'Bước 1/3: Đang giải nén ảnh để xem lại...';
+    const formAnh = new FormData();
+    formAnh.append('zip', zipFile);
+    const resAnh = await fetch('/api/so-phau-thuat/upload-anh', { method: 'POST', body: formAnh });
+    const dataAnh = await resAnh.json();
+    if (!resAnh.ok || dataAnh.ok === false) throw new Error(dataAnh.error || 'Giải nén ảnh lỗi.');
+    state.soPhauThuat.imagesLoaded = true;
 
-async function runSoPtAiTachCot() {
-  setBusy(true, 'Đang tách cột từ kết quả OCR...');
-  try {
-    const data = await api('/api/so-phau-thuat/tach-cot', {
+    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = 'Bước 2/3: Đang chạy OCR (Google Document AI) — có thể mất vài phút...';
+    const formOcr = new FormData();
+    formOcr.append('zip', zipFile);
+    const resOcr = await fetch('/api/so-phau-thuat/chay-ocr', { method: 'POST', body: formOcr });
+    const dataOcr = await resOcr.json();
+    if (!resOcr.ok || dataOcr.ok === false) throw new Error(dataOcr.error || 'Chạy OCR lỗi.');
+
+    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = 'Bước 3/3: Đang tách cột thành dữ liệu Excel...';
+    const dataTach = await api('/api/so-phau-thuat/tach-cot', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({}),
     });
-    state.soPhauThuat.danhSachFile = data.file;
-    if ($('soPtDanhSachFileName')) $('soPtDanhSachFileName').textContent = `Tự tách từ OCR (${data.count || 0} dòng — CẦN KIỂM TRA)`;
+    state.soPhauThuat.danhSachFile = dataTach.file;
+    if ($('soPtDanhSachFileName')) $('soPtDanhSachFileName').textContent = `Tự tách từ OCR (${dataTach.count || 0} dòng — CẦN KIỂM TRA)`;
     await loadSoPtRows();
+
     if ($('soPtAiStatus')) {
-      $('soPtAiStatus').textContent = `Đã tách ${data.count || 0} dòng — TẤT CẢ đều cần đối chiếu ảnh gốc trước khi dùng (cột có thể chưa đúng vị trí, hãy báo lại nếu sai để hiệu chỉnh).`;
+      $('soPtAiStatus').textContent = `Xong: OCR ${dataAnh.count || 0} ảnh, tách được ${dataTach.count || 0} dòng — TẤT CẢ đều cần xem ảnh gốc để xác minh trước khi dùng.`;
     }
-    showToast(`Đã tách ${data.count || 0} dòng từ OCR — cần kiểm tra lại toàn bộ.`, 'warning', 6000);
-    log(`Đã tách cột từ OCR: ${data.count || 0} dòng.`);
+    showToast(`Đã xử lý xong ${dataAnh.count || 0} ảnh — ${dataTach.count || 0} dòng cần kiểm tra lại.`, 'warning', 6000);
+    log(`Đã xử lý ảnh sổ tự động: ${dataAnh.count || 0} ảnh, ${dataTach.count || 0} dòng.`);
   } catch (err) {
     alert(err.message);
-    log(`Lỗi tách cột từ OCR: ${err.message}`);
+    if ($('soPtAiStatus')) $('soPtAiStatus').textContent = '';
+    log(`Lỗi xử lý ảnh sổ tự động: ${err.message}`);
   } finally {
     setBusy(false);
   }
@@ -2935,11 +2932,10 @@ function bindEvents() {
   $('soPtSearchInput')?.addEventListener('input', () => renderSoPtList());
   $('soPtDoiChieuBtn')?.addEventListener('click', runSoPtDoiChieu);
   $('soPtAiConfigBtn')?.addEventListener('click', e => { e.preventDefault(); openDocumentAiConfigModal(); });
-  $('soPtAiOcrBtn')?.addEventListener('click', runSoPtAiOcr);
-  $('soPtAiTachCotBtn')?.addEventListener('click', runSoPtAiTachCot);
+  $('soPtAiXuLyBtn')?.addEventListener('click', runSoPtXuLyAnh);
   $('soPtAiZipInput')?.addEventListener('change', e => {
     const file = e.target.files?.[0];
-    if ($('soPtAiZipFileName')) $('soPtAiZipFileName').textContent = file ? file.name : 'Chọn ZIP ảnh THÔ (chưa phân tích)';
+    if ($('soPtAiZipFileName')) $('soPtAiZipFileName').textContent = file ? file.name : 'Chọn ZIP ảnh sổ';
   });
   $('closeDocumentAiConfigBtn')?.addEventListener('click', closeDocumentAiConfigModal);
   $('cancelDocumentAiConfigBtn')?.addEventListener('click', closeDocumentAiConfigModal);

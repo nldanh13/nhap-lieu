@@ -371,49 +371,46 @@
         <div>
           <div class="eyebrow">SỐ HÓA SỔ VIẾT TAY</div>
           <h2>Sổ phẫu thuật (ảnh)</h2>
-          <p>Upload file "Danh sách sơ bộ" (đã trích xuất từ ảnh) và ZIP ảnh gốc. Bấm vào người bệnh trong danh sách để xem đúng ảnh trang sổ tương ứng, đối chiếu trước khi nhập vào sheet phauthuat.</p>
+          <p>Chọn ZIP ảnh trang sổ, hệ thống tự OCR và tách thành dữ liệu Excel. Bấm vào người bệnh để xem đúng ảnh gốc, đối chiếu trước khi nhập vào sheet phauthuat.</p>
         </div>
+        <button id="soPtAiConfigBtn" class="btn subtle" type="button">Cấu hình Document AI</button>
       </section>
 
       <section class="so-pt-ai-bar">
-        <div class="so-pt-ai-head">
-          <div>
-            <strong>Tự động phân tích ảnh sổ (Google Document AI)</strong>
-            <small>Chưa chỉnh cột theo cuốn sổ thật — kết quả luôn cần kiểm tra lại toàn bộ trước khi dùng.</small>
-          </div>
-          <button id="soPtAiConfigBtn" class="btn subtle" type="button">Cấu hình Document AI</button>
-        </div>
         <div class="field-inline">
           <input id="soPtAiZipInput" class="file-input" type="file" accept=".zip" />
           <label for="soPtAiZipInput" class="upload-picker">
-            <span id="soPtAiZipFileName">Chọn ZIP ảnh THÔ (chưa phân tích)</span>
+            <span id="soPtAiZipFileName">Chọn ZIP ảnh sổ</span>
             <strong>Duyệt file</strong>
           </label>
-          <button id="soPtAiOcrBtn" class="btn primary" type="button">Chạy OCR</button>
-          <button id="soPtAiTachCotBtn" class="btn" type="button" disabled>Tách cột → Danh sách sơ bộ</button>
+          <button id="soPtAiXuLyBtn" class="btn primary" type="button">Xử lý ảnh (OCR tự động)</button>
         </div>
         <span id="soPtAiStatus" class="field-note"></span>
+        <small class="so-pt-ai-warn">Kết quả tự OCR luôn cần kiểm tra lại — xem ảnh gốc trước khi tin dùng.</small>
       </section>
 
-      <section class="so-pt-upload-bar">
-        <div class="field-inline">
-          <input id="soPtDanhSachInput" class="file-input" type="file" accept=".xlsx" />
-          <label for="soPtDanhSachInput" class="upload-picker">
-            <span id="soPtDanhSachFileName">Chọn file "Danh sách sơ bộ"</span>
-            <strong>Duyệt file</strong>
-          </label>
-          <button id="soPtDanhSachBtn" class="btn primary" type="button">Tải danh sách</button>
-        </div>
-        <div class="field-inline">
-          <input id="soPtZipInput" class="file-input" type="file" accept=".zip" />
-          <label for="soPtZipInput" class="upload-picker">
-            <span id="soPtZipFileName">Chọn file ZIP ảnh</span>
-            <strong>Duyệt file</strong>
-          </label>
-          <button id="soPtZipBtn" class="btn primary" type="button">Tải ảnh</button>
-        </div>
-        <span id="soPtStatus" class="field-note"></span>
-      </section>
+      <details class="so-pt-advanced">
+        <summary>Nâng cao: tự tải file "Danh sách sơ bộ" đã có sẵn</summary>
+        <section class="so-pt-upload-bar">
+          <div class="field-inline">
+            <input id="soPtDanhSachInput" class="file-input" type="file" accept=".xlsx" />
+            <label for="soPtDanhSachInput" class="upload-picker">
+              <span id="soPtDanhSachFileName">Chọn file "Danh sách sơ bộ"</span>
+              <strong>Duyệt file</strong>
+            </label>
+            <button id="soPtDanhSachBtn" class="btn primary" type="button">Tải danh sách</button>
+          </div>
+          <div class="field-inline">
+            <input id="soPtZipInput" class="file-input" type="file" accept=".zip" />
+            <label for="soPtZipInput" class="upload-picker">
+              <span id="soPtZipFileName">Chọn file ZIP ảnh</span>
+              <strong>Duyệt file</strong>
+            </label>
+            <button id="soPtZipBtn" class="btn primary" type="button">Tải ảnh</button>
+          </div>
+          <span id="soPtStatus" class="field-note"></span>
+        </section>
+      </details>
 
       <div class="staff-stats" id="soPtStats"></div>
 
