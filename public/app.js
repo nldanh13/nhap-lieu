@@ -1131,7 +1131,6 @@ function handleCellInput(input) {
   if (tr) tr.classList.toggle('dirty', Boolean(state.rowChanges[rowNumber]));
   updateSelectedInfo();
   updateDirtyMetrics();
-  saveDraftLocal(currentDraftPayload());
   scheduleDraftSave();
   scheduleRowAutosave(rowNumber);
 }
@@ -1142,7 +1141,6 @@ function handleNewRowInput(input) {
   state.newRowValues[header] = input.value;
   updateDirtyMetrics();
   input.classList.add('changed');
-  saveDraftLocal(currentDraftPayload());
   scheduleDraftSave();
   autosaveStatus('Đã lưu nháp dòng mới · bấm Chèn dòng để ghi Excel', 'draft');
 }
@@ -1318,6 +1316,7 @@ function scheduleDraftSave() {
   state.lastDraftSignature = signature;
   clearTimeout(state.autosaveDraftTimer);
   state.autosaveDraftTimer = setTimeout(() => {
+    saveDraftLocal(draft);
     saveDraftServer(draft).catch(err => log(`Không lưu được nháp máy chủ: ${err.message}`));
   }, 700);
 }
