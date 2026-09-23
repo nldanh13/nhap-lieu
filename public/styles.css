@@ -200,6 +200,8 @@ select, input, textarea {
   box-shadow: var(--shadow);
 }
 .upload-popover > label { display: block; margin-bottom: 6px; color: #405169; font-size: 11px; font-weight: 850; }
+.upload-popover-wide { width: min(400px, 90vw); }
+.upload-popover-section { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--line); }
 .theo-so-file-list {
   list-style: none;
   margin: 8px 0 0;

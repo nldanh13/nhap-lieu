@@ -103,7 +103,91 @@ function outputPathForUploadedName(originalName) {
   return path.join(outputDir, `${cleanStem}${WORK_SUFFIX}${ext}`);
 }
 
-function runPython(args, options = {}) {
+// node_excel_api.py xử lý hầu hết lệnh Excel. Mở 1 tiến trình Python mới cho
+// MỖI lệnh tốn ~0.3-0.7s chỉ riêng phần import thư viện + mở tiến trình
+// (đo thực tế trên workbook 3 sheet/200 dòng) — đây là nguyên nhân chính gây
+// lag khi gõ dữ liệu/đổi sheet/tự động lưu. Thay vào đó giữ 1 tiến trình nền
+// (python_worker.py) sống xuyên suốt, gửi từng lệnh qua đó bằng JSON theo
+// dòng — cùng logic commands/respond() nên hành vi mỗi lệnh giữ nguyên,
+// chỉ khác chỗ không phải mở tiến trình mới mỗi lần (còn ~5-10ms/lệnh).
+let pyWorker = null;
+let pyWorkerBuffer = '';
+let pyWorkerNextId = 1;
+const pyWorkerPending = new Map();
+const PY_WORKER_TIMEOUT_MS = 30000;
+// Lệnh gọi mạng dài (OCR Document AI) cố tình KHÔNG đi qua tiến trình nền
+// dùng chung, để không làm nghẽn các thao tác gõ/lưu khác trong lúc chờ.
+const PY_WORKER_EXCLUDED_COMMANDS = new Set(['chay-ocr-anh-tho']);
+
+function ensurePyWorker() {
+  if (pyWorker) return pyWorker;
+  const worker = spawn(PYTHON, [path.join(APP_ROOT, 'python_worker.py')], {
+    cwd: APP_ROOT,
+    windowsHide: true,
+    env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
+  });
+  pyWorkerBuffer = '';
+  worker.stdout.on('data', chunk => {
+    pyWorkerBuffer += chunk.toString('utf8');
+    let newlineIndex;
+    while ((newlineIndex = pyWorkerBuffer.indexOf('\n')) >= 0) {
+      const line = pyWorkerBuffer.slice(0, newlineIndex).trim();
+      pyWorkerBuffer = pyWorkerBuffer.slice(newlineIndex + 1);
+      if (!line) continue;
+      let parsed;
+      try { parsed = JSON.parse(line); } catch (_err) { continue; }
+      const pending = pyWorkerPending.get(parsed.id);
+      if (!pending) continue;
+      pyWorkerPending.delete(parsed.id);
+      clearTimeout(pending.timer);
+      if (parsed.ok === false) {
+        pending.reject(new Error(parsed.error || 'Lỗi không xác định từ Python worker.'));
+        continue;
+      }
+      delete parsed.id;
+      if (pending.includeRaw) parsed.rawStdout = line;
+      pending.resolve(parsed);
+    }
+  });
+  const failAllPending = message => {
+    for (const pending of pyWorkerPending.values()) {
+      clearTimeout(pending.timer);
+      pending.reject(new Error(message));
+    }
+    pyWorkerPending.clear();
+  };
+  worker.on('exit', () => {
+    failAllPending('Tiến trình Python nền đã dừng đột ngột — thử lại thao tác (sẽ tự khởi động lại).');
+    if (pyWorker === worker) pyWorker = null;
+  });
+  worker.on('error', err => {
+    failAllPending(err.message || 'Không khởi động được tiến trình Python nền.');
+    if (pyWorker === worker) pyWorker = null;
+  });
+  pyWorker = worker;
+  return worker;
+}
+
+function runPythonViaWorker(args, options = {}) {
+  return new Promise((resolve, reject) => {
+    const worker = ensurePyWorker();
+    const id = pyWorkerNextId++;
+    const timer = setTimeout(() => {
+      pyWorkerPending.delete(id);
+      reject(new Error('Python worker phản hồi quá lâu (>30s).'));
+    }, PY_WORKER_TIMEOUT_MS);
+    pyWorkerPending.set(id, { resolve, reject, timer, includeRaw: Boolean(options.includeRaw) });
+    worker.stdin.write(JSON.stringify({ id, argv: args }) + '\n', err => {
+      if (err) {
+        pyWorkerPending.delete(id);
+        clearTimeout(timer);
+        reject(err);
+      }
+    });
+  });
+}
+
+function runPythonSpawn(args, options = {}) {
   return new Promise((resolve, reject) => {
     const pyArgs = [path.join(APP_ROOT, 'node_excel_api.py'), ...args];
     const child = spawn(PYTHON, pyArgs, {
@@ -136,6 +220,13 @@ function runPython(args, options = {}) {
       resolve(parsed);
     });
   });
+}
+
+function runPython(args, options = {}) {
+  if (PY_WORKER_EXCLUDED_COMMANDS.has(args[0])) {
+    return runPythonSpawn(args, options);
+  }
+  return runPythonViaWorker(args, options);
 }
 
 
