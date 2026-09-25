@@ -2594,6 +2594,8 @@ function switchMainTab(tabName) {
   } else if (isCls) {
     renderClsManager();
     resetClsForm();
+    renderClsUsageSheetOptions();
+    renderClsUsage();
     document.title = 'Quản lý tên CLS | PM CTCH';
   } else if (isSoPt) {
     renderSoPtList();
@@ -2775,6 +2777,7 @@ async function persistClsList(nextList, successMessage) {
   });
   state.clsList = data.cls || nextList;
   renderClsManager();
+  renderClsUsage();
   if (successMessage) showToast(successMessage, 'success');
 }
 
@@ -2881,6 +2884,237 @@ async function deleteCurrentCls() {
   }
 }
 
+// ── Thống kê tên CLS trong file đang mở ──────────────────────────────────────
+// Đếm theo Tên CLS trên một sheet (mặc định "thu thuat"): số dòng, tổng số lượng,
+// tổng thành tiền và các mức thành tiền cho 1 lần. Chỉ đọc; không sửa file.
+
+// Giống normalize_text() trong chuyen_thu_thuat_sang_tieuphau_t5.py để cột "Danh mục
+// chuyển" báo đúng như lúc chuyển tiểu phẫu thật.
+function normalizeClsText(value) {
+  const text = String(value ?? '').trim().toLowerCase();
+  if (!text || text === 'nan' || text === 'none') return '';
+  return text
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// "35000", 35000, "35.000", "35,000" → 35000; "0,5" → 0.5. Không đọc được → null.
+function parseSheetNumber(value) {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  const text = String(value ?? '').trim().replace(/\s+/g, '');
+  if (!text) return null;
+  if (/^-?\d{1,3}([.,]\d{3})+$/.test(text)) return Number(text.replace(/[.,]/g, ''));
+  const n = Number(text.replace(',', '.'));
+  return Number.isFinite(n) ? n : null;
+}
+
+function formatVnNumber(value) {
+  if (value == null || !Number.isFinite(value)) return '';
+  return Number(value).toLocaleString('vi-VN', { maximumFractionDigits: 2 });
+}
+
+const clsUsage = { sheet: '', stats: [], totals: null, loadedAt: '' };
+
+function defaultClsUsageSheet() {
+  const sheets = state.sheets || [];
+  return sheets.find(name => normalizeKey(name).includes('thuthuat')) || state.currentSheet || sheets[0] || '';
+}
+
+function renderClsUsageSheetOptions() {
+  const select = $('clsUsageSheet');
+  if (!select) return;
+  const sheets = state.sheets || [];
+  const current = select.value || clsUsage.sheet || defaultClsUsageSheet();
+  select.innerHTML = sheets.map(name => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join('');
+  if (sheets.includes(current)) select.value = current;
+  const summary = $('clsUsageSummary');
+  if (summary && !state.currentFile) summary.textContent = 'Chưa mở file làm việc. Chọn file ở tab Nhập dữ liệu trước.';
+}
+
+function clsCatalogStatus(name) {
+  const key = normalizeClsText(name);
+  if (!key) return 'blank';
+  const hit = state.clsList.find(item => normalizeClsText(item.tenCls) === key);
+  if (!hit) return 'none';
+  return hit.active !== false ? 'active' : 'inactive';
+}
+
+function buildClsUsageStats(headers, rows, rowChanges = {}) {
+  const pick = (names) => {
+    for (const name of names) {
+      const hit = headers.find(h => normalizeKey(h) === normalizeKey(name));
+      if (hit) return hit;
+    }
+    return null;
+  };
+  const clsHeader = pick(['Tên CLS', 'Ten CLS']);
+  const qtyHeader = pick(['Số Lượng', 'So Luong', 'SL']);
+  const moneyHeader = pick(['Thành tiền', 'Thanh tien']);
+  if (!clsHeader) return { error: 'Sheet này không có cột "Tên CLS".' };
+
+  const groups = new Map();
+  const totals = { rows: 0, qty: 0, money: 0 };
+  for (const row of rows) {
+    const values = { ...(row.values || {}), ...(rowChanges[row.rowNumber] || {}) };
+    const rawName = String(values[clsHeader] ?? '').trim();
+    const key = normalizeClsText(rawName) || '__blank__';
+    if (!groups.has(key)) groups.set(key, { key, name: rawName, names: new Map(), rows: 0, qty: 0, money: 0, unitPrices: new Map() });
+    const g = groups.get(key);
+    g.names.set(rawName, (g.names.get(rawName) || 0) + 1);
+    g.rows += 1;
+    totals.rows += 1;
+    const qty = qtyHeader ? parseSheetNumber(values[qtyHeader]) : null;
+    const money = moneyHeader ? parseSheetNumber(values[moneyHeader]) : null;
+    if (qty != null) { g.qty += qty; totals.qty += qty; }
+    if (money != null) { g.money += money; totals.money += money; }
+    if (qty && money != null) {
+      const unit = Math.round((money / qty) * 100) / 100;
+      g.unitPrices.set(unit, (g.unitPrices.get(unit) || 0) + 1);
+    }
+  }
+  const stats = [...groups.values()].map(g => {
+    // Hiển thị cách viết gặp nhiều nhất của cùng một tên CLS.
+    const name = [...g.names.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] || '';
+    const unitPrices = [...g.unitPrices.entries()].sort((a, b) => b[1] - a[1]);
+    return { ...g, name, variants: g.names.size, unitPrices, catalog: g.key === '__blank__' ? 'blank' : clsCatalogStatus(name) };
+  }).sort((a, b) => b.rows - a.rows || a.name.localeCompare(b.name, 'vi'));
+  return { stats, totals, hasQty: Boolean(qtyHeader), hasMoney: Boolean(moneyHeader) };
+}
+
+const CLS_CATALOG_LABEL = { active: 'Đang chuyển', inactive: 'Tạm ngưng', none: 'Chưa có', blank: '' };
+
+function renderClsUsage() {
+  const body = $('clsUsageTableBody');
+  const foot = $('clsUsageTableFoot');
+  if (!body) return;
+  if (!clsUsage.stats.length) {
+    body.innerHTML = '<tr><td colspan="7" class="empty-state">Chưa có thống kê.</td></tr>';
+    if (foot) foot.innerHTML = '';
+    return;
+  }
+  // Danh mục có thể vừa được sửa ở bảng bên trên: cập nhật lại trạng thái.
+  clsUsage.stats.forEach(item => { if (item.key !== '__blank__') item.catalog = clsCatalogStatus(item.name); });
+  const query = normalizeClsText($('clsUsageSearchInput')?.value || '');
+  const filter = $('clsUsageCatalogFilter')?.value || 'all';
+  const rows = clsUsage.stats
+    .filter(item => filter === 'all' || item.catalog === filter)
+    .filter(item => !query || normalizeClsText(item.name).includes(query));
+  if (!rows.length) {
+    body.innerHTML = '<tr><td colspan="7" class="empty-state">Không có tên CLS phù hợp bộ lọc.</td></tr>';
+  } else {
+    body.innerHTML = rows.map(item => {
+      const prices = item.unitPrices.slice(0, 4).map(([price, count]) => `${formatVnNumber(price)}${item.unitPrices.length > 1 ? ` (${count})` : ''}`).join(' · ')
+        + (item.unitPrices.length > 4 ? ` · +${item.unitPrices.length - 4}` : '');
+      const nameCell = item.key === '__blank__'
+        ? '<em>(dòng chưa có Tên CLS)</em>'
+        : `${escapeHtml(item.name)}${item.variants > 1 ? ` <span class="price-list" title="Cùng tên sau khi bỏ dấu/khoảng trắng">· ${item.variants} cách viết</span>` : ''}`;
+      const badge = item.catalog && item.catalog !== 'blank'
+        ? `<span class="active-badge ${item.catalog}">${CLS_CATALOG_LABEL[item.catalog]}</span>` : '';
+      const action = item.catalog === 'none'
+        ? `<button class="edit-staff-btn" type="button" data-cls-usage-add="${escapeHtml(item.key)}">Thêm vào danh mục</button>` : '';
+      return `<tr>
+        <td class="cls-name-cell">${nameCell}</td>
+        <td class="num">${formatVnNumber(item.rows)}</td>
+        <td class="num">${formatVnNumber(item.qty)}</td>
+        <td class="num">${formatVnNumber(item.money)}</td>
+        <td><span class="price-list ${item.unitPrices.length > 1 ? 'multi' : ''}" title="${item.unitPrices.length > 1 ? 'Cùng tên CLS nhưng có nhiều mức thành tiền cho 1 lần — nên kiểm tra lại.' : ''}">${prices}</span></td>
+        <td>${badge}</td>
+        <td>${action}</td>
+      </tr>`;
+    }).join('');
+  }
+  if (foot) {
+    const t = clsUsage.totals;
+    foot.innerHTML = `<tr><td>Tổng (${formatVnNumber(clsUsage.stats.length)} tên CLS)</td><td class="num">${formatVnNumber(t.rows)}</td><td class="num">${formatVnNumber(t.qty)}</td><td class="num">${formatVnNumber(t.money)}</td><td colspan="3"></td></tr>`;
+  }
+  body.querySelectorAll('[data-cls-usage-add]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = clsUsage.stats.find(row => row.key === btn.dataset.clsUsageAdd);
+      if (!item) return;
+      // Chỉ điền sẵn form; người dùng xem lại rồi bấm "Lưu tên CLS".
+      resetClsForm();
+      $('clsNameInput').value = item.name;
+      $('clsNameInput').focus();
+      $('clsNameInput').scrollIntoView({ block: 'center', behavior: 'smooth' });
+      showToast('Đã điền tên CLS vào form. Kiểm tra rồi bấm “Lưu tên CLS”.', 'success');
+    });
+  });
+}
+
+async function loadClsUsage() {
+  if (!state.currentFile) {
+    showToast('Chưa mở file làm việc. Chọn file ở tab Nhập dữ liệu trước.', 'warning');
+    return;
+  }
+  const sheet = $('clsUsageSheet')?.value || defaultClsUsageSheet();
+  if (!sheet) return;
+  setBusy(true, `Đang thống kê tên CLS trên sheet ${sheet}...`);
+  try {
+    const data = await api(`/api/sheet-data?file=${encodeURIComponent(state.currentFile)}&sheet=${encodeURIComponent(sheet)}&query=&missingOnly=0&limit=0`);
+    // Sheet đang mở ở tab Nhập dữ liệu có thể còn thay đổi chưa lưu: tính cả phần đó.
+    const pending = (data.sheet || sheet) === state.currentSheet ? state.rowChanges : {};
+    const result = buildClsUsageStats(data.headers || [], data.rows || [], pending);
+    if (result.error) {
+      clsUsage.stats = [];
+      renderClsUsage();
+      $('clsUsageSummary').textContent = result.error;
+      $('clsUsageCsvBtn').disabled = true;
+      return;
+    }
+    clsUsage.sheet = data.sheet || sheet;
+    clsUsage.stats = result.stats;
+    clsUsage.totals = result.totals;
+    clsUsage.loadedAt = new Date().toLocaleTimeString('vi-VN');
+    const missingCols = [!result.hasQty && 'Số Lượng', !result.hasMoney && 'Thành tiền'].filter(Boolean);
+    const multiPrice = result.stats.filter(item => item.unitPrices.length > 1).length;
+    const notInCatalog = result.stats.filter(item => item.catalog === 'none').length;
+    $('clsUsageSummary').textContent = [
+      `Sheet ${clsUsage.sheet}: ${formatVnNumber(result.totals.rows)} dòng, ${formatVnNumber(result.stats.length)} tên CLS`,
+      `${notInCatalog} tên chưa có trong danh mục chuyển`,
+      multiPrice ? `${multiPrice} tên có nhiều mức thành tiền / 1 lần` : '',
+      missingCols.length ? `không có cột ${missingCols.join(', ')}` : '',
+      `cập nhật ${clsUsage.loadedAt}`,
+    ].filter(Boolean).join(' · ');
+    $('clsUsageCsvBtn').disabled = false;
+    renderClsUsage();
+  } catch (err) {
+    showToast(err.message, 'error', 5000);
+  } finally {
+    setBusy(false);
+    // setBusy(false) bật lại mọi nút; nút CSV chỉ bật khi đã có thống kê.
+    if ($('clsUsageCsvBtn')) $('clsUsageCsvBtn').disabled = !clsUsage.stats.length;
+  }
+}
+
+function downloadClsUsageCsv() {
+  if (!clsUsage.stats.length) return;
+  const esc = (v) => {
+    const text = String(v ?? '');
+    return /[",\n;]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+  };
+  const lines = [['Tên CLS', 'Số dòng', 'Tổng số lượng', 'Tổng thành tiền', 'Thành tiền / 1 lần', 'Danh mục chuyển'].join(',')];
+  clsUsage.stats.forEach(item => {
+    lines.push([
+      item.key === '__blank__' ? '(dòng chưa có Tên CLS)' : item.name,
+      item.rows, item.qty, item.money,
+      item.unitPrices.map(([price, count]) => `${price} (${count})`).join(' | '),
+      CLS_CATALOG_LABEL[item.catalog] || '',
+    ].map(esc).join(','));
+  });
+  const blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `thong_ke_ten_cls_${String(clsUsage.sheet || 'sheet').replace(/[^\w-]+/g, '_')}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+}
+
 async function finalizeAndDownload(event) {
   event?.preventDefault();
   if (!state.currentFile) {
@@ -2971,6 +3205,10 @@ function bindEvents() {
   $('deleteClsBtn')?.addEventListener('click', deleteCurrentCls);
   $('clsSearchInput')?.addEventListener('input', renderClsManager);
   $('clsStatusFilter')?.addEventListener('change', renderClsManager);
+  $('clsUsageRefreshBtn')?.addEventListener('click', loadClsUsage);
+  $('clsUsageCsvBtn')?.addEventListener('click', downloadClsUsageCsv);
+  $('clsUsageSearchInput')?.addEventListener('input', renderClsUsage);
+  $('clsUsageCatalogFilter')?.addEventListener('change', renderClsUsage);
   $('downloadCurrent')?.addEventListener('click', finalizeAndDownload);
 
   $('refreshFilesBtn').addEventListener('click', () => {

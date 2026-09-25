@@ -358,6 +358,42 @@
           </div>
         </section>
       </section>
+
+      <section class="staff-list-card cls-usage-card">
+        <div class="cls-usage-head">
+          <div>
+            <h3>Thống kê tên CLS trong file đang mở</h3>
+            <p id="clsUsageSummary" class="editor-note">Chọn sheet rồi bấm “Thống kê”.</p>
+          </div>
+          <div class="cls-usage-actions">
+            <select id="clsUsageSheet" title="Sheet để thống kê"></select>
+            <button id="clsUsageRefreshBtn" class="btn primary" type="button">Thống kê</button>
+            <button id="clsUsageCsvBtn" class="btn subtle" type="button" disabled>Tải CSV</button>
+          </div>
+        </div>
+        <div class="staff-list-toolbar">
+          <div class="search-control staff-search">
+            <span class="search-icon">⌕</span>
+            <input id="clsUsageSearchInput" placeholder="Lọc tên CLS..." />
+          </div>
+          <select id="clsUsageCatalogFilter">
+            <option value="all">Tất cả</option>
+            <option value="active">Đang chuyển tiểu phẫu</option>
+            <option value="inactive">Tạm ngưng</option>
+            <option value="none">Chưa có trong danh mục</option>
+          </select>
+        </div>
+        <div class="staff-table-wrap">
+          <table class="staff-table cls-usage-table">
+            <thead><tr>
+              <th>Tên CLS</th><th class="num">Số dòng</th><th class="num">Tổng số lượng</th>
+              <th class="num">Tổng thành tiền</th><th>Thành tiền / 1 lần</th><th>Danh mục chuyển</th><th></th>
+            </tr></thead>
+            <tbody id="clsUsageTableBody"><tr><td colspan="7" class="empty-state">Chưa có thống kê.</td></tr></tbody>
+            <tfoot id="clsUsageTableFoot"></tfoot>
+          </table>
+        </div>
+      </section>
     </section>
 
     <section id="soPhauThuatView" class="app-view hidden">
