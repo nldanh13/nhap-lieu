@@ -763,3 +763,16 @@ body > .modal-backdrop {
 .cls-table th:nth-child(2), .cls-table td:nth-child(2) { width: 150px; }
 .cls-table th:nth-child(3), .cls-table td:nth-child(3) { width: 72px; text-align: right; }
 .cls-name-cell { font-weight: 720; line-height: 1.4; }
+
+/* Thống kê tên CLS (tab Quản lý tên CLS) */
+.cls-usage-card { margin-top: 14px; }
+.cls-usage-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 12px 12px 8px; flex-wrap: wrap; }
+.cls-usage-head h3 { margin: 0 0 3px; font-size: 15px; }
+.cls-usage-head p { margin: 0; }
+.cls-usage-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.cls-usage-actions select { width: 190px; }
+.cls-usage-table th.num, .cls-usage-table td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cls-usage-table tfoot td { font-weight: 700; border-top: 2px solid var(--line); background: #f7faff; padding: 9px 10px; }
+.cls-usage-table .price-list { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.cls-usage-table .price-list.multi { color: #b45309; }
+.active-badge.none { background: #fff7ed; color: #b45309; }
